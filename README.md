@@ -39,3 +39,4 @@ coding!
 
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Jim Schibler:  [GitHub](https://github.com/jaschibler) / [LinkedIn](https://linkedin.com/in/jimschibler)
