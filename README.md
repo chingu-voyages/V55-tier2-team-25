@@ -35,6 +35,7 @@ your repo access and to practice PR'ing with your team *before* you start
 coding!
 
 - Marissa Lamothe: [GitHub](https://github.com/msrissaxox) / [LinkedIn](https://linkedin.com/in/marissalamothe/)
+- Alison Holland: [GitHub](https://github.com/alison-ah) / [LinkedIn](https://linkedin.com/in/andersonholland/)
 - Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
 
    ...
