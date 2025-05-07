@@ -37,6 +37,7 @@ coding!
 - Marissa Lamothe: [GitHub](https://github.com/msrissaxox) / [LinkedIn](https://linkedin.com/in/marissalamothe/)
 - Alison Holland: [GitHub](https://github.com/alison-ah) / [LinkedIn](https://linkedin.com/in/andersonholland/)
 - Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Valerie: [GitHub](https://github.com/val-ue) / [LinkedIn](https://www.linkedin.com/in/valerielabideveloper/)
 
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
