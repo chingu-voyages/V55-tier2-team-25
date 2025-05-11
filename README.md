@@ -36,7 +36,7 @@ coding!
 
 - Marissa Lamothe: [GitHub](https://github.com/msrissaxox) / [LinkedIn](https://linkedin.com/in/marissalamothe/)
 - Alison Holland: [GitHub](https://github.com/alison-ah) / [LinkedIn](https://linkedin.com/in/andersonholland/)
-- Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- MJ: [GitHub](https://github.com/lmj5081) / [LinkedIn](https://www.linkedin.com/in/mjleedesigners)
 - Valerie: [GitHub](https://github.com/val-ue) / [LinkedIn](https://www.linkedin.com/in/valerielabideveloper/)
 - Molly: [GitHub](https://github.com/learningcoding2022) / [LinkedIn](https://www.linkedin.com/in/molly-b-97877492/)
 
