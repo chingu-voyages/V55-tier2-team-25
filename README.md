@@ -1,43 +1,57 @@
-# voyage-tasks
+# App Name
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+A web application that helps users help software development professionals find the information they need to reach their learning goals.
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+## Overview
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+This app was created through a [Chingu](https://www.chingu.io/) tier 2 voyage. As a team, we built a web application, App Name, which lets its users find the information they need to reach their learning goals as software developers.
 
-> Own it & Make it your Own!
+Insert screenshots
 
-## Team Documents
+## Features
+- Insert
 
-You may find these helpful as you work together to organize your project.
+## Technologies
+Frontend: 
+- React + Next.js – For building a fast, interactive, and modern user interface
+- Taiwind CSS - To build a clean, responsive UI quickly and consistently
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+API: 
+- Railway
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+Deployment: 
+- Insert - TBD
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+UI Design: 
+- Figma – For designing and prototyping a cohesive user experience
+
+## Running the Project
+### Live Version:
+Insert deployment link
+
+### From the Repo:
+1. Clone this project locally
+2. Run npm install in your bash / command line
+3. Run npm run dev in your bash / command line
+
+## Dependencies
+Insert
+
+## Dev Dependencies
+Insert
+
+## Acknowledgements
+We would like to extend our heartfelt thanks to Chingu for making this project possible. Their support, community, and structured project-based learning environment provided the perfect foundation for us to collaborate, grow, and build something we're truly proud of.
+
+If you’re not yet a part of [Chingu](https://chingu.io/), we highly recommend checking it out. Chingu is a global learning community that helps aspiring developers, scrum masters, and product ownsers turn course and tutorial knowledge into real-world project experience. Through team voyages like this one, members gain the practical, hands-on skills that make them stand out in today’s job market.
 
 ## Our Team
 
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team *before* you start
-coding!
-
-- Marissa Lamothe: [GitHub](https://github.com/msrissaxox) / [LinkedIn](https://linkedin.com/in/marissalamothe/)
-- Alison Holland: [GitHub](https://github.com/alison-ah) / [LinkedIn](https://linkedin.com/in/andersonholland/)
-- Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-
-   ...
-- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-- Jim Schibler:  [GitHub](https://github.com/jaschibler) / [LinkedIn](https://linkedin.com/in/jimschibler)
+- MJ, Designer: [GitHub](https://github.com/lmj5081) / [LinkedIn](https://www.linkedin.com/in/mjleedesigners)
+- Marissa Lamothe, Developer: [GitHub](https://github.com/msrissaxox) / [LinkedIn](https://linkedin.com/in/marissalamothe/)
+- Alison Holland, Developer: [GitHub](https://github.com/alison-ah) / [LinkedIn](https://linkedin.com/in/andersonholland/)
+- Valerie, Developer: [GitHub](https://github.com/val-ue) / [LinkedIn](https://www.linkedin.com/in/valerielabideveloper/)
+- Molly, Developer: [GitHub](https://github.com/learningcoding2022) / [LinkedIn](https://www.linkedin.com/in/molly-b-97877492/)
+- Jim Schibler, Product Owner:  [GitHub](https://github.com/jaschibler) / [LinkedIn](https://linkedin.com/in/jimschibler)
+- Nika, Scrum Master (Primary)
+- James, Scrum Master (Shadow)
