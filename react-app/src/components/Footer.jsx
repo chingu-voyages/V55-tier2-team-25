@@ -5,7 +5,7 @@ import React from "react";
 export default function Footer() {
   return (
     <div>
-      <header className="text-black p-4 border-black border-2">
+      <header className="p-p border-2">
         <h2 className="text-2xl font-bold">My Footer</h2>
         {/* We can code our information here */}
       </header>
