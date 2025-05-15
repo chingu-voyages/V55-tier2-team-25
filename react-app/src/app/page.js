@@ -5,6 +5,8 @@ import SearchBar from "../components/SearchBar";
 import Search from "../components/SearchButton";
 import ClearButton from "../components/ClearButton";
 import Footer from "../components/Footer";
+import RecommendSection from "../components/RecommendSection";
+import LatestSection from "../components/LatestSection";
 
 export default function Home() {
   return (
@@ -13,6 +15,9 @@ export default function Home() {
       <SearchBar />
       <ClearButton />
       <Search />
+      <RecommendSection />
+      <LatestSection />
+      {/* Add more sections as needed */}
       <Footer />
     </div>
   );
