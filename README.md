@@ -1,46 +1,36 @@
-# voyage-tasks
+# App Name
 
-Your project's `readme` is as important to success as your code. For
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point -
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+This app was created through a [Chingu](https://www.chingu.io/) tier 2 voyage. As a team, we built a web application, App Name, which lets its users find the information they need to reach their learning goals as software developers.
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+Insert screenshots
 
-> Own it & Make it your Own!
+## Features
+- Insert
 
-## Team Documents
+## Technologies
+Frontend: 
+- React + Next.js – For building a fast, interactive, and modern user interface
+- Taiwind CSS - To build a clean, responsive UI quickly and consistently
 
-You may find these helpful as you work together to organize your project.
+API: 
+- Railway
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+Deployment: 
+- Insert - TBD
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+UI Design: 
+- Figma – For designing and prototyping a cohesive user experience
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+## Running the Project
+### Live Version:
+Insert deployment link
 
-## Our Team
+### From the Repo:
+1. Clone this project locally
+2. Run npm install in your bash / command line
+3. Run npm run dev in your bash / command line
 
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team _before_ you start
-coding!
+## Dependencies
+Insert
 
-- Marissa Lamothe: [GitHub](https://github.com/msrissaxox) / [LinkedIn](https://linkedin.com/in/marissalamothe/)
-- Alison Holland: [GitHub](https://github.com/alison-ah) / [LinkedIn](https://linkedin.com/in/andersonholland/)
-- MJ: [GitHub](https://github.com/lmj5081) / [LinkedIn](https://www.linkedin.com/in/mjleedesigners)
-- Valerie: [GitHub](https://github.com/val-ue) / [LinkedIn](https://www.linkedin.com/in/valerielabideveloper/)
-- Molly: [GitHub](https://github.com/learningcoding2022) / [LinkedIn](https://www.linkedin.com/in/molly-b-97877492/)
-
-  ...
-
-- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-- Jim Schibler: [GitHub](https://github.com/jaschibler) / [LinkedIn](https://linkedin.com/in/jimschibler)

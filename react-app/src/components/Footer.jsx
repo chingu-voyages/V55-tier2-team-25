@@ -2,11 +2,11 @@
 
 import React from "react";
 
-export default function Header() {
+export default function Footer() {
   return (
     <div>
       <header className="text-black p-4 border-black border-2">
-        <h1 className="text-2xl font-bold">My Footer</h1>
+        <h2 className="text-2xl font-bold">My Footer</h2>
         {/* We can code our information here */}
       </header>
     </div>
