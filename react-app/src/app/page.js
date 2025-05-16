@@ -8,10 +8,11 @@ import Footer from "../components/Footer";
 import RecommendSection from "../components/RecommendSection";
 import LatestSection from "../components/LatestSection";
 
+
 export default function Home() {
   return (
     <div>
-      <Header />
+      <Header className="md:flex" />
       <SearchBar />
       <ClearButton />
       <Search />
