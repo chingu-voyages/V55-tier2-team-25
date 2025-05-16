@@ -5,7 +5,9 @@ import { FiSearch } from "react-icons/fi";
 export default function SearchBar() {
   return (
     <div className="flex flex-row w-full items-center justify-center">
-      <FiFilter className="p-5 m-3 w-[10%] bg-[#E2E2E2] rounded"/>
+      <div className="filter-icon-container flex items-center justify-center p-9 m-0 w-[10%] bg-[#E2E2E2] rounded">
+       <FiFilter className="p-0 m-0 text-2xl bg-[#E2E2E2] rounded"/>
+      </div>
 
       <label htmlFor="search-bar" className="sr-only">
         Search Bar
