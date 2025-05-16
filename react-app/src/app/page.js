@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import RecommendSection from "../components/RecommendSection";
 import LatestSection from "../components/LatestSection";
 
+
 export default function Home() {
   return (
     <div>
