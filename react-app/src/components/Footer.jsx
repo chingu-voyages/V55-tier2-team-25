@@ -10,28 +10,33 @@ export default function Footer() {
         <h2 className="text-2xl font-bold text-center pt-4">Team Members</h2>
         <ul className="p-4">
           <li>
-            Marissa Lamothe: [GitHub](https://github.com/msrissaxox) /
-            [LinkedIn](https://linkedin.com/in/marissalamothe/)
+            Marissa Lamothe: 
+            <a href="https://github.com/msrissaxox" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/marissalamothe/" target='_blank'>LinkedIn</a>
           </li>
+
           <li>
-            Alison Holland: [GitHub](https://github.com/alison-ah) /
-            [LinkedIn](https://linkedin.com/in/andersonholland/)
+            Alison Holland: 
+            <a href="https://github.com/alison-ah" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/andersonholland/" target='_blank'>LinkedIn</a>
           </li>
+         
           <li>
-            Valerie: [GitHub](https://github.com/val-ue) /
-            [LinkedIn](https://www.linkedin.com/in/valerielabideveloper/)
+            Valerie: 
+            <a href='https://github.com/val-ue' target='_blank'>GitHub</a> / <a href='https://www.linkedin.com/in/valerielabideveloper/' target='_blank'>LinkedIn</a>
           </li>
+            
           <li>
-            Molly: [GitHub](https://github.com/learningcoding2022) /
-            [LinkedIn](https://www.linkedin.com/in/molly-b-97877492/)
+            Molly: 
+            <a href='https://github.com/learningcoding2022' target='_blank'>GitHub</a> / <a href='https://www.linkedin.com/in/molly-b-97877492/' target='_blank'>LinkedIn</a>
           </li>
+
           <li>
-            MJ: [GitHub](https://github.com/lmj5081) /
-            [LinkedIn](https://www.linkedin.com/in/mjleedesigners)
+            MJ: 
+            <a href='https://github.com/lmj5081' target='_blank'>GitHub</a> / <a href='https://www.linkedin.com/in/mjleedesigners/' target='_blank'>LinkedIn</a>
           </li>
+
           <li>
-            Jim Schibler: [GitHub](https://github.com/jaschibler) /
-            [LinkedIn](https://linkedin.com/in/jimschibler)
+            Jim Schibler: 
+            <a href="https://github.com/jaschibler" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/jimschibler/" target='_blank'>LinkedIn</a>
           </li>
         </ul>
       </header>
