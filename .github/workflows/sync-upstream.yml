@@ -22,13 +22,13 @@ jobs:
 
       - name: Add upstream remote
         run: |
-          git remote add upstream https://github.com/chingu-voyages/V55-tier2-team-25.git
+          git remote | grep upstream || git remote add upstream https://github.com/chingu-voyages/V55-tier2-team-25.git
           git fetch upstream
 
       - name: Merge upstream/main into your main
         run: |
-          git merge upstream/main --no-edit
+          git merge upstream/main --no-edit --allow-unrelated-histories
 
       - name: Push changes to your fork
         run: |
-          git push origin main
+          git diff --quiet && echo "No changes to push" || git push origin main
