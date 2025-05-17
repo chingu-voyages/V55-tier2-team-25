@@ -18,7 +18,7 @@ export default function LatestSection() {
         const sorted = resources.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
-        const mostRecent = sorted[1];
+        const mostRecent = sorted[0];
         setLatest(mostRecent);
         setTags(tagList);
         setLoading(false);
