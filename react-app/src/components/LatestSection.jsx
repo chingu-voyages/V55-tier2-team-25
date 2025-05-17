@@ -18,10 +18,7 @@ export default function LatestSection() {
         const sorted = resources.sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
-        const mostRecent = sorted[0];
-        console.log("Most recent resource:", mostRecent);
-        console.log("appliedTags:", mostRecent.appliedTags);
-        console.log("All tags:", tagList);
+        const mostRecent = sorted[1];
         setLatest(mostRecent);
         setTags(tagList);
         setLoading(false);
@@ -72,7 +69,12 @@ export default function LatestSection() {
         </div>
         <p className="text-sm">Recommended by: {latest.author}</p>
         <p className="text-xs">
-          Published: {new Date(latest.createdAt).toLocaleString()}
+          Shared on:{" "}
+          {new Date(latest.createdAt).toLocaleString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}
         </p>
         <a
           href={latest.url}
