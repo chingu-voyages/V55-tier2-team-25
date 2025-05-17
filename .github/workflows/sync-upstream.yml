@@ -27,7 +27,7 @@ jobs:
 
       - name: Merge upstream/main into your main
         run: |
-          git merge upstream/main --no-edit --allow-unrelated-histories
+          git merge upstream/main --no-edit --allow-unrelated-histories -X theirs
 
       - name: Push changes to your fork
         run: |
