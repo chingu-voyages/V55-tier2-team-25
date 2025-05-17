@@ -1,0 +1,34 @@
+name: Sync Fork with Upstream
+
+on:
+  schedule:
+    - cron: '0 * * * *' # every hour
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout your fork
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/chingu-voyages/V55-tier2-team-25.git
+          git fetch upstream
+
+      - name: Merge upstream/main into your main
+        run: |
+          git merge upstream/main --no-edit
+
+      - name: Push changes to your fork
+        run: |
+          git push origin main
