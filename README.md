@@ -45,5 +45,5 @@ If you’re not yet a part of [Chingu](https://chingu.io/), we highly recommend 
 - Alison Holland, Developer: [GitHub](https://github.com/alison-ah) / [LinkedIn](https://linkedin.com/in/andersonholland/)
 - Valerie, Developer: [GitHub](https://github.com/val-ue) / [LinkedIn](https://www.linkedin.com/in/valerielabideveloper/)
 - Molly, Developer: [GitHub](https://github.com/learningcoding2022) / [LinkedIn](https://www.linkedin.com/in/molly-b-97877492/)
-- Jim Schibler, Product Owner:  [GitHub](https://github.com/jaschibler) / [LinkedIn](https://linkedin.com/in/jimschibler)
-- James, Scrum Master
+- Jim Schibler, Product Owner: [GitHub](https://github.com/jaschibler) / [LinkedIn](https://linkedin.com/in/jimschibler)
+- James, Scrum Master: [GitHub](https://github.com/Nwumfor) / [LinkedIn](https://linkedin.com/in/james-nwumfor-56008144)
