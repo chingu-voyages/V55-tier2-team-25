@@ -38,6 +38,11 @@ export default function Footer() {
             Jim Schibler: 
             <a href="https://github.com/jaschibler" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/jimschibler/" target='_blank'>LinkedIn</a>
           </li>
+
+          <li>
+            James: 
+            <a href="https://github.com/Nwumfor" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/james-nwumfor-56008144/" target='_blank'>LinkedIn</a>
+          </li>
         </ul>
       </header>
     </div>
