@@ -32,7 +32,7 @@ export default function LatestSection() {
 
   return (
     <div>
-      <header className="text-black p-4 border-black border-2">
+      <header className=" p-4 border-2">
         <h2 className="text-2xl font-bold">🕒 Latest</h2>
       </header>
       <article className='p-4'>
