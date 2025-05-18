@@ -73,9 +73,11 @@ export default function LatestSection() {
           .filter(Boolean); // Filter out any undefined or null tag names
 
         return (
-          <div className="flex flex-wrap gap-5 justify-start">
+          <div 
+           key={`${resource.id} - ${resource.name}`}
+          className="flex flex-wrap gap-5 justify-start">
             <article
-              key={resource.id}
+             
               className="flex-1 max-w-sm rounded overflow-hidden shadow-sm shadow-gray-300 p-5"
             >
               <h3 className="text-xl font-semibold">{resource.name}</h3>
@@ -83,7 +85,7 @@ export default function LatestSection() {
                 {tagNames.length > 0 ? (
                   tagNames.map((tag) => (
                     <span
-                      key={resource.id}
+                      key={`${resource.id}- ${tag}`}
                       className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
                     >
                       #{tag}
