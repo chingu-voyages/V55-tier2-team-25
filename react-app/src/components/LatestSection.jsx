@@ -1,49 +1,24 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchData, selectMostRecent, selectLoading, selectError, selectTags } from "../redux/dataSlice";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
 export default function LatestSection() {
-  const [latest, setLatest] = useState([]);
-  const [tags, setTags] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+  const latest = useSelector(selectMostRecent);
+  const loading = useSelector(selectLoading);
+  const error = useSelector(selectError);
+   const tags = useSelector(selectTags);
 
+   // Fetch data when the component mounts
+  // and when the dispatch function changes
+  // This is a common pattern in React to ensure that the data is fetched
   useEffect(() => {
-    //Fetches two API endpoints: resources and tags
-    Promise.all([
-      fetch("https://seshatbe.up.railway.app/resources").then((res) =>
-        res.json()
-      ),
-      fetch("https://seshatbe.up.railway.app/tags").then((res) => res.json()),
-    ])
-
-      // Fetches the resources and tags from the API and removes duplicates
-      .then(([resources, tagList]) => {
-        //added console log to check the resources and tags
-        console.log("Resources:", resources);
-        console.log("Tags:", tagList);
-
-        const uniqueResources = [
-          ...new Map(resources.map((item) => [item.id, item])).values(),
-        ];
-        const sorted = [...uniqueResources].sort(
-          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-        );
-
-        const mostRecent = sorted.slice(0, 5);
-        //Added console log to check the most recent resources
-        console.log("Most Recent Resources:", mostRecent);
-
-        setLatest(mostRecent);
-        setTags(tagList);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      });
-  }, []);
-
+    dispatch(fetchData());
+  }, [dispatch]);
+ 
   if (loading)
     return (
       <div className="p-4">
@@ -53,6 +28,10 @@ export default function LatestSection() {
         <p className="p-4">Loading...</p>
       </div>
     );
+
+  if (error) {
+    return <p>Error loading resources: {error}</p>
+  }
 
   return (
     <section className="p-4">
