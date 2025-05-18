@@ -2,7 +2,7 @@ import React from "react";
 import { FiFilter } from "react-icons/fi";
 import { FiSearch } from "react-icons/fi";
 
-export default function SearchBar() {
+export default function SearchBar({ searchTerm, onSearchTermChange }) {
   return (
     <div className="flex flex-row w-full items-center justify-center">
       <div className="filter-icon-container flex items-center justify-center p-9 m-0 w-[10%] bg-[#E2E2E2] rounded">
@@ -18,9 +18,11 @@ export default function SearchBar() {
         <input
           type="text"
           id="search-bar"
+          value="searctTerm"
           name="search-bar"
           placeholder="
           Pick a topic..."
+          onChange={(e) => onSearchTermChange(e.target.value)}
           className="border rounded p-2 w-[75%]"
         />
 

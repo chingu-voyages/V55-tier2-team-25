@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import WebsitePreview from "./WebsitePreview";
 
 export default function LatestSection() {
   const [latest, setLatest] = useState([]);
@@ -80,6 +81,8 @@ export default function LatestSection() {
              
               className="flex-1 max-w-sm rounded overflow-hidden shadow-sm shadow-gray-300 p-5"
             >
+  {/* <WebsitePreview url={resource.url} /> */}
+
               <h3 className="text-xl font-semibold">{resource.name}</h3>
               <div className="pt-4 pb-2">
                 {tagNames.length > 0 ? (
