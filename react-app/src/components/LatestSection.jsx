@@ -9,18 +9,31 @@ export default function LatestSection() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    //Fetches two API endpoints: resources and tags
     Promise.all([
       fetch("https://seshatbe.up.railway.app/resources").then((res) =>
         res.json()
       ),
       fetch("https://seshatbe.up.railway.app/tags").then((res) => res.json()),
     ])
+
+      // Fetches the resources and tags from the API and removes duplicates
       .then(([resources, tagList]) => {
-        const uniqueResources = [...new Map(resources.map((item) => [item.id, item])).values()];
+        //added console log to check the resources and tags
+        console.log("Resources:", resources);
+        console.log("Tags:", tagList);
+
+        const uniqueResources = [
+          ...new Map(resources.map((item) => [item.id, item])).values(),
+        ];
         const sorted = [...uniqueResources].sort(
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
-        const mostRecent = sorted.slice(0,5);
+
+        const mostRecent = sorted.slice(0, 5);
+        //Added console log to check the most recent resources
+        console.log("Most Recent Resources:", mostRecent);
+
         setLatest(mostRecent);
         setTags(tagList);
         setLoading(false);
@@ -63,7 +76,6 @@ export default function LatestSection() {
           <div className="flex flex-wrap gap-5 justify-start">
             <article
               key={resource.id}
-
               className="flex-1 max-w-sm rounded overflow-hidden shadow-sm shadow-gray-300 p-5"
             >
               <h3 className="text-xl font-semibold">{resource.name}</h3>
@@ -97,7 +109,7 @@ export default function LatestSection() {
                 title={`View latest resource — titled "${resource.name}" — in a new tab.`}
                 rel="noopener noreferrer"
               >
-                View Resource <FaExternalLinkAlt className="ml-1"/>
+                View Resource <FaExternalLinkAlt className="ml-1" />
               </a>
             </article>
           </div>
