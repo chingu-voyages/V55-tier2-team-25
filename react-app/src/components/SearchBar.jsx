@@ -18,10 +18,10 @@ export default function SearchBar({ searchTerm, onSearchTermChange }) {
         <input
           type="text"
           id="search-bar"
-          value="searctTerm"
+          value={searchTerm}
           name="search-bar"
           placeholder="
-          Pick a topic..."
+          Enter a topic"
           onChange={(e) => onSearchTermChange(e.target.value)}
           className="border rounded p-2 w-[75%]"
         />

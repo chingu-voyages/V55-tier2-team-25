@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import WebsitePreview from "./WebsitePreview";
 
 export default function LatestSection() {
   const [latest, setLatest] = useState([]);
