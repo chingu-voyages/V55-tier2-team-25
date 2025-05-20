@@ -12,6 +12,10 @@ return (
       <ul>
         {results.map((result, index) => (
           <li key={index}>{result}</li>
+
+          //   <li key={item.id} className="border p-2 rounded shadow">
+          //   {item.name}
+          // </li>
         ))}
       </ul>
     </div>
