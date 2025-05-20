@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout your fork
+      - name: Checkout workflow branch
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: workflow-custom  # this is the branch where the workflow lives
 
       - name: Set up Git
         run: |
@@ -27,8 +27,9 @@ jobs:
 
       - name: Merge upstream/main into your main
         run: |
+          git checkout main
           git merge upstream/main --no-edit --allow-unrelated-histories -X theirs
 
       - name: Push changes to your fork
         run: |
-          git diff --quiet && echo "No changes to push" || git push origin main
+          git push origin main
