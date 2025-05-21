@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { FaExternalLinkAlt } from "react-icons/fa";
 
 export default function ResourceItem({ resource, tags }) {
   if (!resource) return null;
