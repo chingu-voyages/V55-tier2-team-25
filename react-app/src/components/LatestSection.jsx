@@ -69,16 +69,20 @@ export default function LatestSection() {
               pagination: false,
             },            
           }}
-          className="md:grid md:grid-cols-5 md:gap-5 h-full"
-        >
+          // className="md:grid md:grid-cols-5 md:gap-5 h-full"
+          className="h-full"
+>
           {latest.map((resource) => (
           <SwiperSlide>
+            {/* <div className="flex flex-col h-full"> */}
+            <div className="h-full">
             <ResourceItem
               key={`${resource.id}-${resource.name}`}
               resource={resource}
               tags={tags}
               className="h-full"
             />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
