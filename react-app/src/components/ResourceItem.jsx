@@ -18,43 +18,49 @@ export default function ResourceItem({ resource, tags }) {
   return (
     <article
       key={`${resource.id} - ${resource.name}`}
-      className="flex flex-col h-full max-w-sm rounded overflow-hidden shadow-sm shadow-gray-300 p-5"
+      className="w-full flex flex-col h-full max-w-sm overflow-hidden shadow-sm shadow-gray-300 p-6 pt-4 rounded-4xl m-2"
     >
-      <h3 className="text-xl font-semibold">{resource.name}</h3>
-      <div className="pt-4 pb-2">
-        {tagNames.length > 0 ? (
-          tagNames.map((tag) => (
-            <span
-              key={`${resource.id}- ${tag}`}
-              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-            >
-              #{tag}
-            </span>
-          ))
-        ) : (
-          <span className="text-sm text-gray-400">No tags</span>
-        )}
-      </div>
-      <section className="mt-auto">
-        <p className="text-sm">Recommended by: {resource.author}</p>
-        <p className="text-xs">
-          Shared on:{" "}
-          {new Date(resource.createdAt).toLocaleString("en-US", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          })}
-        </p>
-        <a
-          href={resource.url}
-          className="underline mt-2 inline-block"
-          target="_blank"
-          title={`View latest resource — titled "${resource.name}" — in a new tab.`}
-          rel="noopener noreferrer"
-        >
-          View Resource <FaExternalLinkAlt className="ml-1" />
-        </a>
-      </section>
+      <a
+        href={resource.url}
+        className="mt-2 inline-block"
+        target="_blank"
+        title={`View latest resource — titled "${resource.name}" — in a new tab.`}
+        rel="noopener noreferrer"
+      >
+        <section className="h-full">
+          <h3 className="text-xl font-semibold">
+            {resource.name}
+          </h3>
+
+          <div className="pt-4 pb-2">
+            {tagNames.length > 0 ? (
+              tagNames.map((tag) => (
+                <span
+                  key={`${resource.id}- ${tag}`}
+                  className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 p-6"
+                >
+                  {tag}
+                </span>
+              ))
+            ) : (
+              <span className="text-sm text-gray-400 p-6">No tags</span>
+            )}
+          </div>
+        </section>
+        <section className="border-t h-15">
+          <p className="text-sm p-5 pl-0 pb-1 pt-4 font-semibold">
+            {resource.author}
+          </p>
+          <p className="text-xs">
+            {" "}
+            {new Date(resource.createdAt).toLocaleString("en-US", {
+              year: "numeric",
+              month: "numeric",
+              day: "numeric",
+            })}
+          </p>
+        </section>
+      </a>
     </article>
   );
 }
