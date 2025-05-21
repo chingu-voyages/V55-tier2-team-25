@@ -54,7 +54,7 @@ export default function ResourceItem({ resource, tags }) {
           <p className="text-xs">
             {(() => {
               const date = new Date(resource.createdAt);
-              return `${date.getFullYear()}. ${date.getMonth()}. ${date.getDate()}.`}) ()}
+              return `${date.getFullYear()}. ${date.getMonth()}. ${date.getDate()}`}) ()}
           </p>
         </section>
       </a>
