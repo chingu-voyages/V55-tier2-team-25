@@ -18,16 +18,16 @@ export default function ResourceItem({ resource, tags }) {
   return (
     <article
       key={`${resource.id} - ${resource.name}`}
-      className="w-full flex flex-col h-full max-w-sm overflow-hidden shadow-sm shadow-gray-300 p-6 pt-4 rounded-4xl m-2"
+      className="w-full max-w-sm self-center h-60 overflow-hidden shadow-sm shadow-gray-300 p-6 pt-4 rounded-4xl m-2"
     >
       <a
         href={resource.url}
         className="mt-2 inline-block"
         target="_blank"
-        title={`View latest resource — titled "${resource.name}" — in a new tab.`}
+        title={`View "${resource.name}" in a new tab.`}
         rel="noopener noreferrer"
       >
-        <section className="h-full">
+        <section className="h-35 overflow-ellipsis">
           <h3 className="text-xl font-semibold">
             {resource.name}
           </h3>
@@ -47,17 +47,14 @@ export default function ResourceItem({ resource, tags }) {
             )}
           </div>
         </section>
-        <section className="border-t h-15">
+        <section className="h-15 w-full border-t">
           <p className="text-sm p-5 pl-0 pb-1 pt-4 font-semibold">
             {resource.author}
           </p>
           <p className="text-xs">
-            {" "}
-            {new Date(resource.createdAt).toLocaleString("en-US", {
-              year: "numeric",
-              month: "numeric",
-              day: "numeric",
-            })}
+            {(() => {
+              const date = new Date(resource.createdAt);
+              return `${date.getFullYear()}. ${date.getMonth()}. ${date.getDate()}.`}) ()}
           </p>
         </section>
       </a>
