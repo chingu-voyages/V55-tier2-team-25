@@ -1,27 +1,27 @@
-import React from "react";
+import React from 'react'
 
 export default function Header() {
   function getCurrentDate() {
-    const date = new Date();
+    const date = new Date()
     const months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ]
 
-    const month = date.getMonth(); // Months are zero-based
-    const day = date.getDate();
-    const year = date.getFullYear();
-    return `${months[month]} ${day}, ${year}`;
+    const month = date.getMonth() // Months are zero-based
+    const day = date.getDate()
+    const year = date.getFullYear()
+    return `${months[month]} ${day}, ${year}`
   }
 
   return (
@@ -31,7 +31,8 @@ export default function Header() {
         <h2 className="text-gray-500 text-shadow-md text-s font-normal md:text-lg">
           {getCurrentDate()}
         </h2>
+        <h3>Discover what your peers picked on PeerPicks</h3>
       </header>
     </div>
-  );
+  )
 }
