@@ -61,15 +61,14 @@ export default function LatestSection() {
           pagination={{ clickable: true }}
           breakpoints={{
             768: {
-              slidesPerView: 3,
+              slidesPerView: 2,
               pagination: false,
-            },
+            },  
             1024: {
-              slidesPerView: 5,
+              slidesPerView: 3,
               pagination: false,
             },            
           }}
-          className="md:grid md:grid-cols-5 md:gap-5 h-full"
         >
           {latest.map((resource) => (
           <SwiperSlide>
@@ -77,7 +76,7 @@ export default function LatestSection() {
               key={`${resource.id}-${resource.name}`}
               resource={resource}
               tags={tags}
-              className="h-full"
+              className="h-100 self-center"
             />
           </SwiperSlide>
         ))}
