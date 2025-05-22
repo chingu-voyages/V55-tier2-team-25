@@ -19,7 +19,7 @@ export default function App() {
       <ClearButton />
   
 
-      <RecommendSection />
+      {/*<RecommendSection />*/}
       <LatestSection />
       {/* Add more sections as needed */}
       <Footer />

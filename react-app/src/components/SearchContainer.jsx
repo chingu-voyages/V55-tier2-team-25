@@ -3,16 +3,17 @@ import React, { useState, useMemo, useEffect } from "react";
 //useDispatch is used to dispatch actions to the store
 //useSelector is used to select data from the store
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../redux/dataSlice";
+import { fetchData, selectError } from "../redux/dataSlice";
 import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
-import SearchResults from "./SearchResults";
+import ResourceList from "./ResourceList";
 
 function SearchContainer() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const error = useSelector(selectError);
 
   const resources = useSelector((state) => state.data.resources);
   const tags = useSelector((state) => state.data.tags);
@@ -53,21 +54,26 @@ function SearchContainer() {
     }
   };
 
-    return (
-      <div className="flex flex-col items-center justify-center p-4">
-        <h2 className="text-2xl font-bold mb-4">🔍 Search</h2>
-        <div className="flex flex-row w-full items-center justify-center">
-          <SearchBar query={searchTerm} setQuery={setSearchTerm} />
+  return (
+    <div className="flex flex-col items-center justify-center p-4">
+      <h2 className="text-2xl font-bold mb-4">🔍 Search</h2>
+      <div className="flex flex-row w-full items-center justify-center">
+        <SearchBar query={searchTerm} setQuery={setSearchTerm} />
 
-          <SearchButton onClick={handleSearch} />
-        </div>
-        {/* {loading && <p>Loading...</p>} */}
-        {/* {error && <p>Error: {error}</p>} */}
-        {/* {searchResults && searchResults.length > 0 && ( */}
-        <SearchResults results={searchResults} />
-        {/* )} */}
+        <SearchButton onClick={handleSearch} />
       </div>
-    );
-  };
+      {/* {loading && <p>Loading...</p>} */}
+      {/* {error && <p>Error: {error}</p>} */}
+      {/* {searchResults && searchResults.length > 0 && ( */}
+      <ResourceList
+        data={searchResults}
+        tags={tags}
+        loading={loading}
+        error={error}
+      />
+      {/* )} */}
+    </div>
+  );
+}
 
-  export default SearchContainer;
+export default SearchContainer;
