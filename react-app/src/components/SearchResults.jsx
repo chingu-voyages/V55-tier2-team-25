@@ -1,9 +1,9 @@
 import React from "react";
 
 export default function SearchResults({ results }) {
-    if(!results || results.length === 0) {
-        return <p>No results found.</p>;
-    }
+    // if(!results || results.length === 0) {
+    //     return <p>No results found.</p>;
+    // }
 
 
 return (
@@ -13,11 +13,9 @@ return (
         {results.map((resource) => (
           <li key={resource.id}>{resource.name}
           <p>{resource.author}</p>
-          </li>
+          <p>{resource.description}</p>
 
-          //   <li key={item.id} className="border p-2 rounded shadow">
-          //   {item.name}
-          // </li>
+          </li>
         ))}
       </ul>
     </div>

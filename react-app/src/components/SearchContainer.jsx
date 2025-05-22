@@ -10,6 +10,8 @@ import SearchResults from "./SearchResults";
 
 const SearchContainer = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   const resources = useSelector((state) => state.data.resources);
@@ -25,21 +27,19 @@ const SearchContainer = () => {
   }, [tags]);
 
   const filteredResources = useMemo(() => {
-    if (!searchTerm) return resources;
-
+    if (!searchTerm) return [];
     return resources.filter((resource) => {
       const tagNames = resource.appliedTags.map((tagId) => tagMap[tagId] || "");
-
       return (
-        resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        //   resource.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         tagNames.some((tag) =>
           tag.toLowerCase().includes(searchTerm.toLowerCase())
         )
-      );
-    });
-  }, [resources, searchTerm, tagMap]);
+    );
+  });
+}, [resources, searchTerm, tagMap]);
 
+   
   const handleSearch = () => {
     console.log("Search button clicked");
     if (searchTerm.trim() !== "") {
