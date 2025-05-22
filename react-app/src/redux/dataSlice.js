@@ -1,3 +1,4 @@
+//latest slice
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const RESOURCES_URL = 'https://seshatbe.up.railway.app/resources';
