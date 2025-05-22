@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 //useDispatch and useSelector are hooks from react-redux that allow you to interact with the Redux store
 //useDispatch is used to dispatch actions to the store
 //useSelector is used to select data from the store
@@ -8,7 +8,7 @@ import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
 import SearchResults from "./SearchResults";
 
-const SearchContainer = () => {
+function SearchContainer() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -26,41 +26,48 @@ const SearchContainer = () => {
     return map;
   }, [tags]);
 
-  const filteredResources = useMemo(() => {
-    if (!searchTerm) return [];
-    return resources.filter((resource) => {
-      const tagNames = resource.appliedTags.map((tagId) => tagMap[tagId] || "");
-      return (
-      resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        tagNames.some((tag) =>
-          tag.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-    );
-  });
-}, [resources, searchTerm, tagMap]);
-
-   
+  // Handle search submit
   const handleSearch = () => {
-    console.log("Search button clicked");
+    console.log("Search button clicked"); //For testing
+
     if (searchTerm.trim() !== "") {
+      setLoading(true); // Set loading state
       dispatch(fetchData(searchTerm));
+
+      // Set filtered resources on submit
+      const filteredResources = resources.filter((resource) => {
+        const tagNames = resource.appliedTags.map(
+          (tagId) => tagMap[tagId] || ""
+        );
+        return (
+          resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          tagNames.some((tag) =>
+            tag.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+        );
+      });
+
+      //Update search results
+      setSearchResults(filteredResources);
+      setLoading(false); // Reset loading state
     }
   };
 
-  return (
-    <div className="flex flex-col items-center justify-center p-4">
-      <h2 className="text-2xl font-bold mb-4">🔍 Search</h2>
-      <div className="flex flex-row w-full items-center justify-center">
-        <SearchBar query={searchTerm} setQuery={setSearchTerm} />
+    return (
+      <div className="flex flex-col items-center justify-center p-4">
+        <h2 className="text-2xl font-bold mb-4">🔍 Search</h2>
+        <div className="flex flex-row w-full items-center justify-center">
+          <SearchBar query={searchTerm} setQuery={setSearchTerm} />
 
-        <SearchButton onClick={handleSearch} />
+          <SearchButton onClick={handleSearch} />
+        </div>
+        {/* {loading && <p>Loading...</p>} */}
+        {/* {error && <p>Error: {error}</p>} */}
+        {/* {searchResults && searchResults.length > 0 && ( */}
+        <SearchResults results={searchResults} />
+        {/* )} */}
       </div>
-      {/* {loading && <p>Loading...</p>} */}
-      {/* {error && <p>Error: {error}</p>} */}
-      {/* {searchResults && searchResults.length > 0 && ( */}
-      <SearchResults results={filteredResources} />
-      {/* )} */}
-    </div>
-  );
-};
-export default SearchContainer;
+    );
+  };
+
+  export default SearchContainer;
