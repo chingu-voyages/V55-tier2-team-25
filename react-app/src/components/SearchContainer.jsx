@@ -1,18 +1,19 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 //useDispatch and useSelector are hooks from react-redux that allow you to interact with the Redux store
 //useDispatch is used to dispatch actions to the store
 //useSelector is used to select data from the store
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData } from "../redux/dataSlice";
+import { fetchData, selectError } from "../redux/dataSlice";
 import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
-import SearchResults from "./SearchResults";
+import ResourceList from "./ResourceList";
 
-const SearchContainer = () => {
+function SearchContainer() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const error = useSelector(selectError);
 
   const resources = useSelector((state) => state.data.resources);
   const tags = useSelector((state) => state.data.tags);
@@ -26,24 +27,30 @@ const SearchContainer = () => {
     return map;
   }, [tags]);
 
-  const filteredResources = useMemo(() => {
-    if (!searchTerm) return [];
-    return resources.filter((resource) => {
-      const tagNames = resource.appliedTags.map((tagId) => tagMap[tagId] || "");
-      return (
-      resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        tagNames.some((tag) =>
-          tag.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-    );
-  });
-}, [resources, searchTerm, tagMap]);
-
-   
+  // Handle search submit
   const handleSearch = () => {
-    console.log("Search button clicked");
+    console.log("Search button clicked"); //For testing
+
     if (searchTerm.trim() !== "") {
+      setLoading(true); // Set loading state
       dispatch(fetchData(searchTerm));
+
+      // Set filtered resources on submit
+      const filteredResources = resources.filter((resource) => {
+        const tagNames = resource.appliedTags.map(
+          (tagId) => tagMap[tagId] || ""
+        );
+        return (
+          resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          tagNames.some((tag) =>
+            tag.toLowerCase().includes(searchTerm.toLowerCase())
+          )
+        );
+      });
+
+      //Update search results
+      setSearchResults(filteredResources);
+      setLoading(false); // Reset loading state
     }
   };
 
@@ -58,9 +65,15 @@ const SearchContainer = () => {
       {/* {loading && <p>Loading...</p>} */}
       {/* {error && <p>Error: {error}</p>} */}
       {/* {searchResults && searchResults.length > 0 && ( */}
-      <SearchResults results={filteredResources} />
+      <ResourceList
+        data={searchResults}
+        tags={tags}
+        loading={loading}
+        error={error}
+      />
       {/* )} */}
     </div>
   );
-};
+}
+
 export default SearchContainer;
