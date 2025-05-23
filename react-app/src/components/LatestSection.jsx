@@ -13,6 +13,7 @@ export default function LatestSection() {
   const dispatch = useDispatch();
   const latest = useSelector(selectMostRecent);
   const loading = useSelector(selectLoading);
+  const isLatestLoaded = useSelector((state) => state.data.isLatestLoaded);
   const error = useSelector(selectError);
   const tags = useSelector(selectTags);
 
@@ -20,8 +21,10 @@ export default function LatestSection() {
   // and when the dispatch function changes
   // This is a common pattern in React to ensure that the data is fetched
   useEffect(() => {
+    if(!isLatestLoaded) {
     dispatch(fetchData());
-  }, [dispatch]);
+  }  
+}, [dispatch, isLatestLoaded]);
 
   return (
     <section>

@@ -27,9 +27,24 @@ function SearchContainer() {
     return map;
   }, [tags]);
 
-  // Handle search submit
-  const handleSearch = () => {
-    console.log("Search button clicked"); //For testing
+
+  const filteredResources = useMemo(() => {
+    if (!searchTerm) return [];
+    return resources.filter((resource) => {
+      const tagNames = resource.appliedTags.map((tagId) => tagMap[tagId] || "");
+      return (
+      resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        tagNames.some((tag) =>
+          tag.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+    );
+  });
+}, [resources, searchTerm, tagMap]);
+
+   
+  const handleSearch = (e) => {
+  //   console.log("Search button clicked");
+    e.preventDefault();
 
     if (searchTerm.trim() !== "") {
       setLoading(true); // Set loading state
@@ -52,7 +67,13 @@ function SearchContainer() {
       setSearchResults(filteredResources);
       setLoading(false); // Reset loading state
     }
+    console.log("Search term:", searchTerm);
+    console.log("Filtered resources:", filteredResources);
+ 
   };
+//   e.preventDefault();
+//   dispatch(setSearchTerm(searchTerm)); // This triggers filtering from existing `resources`
+// };
 
   return (
     <div className="flex flex-col items-center justify-center p-4">
@@ -65,12 +86,11 @@ function SearchContainer() {
       {/* {loading && <p>Loading...</p>} */}
       {/* {error && <p>Error: {error}</p>} */}
       {/* {searchResults && searchResults.length > 0 && ( */}
-      <ResourceList
-        data={searchResults}
-        tags={tags}
-        loading={loading}
-        error={error}
-      />
+
+      <SearchResults results={filteredResources} />
+      {/* tags={tags}  /> */}
+      
+
       {/* )} */}
     </div>
   );
