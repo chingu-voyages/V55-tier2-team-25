@@ -40,12 +40,19 @@ const SearchContainer = () => {
 }, [resources, searchTerm, tagMap]);
 
    
-  const handleSearch = () => {
-    console.log("Search button clicked");
+  const handleSearch = (e) => {
+  //   console.log("Search button clicked");
+    e.preventDefault();
     if (searchTerm.trim() !== "") {
       dispatch(fetchData(searchTerm));
     }
+    console.log("Search term:", searchTerm);
+    console.log("Filtered resources:", filteredResources);
+ 
   };
+//   e.preventDefault();
+//   dispatch(setSearchTerm(searchTerm)); // This triggers filtering from existing `resources`
+// };
 
   return (
     <div className="flex flex-col items-center justify-center p-4">
@@ -59,6 +66,8 @@ const SearchContainer = () => {
       {/* {error && <p>Error: {error}</p>} */}
       {/* {searchResults && searchResults.length > 0 && ( */}
       <SearchResults results={filteredResources} />
+      {/* tags={tags}  /> */}
+      
       {/* )} */}
     </div>
   );
