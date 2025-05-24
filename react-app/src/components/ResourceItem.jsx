@@ -1,4 +1,7 @@
-import React, { useEffect } from "react";
+//Card component for displaying a resource item
+// This component is used in the SearchResults and LatestSection components
+
+import React from "react";
 
 export default function ResourceItem({ resource, tags }) {
   if (!resource) return null;
@@ -6,14 +9,16 @@ export default function ResourceItem({ resource, tags }) {
   const appliedTags = Array.isArray(resource.appliedTags)
     ? resource.appliedTags
     : [];
+//this code maps over appliedTags and finds the corresponding tag id from the tags array
 
-  const tagNames = appliedTags
-    .map((tagId) => {
-      const tag = tags.find((t) => t.id === tagId);
+if(Array.isArray(tags) && Array.isArray(appliedTags)) {
+
+const tagNames = appliedTags.map((tagId) => {
+        const tag = tags.find((t) => t.id === tagId);
       return tag?.tag; // Return the tag name if found
     })
     .filter(Boolean); // Filter out any undefined or null tag names
-
+  }
   return (
     <article
       key={`${resource.id} - ${resource.name}`}
