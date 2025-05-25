@@ -10,15 +10,14 @@ export default function ResourceItem({ resource, tags }) {
     ? resource.appliedTags
     : [];
 //this code maps over appliedTags and finds the corresponding tag id from the tags array
-
-if(Array.isArray(tags) && Array.isArray(appliedTags)) {
-
-const tagNames = appliedTags.map((tagId) => {
+const tagNames =
+Array.isArray(tags) && Array.isArray(appliedTags)
+? appliedTags.map((tagId) => {
         const tag = tags.find((t) => t.id === tagId);
       return tag?.tag; // Return the tag name if found
     })
-    .filter(Boolean); // Filter out any undefined or null tag names
-  }
+    .filter(Boolean) // Filter out any undefined or null tag names
+  : [];
   return (
     <article
       key={`${resource.id} - ${resource.name}`}

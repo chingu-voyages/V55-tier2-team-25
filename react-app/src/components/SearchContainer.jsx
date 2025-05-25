@@ -7,14 +7,15 @@ import { fetchData, selectError } from "../redux/dataSlice";
 import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
 import ResourceList from "./ResourceList";
+import SearchResults from "./SearchResults";
 
-function SearchContainer() {
+
+export default function SearchContainer() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const error = useSelector(selectError);
-
   const resources = useSelector((state) => state.data.resources);
   const tags = useSelector((state) => state.data.tags);
 
@@ -26,7 +27,6 @@ function SearchContainer() {
     });
     return map;
   }, [tags]);
-
 
   const filteredResources = useMemo(() => {
     if (!searchTerm) return [];
@@ -48,8 +48,8 @@ function SearchContainer() {
 
     if (searchTerm.trim() !== "") {
       setLoading(true); // Set loading state
-      dispatch(fetchData(searchTerm));
-
+      // dispatch(fetchData(searchTerm));
+      (fetchData(searchTerm));
       // Set filtered resources on submit
       const filteredResources = resources.filter((resource) => {
         const tagNames = resource.appliedTags.map(
@@ -71,9 +71,6 @@ function SearchContainer() {
     console.log("Filtered resources:", filteredResources);
  
   };
-//   e.preventDefault();
-//   dispatch(setSearchTerm(searchTerm)); // This triggers filtering from existing `resources`
-// };
 
   return (
     <div className="flex flex-col items-center justify-center p-4">
@@ -94,6 +91,4 @@ function SearchContainer() {
       {/* )} */}
     </div>
   );
-}
-
-export default SearchContainer;
+};
