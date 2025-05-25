@@ -36,13 +36,29 @@ export default function ResourceList ({ data, tags, loading, error }) {
   }
 
   return (
-    <section className="p-4 min-h-[400px]">
+    <section className="p-4">
+      {/* Mobile: show all items as a list */}
+      <div className="block md:hidden space-y-4">
+        {data.map((resource) => (
+          <ResourceItem
+            key={resource.id}
+            resource={resource}
+            tags={tags}
+            className="w-full max-w-sm mx-auto"
+          />
+        ))}
+      </div>
+
+      {/* Desktop/Tablet: vertical swiper */}
       <Swiper
         modules={[Pagination]}
         spaceBetween={16}
         slidesPerView={1}
         pagination={{ clickable: true }}
         breakpoints={{
+          0: {
+            enabled: false,
+          },
           768: {
             slidesPerView: 2,
             pagination: false,
@@ -52,18 +68,15 @@ export default function ResourceList ({ data, tags, loading, error }) {
             pagination: false,
           },
         }}
-        // className="md:grid md:grid-cols-5 md:gap-5 h-full"
         className="h-full"
       >
         {data.map((resource) => (
           <SwiperSlide>
-            {/* <div className="flex flex-col h-full"> */}
-            <div className="h-full">
+            <div className="flex justify-center items-start h-full">
               <ResourceItem
                 key={`${resource.id}-${resource.name}`}
                 resource={resource}
                 tags={tags}
-                className="h-100 self-center"
               />
             </div>
           </SwiperSlide>
