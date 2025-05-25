@@ -1,23 +1,21 @@
 import React from "react";
+import ResourceItem from "./ResourceItem";
 
 export default function SearchResults({ results }) {
-    // if(!results || results.length === 0) {
-    //     return <p>No results found.</p>;
-    // }
-
 
 return (
     <div>
       <h3>Search Results:</h3>
-      <ul>
         {results.map((resource) => (
-          <li key={resource.id}>{resource.name}
-          <p>{resource.author}</p>
-          <p>{resource.description}</p>
-
-          </li>
-        ))}
-      </ul>
+           <div key={`${resource.id}-${resource.name}`} className="flex flex-col items-center justify-center">
+          <ResourceItem
+            resource={resource}
+            className="h-100 self-center"
+            tags={resource.tag} 
+          />
+        </div>
+      ))}
     </div>
-)
+  );
 }
+

@@ -50,25 +50,31 @@ const dataSlice = createSlice({
     tags: [],
     mostRecent: [],
     loading: false,
+    //adding this
+    isLatestLoaded: false,
     error: null,
     searchTerm: '',
     searchResults: [],
   },
   reducers: {
+    //search term reducer
     setSearchTerm: (state, action) => {
       state.searchTerm = action.payload;
+      state.loading = false;
       state.searchResults = state.resources.filter(item =>
         JSON.stringify(item).toLowerCase().includes(action.payload.toLowerCase())
       );
     },
   },
   extraReducers: (builder) => {
+    // Handle the pending, fulfilled, and rejected states of the fetchData thunk
     builder
       .addCase(fetchData.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
       .addCase(fetchData.fulfilled, (state, action) => {
+        state.isLatestLoaded = true;
         state.loading = false;
         state.resources = action.payload.resources;
         state.mostRecent = action.payload.mostRecent;
