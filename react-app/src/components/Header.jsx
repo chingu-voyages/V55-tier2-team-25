@@ -1,5 +1,4 @@
 import React from 'react'
-import icon from '../app/icon.png'
 
 export default function Header() {
   function getCurrentDate() {
@@ -25,10 +24,12 @@ export default function Header() {
     return `${months[month]} ${day}, ${year}`
   }
 
+
+  
   return (
     <div>
       <header className="flex items-center justify-between p-4">
-        <img src={icon} alt="PeerPicks icon" />
+        <img src='icon.png' alt="PeerPicks icon" className="w-12 h-12"/>
         <h1 className="text-2xl font-bold md:text-3xl">Peer Picks</h1>
         <h2 className="text-gray-500 text-shadow-md text-s font-normal md:text-lg">
           {getCurrentDate()}
