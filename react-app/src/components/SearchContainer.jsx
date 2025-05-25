@@ -17,7 +17,7 @@ export default function SearchContainer() {
   const dispatch = useDispatch();
   const error = useSelector(selectError);
   const resources = useSelector((state) => state.data.resources);
-  const tags = useSelector((state) => state.data.tags);
+  const tags = useSelector((state) => state.data.tags); 
 
   //mapping of tag ids to resources
   const tagMap = useMemo(() => {
