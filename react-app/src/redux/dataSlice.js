@@ -56,12 +56,20 @@ const dataSlice = createSlice({
     isLatestLoaded: false,
     error: null,
     searchTerm: '',
+    selectedTags: [],
     searchResults: [],
   },
   reducers: {
     //search term reducer
     setSearchTerm: (state, action) => {
       state.searchTerm = action.payload;
+      state.loading = false;
+      state.searchResults = state.resources.filter(item =>
+        JSON.stringify(item).toLowerCase().includes(action.payload.toLowerCase())
+      );
+    },
+    setSelectedTags: (state, action) => {
+      state.setSelectedTags = action.payload;
       state.loading = false;
       state.searchResults = state.resources.filter(item =>
         JSON.stringify(item).toLowerCase().includes(action.payload.toLowerCase())

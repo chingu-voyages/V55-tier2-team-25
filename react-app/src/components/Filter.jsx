@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData, selectTags, selectError, selectLoading } from "@/redux/dataSlice";
+import {
+  fetchData,
+  selectTags,
+  selectError,
+  selectLoading,
+} from "@/redux/dataSlice";
 import { FiFilter } from "react-icons/fi";
 
-export default function Filter({ formFieldName }) {
+export default function Filter({ selectedTags, setSelectedTags }) {
   const dispatch = useDispatch();
   const tags = useSelector(selectTags);
   const error = useSelector(selectError);
@@ -15,7 +20,7 @@ export default function Filter({ formFieldName }) {
     dispatch(fetchData());
   }, [dispatch]);
 
-    if (loading)
+  if (loading)
     return (
       <div className="p-4">
         <p className="p-4">Loading filters</p>
@@ -51,9 +56,19 @@ export default function Filter({ formFieldName }) {
               <label className="flex whitespace-nowrap cursor-pointer px-2 py-1 transition-colors hover:bg-blue-100 [&:has(input:checked)]:bg-blue-200">
                 <input
                   type="checkbox"
-                  name={formFieldName}
+                  id="filter-menu"
                   value={tag.tag}
-                  className="peer hidden"
+                  checked={(selectedTags || []).includes(tag.tag)}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    setSelectedTags(
+                      (prev) =>
+                        prev.includes(value)
+                          ? prev.filter((tag) => tag !== value) // remove if already selected
+                          : [...prev, value] // add if not selected
+                    );
+                  }}
+                  className="peer hidden" // gives it a button look rather than a checkbox list
                 />
                 <span className="inline-block px-3 py-1 rounded-full border border-blue-500 text-blue-500 peer-checked:bg-blue-500 peer-checked:text-white transition-all hover:bg-blue-100">
                   {tag.tag}

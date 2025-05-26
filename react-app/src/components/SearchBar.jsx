@@ -7,7 +7,6 @@ export default function SearchBar({ query, setQuery }) {
 
   return (
     <div className="flex flex-row w-full items-center justify-center">
-      <Filter />
 
       <label htmlFor="search-bar" className="sr-only">
         Search Bar
