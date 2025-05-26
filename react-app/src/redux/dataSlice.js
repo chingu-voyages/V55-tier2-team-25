@@ -1,8 +1,11 @@
 //latest slice
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const RESOURCES_URL = 'https://seshatbe.up.railway.app/resources';
-const TAGS_URL = 'https://seshatbe.up.railway.app/tags';
+// const RESOURCES_URL = 'https://seshatbe.up.railway.app/resources';
+// const TAGS_URL = 'https://seshatbe.up.railway.app/tags';
+
+const RESOURCES_URL = '/resources.json';
+const TAGS_URL = '/tags.json';
 
 export const fetchData = createAsyncThunk(
   'data/fetchData',
