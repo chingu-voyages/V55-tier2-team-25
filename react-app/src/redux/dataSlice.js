@@ -69,7 +69,7 @@ const dataSlice = createSlice({
       );
     },
     setSelectedTags: (state, action) => {
-      state.setSelectedTags = action.payload;
+      state.selectedTags = action.payload;
       state.loading = false;
       state.searchResults = state.resources.filter(item =>
         JSON.stringify(item).toLowerCase().includes(action.payload.toLowerCase())

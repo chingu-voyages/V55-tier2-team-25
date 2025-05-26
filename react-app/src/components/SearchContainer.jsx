@@ -87,7 +87,7 @@ export default function SearchContainer() {
       {/* {error && <p>Error: {error}</p>} */}
       {/* {searchResults && searchResults.length > 0 && ( */}
 
-      <SearchResults results={filteredResources} />
+      <ResourceList data={filteredResources} tags={tags} loading={loading} error={error} />
       {/* tags={tags}  /> */}
       
 
