@@ -7,7 +7,6 @@ import { fetchData, selectError } from "../redux/dataSlice";
 import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
 import ResourceList from "./ResourceList";
-import SearchResults from "./SearchResults";
 import Filter from "./Filter";
 
 
