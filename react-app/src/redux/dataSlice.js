@@ -22,6 +22,8 @@ export const fetchData = createAsyncThunk(
 
       const resources = await resourcesResponse.json();
       const tagList = await tagsResponse.json();
+      const uniqueTags = [...new Set(tagList)];
+
 
       const uniqueResources = [
         ...new Map(resources.map((item) => [item.id, item])).values(),
@@ -35,7 +37,7 @@ export const fetchData = createAsyncThunk(
       return {
         resources: uniqueResources, // Store all unique resources
         mostRecent: mostRecent,
-        tags: tagList,
+        tags: uniqueTags,
       };
     } catch (error) {
       return rejectWithValue(error.message);
@@ -54,12 +56,20 @@ const dataSlice = createSlice({
     isLatestLoaded: false,
     error: null,
     searchTerm: '',
+    selectedTags: [],
     searchResults: [],
   },
   reducers: {
     //search term reducer
     setSearchTerm: (state, action) => {
       state.searchTerm = action.payload;
+      state.loading = false;
+      state.searchResults = state.resources.filter(item =>
+        JSON.stringify(item).toLowerCase().includes(action.payload.toLowerCase())
+      );
+    },
+    setSelectedTags: (state, action) => {
+      state.setSelectedTags = action.payload;
       state.loading = false;
       state.searchResults = state.resources.filter(item =>
         JSON.stringify(item).toLowerCase().includes(action.payload.toLowerCase())

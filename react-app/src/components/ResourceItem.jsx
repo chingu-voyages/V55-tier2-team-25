@@ -21,17 +21,17 @@ Array.isArray(tags) && Array.isArray(appliedTags)
   return (
     <article
       key={`${resource.id} - ${resource.name}`}
-      className="w-full max-w-sm self-center h-60 overflow-hidden shadow-sm shadow-gray-300 p-6 pt-4 rounded-4xl m-2"
+      className="w-full max-w-sm self-center h-60 shadow-sm shadow-gray-300 p-6 pt-4 rounded-4xl m-2"
     >
       <a
         href={resource.url}
-        className="mt-2 inline-block"
+        className="mt-2 block w-full"
         target="_blank"
         title={`View "${resource.name}" in a new tab.`}
         rel="noopener noreferrer"
       >
-        <section className="h-35 overflow-ellipsis">
-          <h3 className="text-xl font-semibold">
+        <section className="h-35">
+          <h3 className="text-xl font-semibold line-clamp-3">
             {resource.name}
           </h3>
 
@@ -40,7 +40,7 @@ Array.isArray(tags) && Array.isArray(appliedTags)
               tagNames.map((tag) => (
                 <span
                   key={`${resource.id}- ${tag}`}
-                  className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 p-6"
+                  className="line-clamp-1 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 p-6"
                 >
                   {tag}
                 </span>
@@ -50,11 +50,11 @@ Array.isArray(tags) && Array.isArray(appliedTags)
             )}
           </div>
         </section>
-        <section className="h-15 w-full border-t">
-          <p className="text-sm p-5 pl-0 pb-1 pt-4 font-semibold">
+        <section className="h-15 w-full border-t h-15 w-full border-t flex justify-between items-center">
+          <p className="text-sm p-5 pl-0 pb-1 pt-4">
             {resource.author}
           </p>
-          <p className="text-xs">
+          <p className="text-sm pl-0 pb-1 pt-4">
             {(() => {
               const date = new Date(resource.createdAt);
               return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`}) ()}

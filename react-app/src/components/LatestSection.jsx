@@ -27,8 +27,8 @@ export default function LatestSection() {
 }, [dispatch, isLatestLoaded]);
 
   return (
-    <section>
-      <h2 className="text-2xl font-bold mb-4">🕒 Latest</h2>
+    <section className="p-4">
+      <h2 className="text-2xl font-bold mb-4">Newly Picked</h2>
       <ResourceList data={latest} tags={tags} loading={loading} error={error} />
     </section>
   );
