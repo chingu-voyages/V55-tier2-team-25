@@ -50,11 +50,11 @@ Array.isArray(tags) && Array.isArray(appliedTags)
             )}
           </div>
         </section>
-        <section className="h-15 w-full border-t">
-          <p className="text-sm p-5 pl-0 pb-1 pt-4 font-semibold">
+        <section className="h-15 w-full border-t h-15 w-full border-t flex justify-between items-center">
+          <p className="text-sm p-5 pl-0 pb-1 pt-4">
             {resource.author}
           </p>
-          <p className="text-xs">
+          <p className="text-sm pl-0 pb-1 pt-4">
             {(() => {
               const date = new Date(resource.createdAt);
               return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`}) ()}
