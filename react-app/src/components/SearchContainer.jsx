@@ -86,6 +86,8 @@ export default function SearchContainer() {
         <p className="mt-4">No results found.</p>
       )}
 
+<ClearButton onClick={handleClearSearch} name="Clear Search"/>
+
       <ResourceList
         data={searchResults}
         tags={tags}

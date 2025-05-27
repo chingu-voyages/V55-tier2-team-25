@@ -62,7 +62,7 @@ export default function Filter({ searchTerm, setSearchTerm, selectedTags, setSel
         {/* Dropdown content */}
         <div className="flex flex-wrap justify-between">
           <h3 className="font-bold	font-3">Filters</h3>
-          <ClearButton onClick={handleClearSearch} />
+          <ClearButton onClick={handleClearSearch} name="Reset"/>
         </div>
         <legend className="flex flex-wrap gap-1">
           <FiTag className="text-[var(--gradient-1)] self-center" />
