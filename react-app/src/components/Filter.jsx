@@ -8,8 +8,10 @@ import {
 } from "@/redux/dataSlice";
 import { FiFilter } from "react-icons/fi";
 import { FiTag } from "react-icons/fi";
+import ClearButton from "./ClearButton";
 
-export default function Filter({ selectedTags, setSelectedTags }) {
+export default function Filter({ searchTerm, setSearchTerm, selectedTags, setSelectedTags }) {
+  const [searchResults, setSearchResults] = useState([]);
   const dispatch = useDispatch();
   const tags = useSelector(selectTags);
   const error = useSelector(selectError);
@@ -37,8 +39,14 @@ export default function Filter({ selectedTags, setSelectedTags }) {
     );
   }
 
+  const handleClearSearch = () => {
+    setSearchTerm("");
+    setSearchResults([]);
+    setSelectedTags([]);
+  };
+
   return (
-    <div className="relative">
+    <div className="w-full">
       <input type="checkbox" className="hidden peer" id="filter-toggle" />
 
       {/* Label tied to checkbox via htmlFor - makes this clickable */}
@@ -52,6 +60,10 @@ export default function Filter({ selectedTags, setSelectedTags }) {
 
       <div className="absolute bg-[var(--background)] border border-gray-200 mt-1 p-2 transition-opacity opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto z-10 max-h-64 overflow-auto min-w-[150px]">
         {/* Dropdown content */}
+        <div className="flex flex-wrap justify-between">
+          <h3 className="font-bold	font-3">Filters</h3>
+          <ClearButton onClick={handleClearSearch} />
+        </div>
         <legend className="flex flex-wrap gap-1">
           <FiTag className="text-[var(--gradient-1)] self-center" />
           <span className="sr-only">Filter by</span>Tags
