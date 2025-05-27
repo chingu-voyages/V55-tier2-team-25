@@ -1,7 +1,7 @@
 # App Name
 
 
-This app was created through a [Chingu](https://www.chingu.io/) tier 2 voyage. As a team, we built a web application, App Name, which lets its users find the information they need to reach their learning goals as software developers.
+This app was created through a [Chingu](https://www.chingu.io/) tier 2 voyage. As a team, we built a web application, PeerPicks, which lets its users find the information they need to reach their learning goals as software developers.
 
 Insert screenshots
 
