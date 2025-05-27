@@ -47,21 +47,25 @@ export default function Filter({ selectedTags, setSelectedTags }) {
         className="cursor-pointer flex items-center select-none"
       >
         <FiFilter className="text-3xl text-white bg-gradient-to-r from-[var(--gradient-1)] to-[var(--gradient-2)] rounded-full w-10 h-10 p-2" />
+        <span className="sr-only">Filter menu based on resource tags</span>
       </label>
 
       <div className="absolute bg-[var(--background)] border border-gray-200 mt-1 p-2 transition-opacity opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto z-10 max-h-64 overflow-auto min-w-[150px]">
         {/* Dropdown content */}
-        <h3 className="flex flex-wrap gap-1">
+        <legend className="flex flex-wrap gap-1">
           <FiTag className="text-[var(--gradient-1)] self-center" />
-          Tags
-        </h3>
+          <span className="sr-only">Filter by</span>Tags
+        </legend>
         <ul className="flex flex-wrap gap-1">
           {tags.map((tag) => (
             <li key={tag.id}>
-              <label className="flex whitespace-nowrap cursor-pointer px-2 py-1 transition-colors">
+              <label
+                htmlFor={`tag-${tag.id}`}
+                className="flex whitespace-nowrap cursor-pointer px-2 py-1 transition-colors"
+              >
                 <input
                   type="checkbox"
-                  id="filter-menu"
+                  id={`tag-${tag.id}`}
                   value={tag.tag}
                   checked={(selectedTags || []).includes(tag.tag)}
                   onChange={(e) => {
