@@ -50,7 +50,7 @@ Array.isArray(tags) && Array.isArray(appliedTags)
             )}
           </div>
         </section>
-        <section className="h-15 w-full border-t h-15 w-full border-t flex justify-between items-center">
+        <section className="h-15 w-full border-t flex justify-between items-center">
           <p className="text-sm p-5 pl-0 pb-1 pt-4">
             {resource.author}
           </p>

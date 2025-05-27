@@ -18,7 +18,7 @@ export default function SearchBar({ query, setQuery }) {
         id="search-bar"
         value={query}
         name="search-bar"
-        placeholder="Enter a topic"
+        placeholder="Find your next pick..."
         onChange={(e) => setQuery(e.target.value)}
         className="border rounded p-2 w-[75%]"
       />

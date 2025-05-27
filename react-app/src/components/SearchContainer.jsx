@@ -7,9 +7,7 @@ import { fetchData, selectError } from "../redux/dataSlice";
 import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
 import ResourceList from "./ResourceList";
-import SearchResults from "./SearchResults";
 import Filter from "./Filter";
-
 
 export default function SearchContainer() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,7 +17,7 @@ export default function SearchContainer() {
   const dispatch = useDispatch();
   const error = useSelector(selectError);
   const resources = useSelector((state) => state.data.resources);
-  const tags = useSelector((state) => state.data.tags); 
+  const tags = useSelector((state) => state.data.tags);
 
   //mapping of tag ids to resources
   const tagMap = useMemo(() => {
@@ -35,23 +33,22 @@ export default function SearchContainer() {
     return resources.filter((resource) => {
       const tagNames = resource.appliedTags.map((tagId) => tagMap[tagId] || "");
       return (
-      resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         tagNames.some((tag) =>
           tag.toLowerCase().includes(searchTerm.toLowerCase())
         )
-    );
-  });
-}, [resources, searchTerm, tagMap]);
+      );
+    });
+  }, [resources, searchTerm, tagMap]);
 
-   
   const handleSearch = (e) => {
-  //   console.log("Search button clicked");
+    //   console.log("Search button clicked");
     e.preventDefault();
 
     if (searchTerm.trim() !== "") {
       setLoading(true); // Set loading state
       // dispatch(fetchData(searchTerm));
-      (fetchData(searchTerm));
+      fetchData(searchTerm);
       // Set filtered resources on submit
       const filteredResources = resources.filter((resource) => {
         const tagNames = resource.appliedTags.map(
@@ -71,7 +68,6 @@ export default function SearchContainer() {
     }
     console.log("Search term:", searchTerm);
     console.log("Filtered resources:", filteredResources);
- 
   };
 
   return (
@@ -83,15 +79,14 @@ export default function SearchContainer() {
 
         <SearchButton onClick={handleSearch} />
       </div>
-      {/* {loading && <p>Loading...</p>} */}
-      {/* {error && <p>Error: {error}</p>} */}
-      {/* {searchResults && searchResults.length > 0 && ( */}
 
-      <SearchResults results={filteredResources} />
-      {/* tags={tags}  /> */}
+      <ResourceList
+        data={filteredResources}
+        tags={tags}
+        loading={loading}
+        error={error}
+      />
       
-
-      {/* )} */}
     </div>
   );
-};
+}
