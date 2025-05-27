@@ -7,7 +7,6 @@ import { fetchData, selectError } from "../redux/dataSlice";
 import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
 import ResourceList from "./ResourceList";
-import SearchResults from "./SearchResults";
 import Filter from "./Filter";
 
 
@@ -87,7 +86,7 @@ export default function SearchContainer() {
       {/* {error && <p>Error: {error}</p>} */}
       {/* {searchResults && searchResults.length > 0 && ( */}
 
-      <SearchResults results={filteredResources} />
+      <ResourceList data={filteredResources} tags={tags} loading={loading} error={error} />
       {/* tags={tags}  /> */}
       
 
