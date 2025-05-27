@@ -30,9 +30,7 @@ export default function Header() {
         <div className="flex flex-nowrap w-full justify-between text-white">
           <div className="flex flex-nowrap">
             <img src="icon.png" alt="PeerPicks icon" className="w-12 h-12" />
-            <h1 className="text-2xl font-bold md:text-3xl text-pink-500">
-              Peer Picks
-            </h1>
+            <h1 className="text-2xl font-bold md:text-3xl">Peer Picks</h1>
           </div>
           <h2 className="text-gray-500 text-shadow-md text-s font-normal md:text-lg text-white">
             {getCurrentDate()}
