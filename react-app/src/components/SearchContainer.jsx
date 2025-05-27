@@ -10,6 +10,8 @@ import ResourceList from "./ResourceList";
 import Filter from "./Filter";
 import ClearButton from "./ClearButton";
 
+
+
 export default function SearchContainer() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -76,7 +78,7 @@ export default function SearchContainer() {
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">🔍 Search</h2>
       <div className="flex flex-row w-full items-center justify-center">
-        <Filter searchTerm={searchTerm} setSearchTerm={setSearchTerm} selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
+        <Filter searchTerm={searchTerm} setSearchTerm={setSearchTerm} selectedTags={selectedTags} setSelectedTags={setSelectedTags} setSearchResults={setSearchResults}/>
         <SearchBar query={searchTerm} setQuery={setSearchTerm} />
 
         <SearchButton onClick={handleSearch} />
