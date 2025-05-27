@@ -9,9 +9,10 @@ import {
 import { FiFilter } from "react-icons/fi";
 import { FiTag } from "react-icons/fi";
 import ClearButton from "./ClearButton";
+// import { searchResults } from "./SearchContainer";
 
-export default function Filter({ searchTerm, setSearchTerm, selectedTags, setSelectedTags }) {
-  const [searchResults, setSearchResults] = useState([]);
+export default function Filter({ searchTerm, setSearchTerm, selectedTags, setSelectedTags, setSearchResults }) {
+  // const [searchResults, setSearchResults] = useState([]);
   const dispatch = useDispatch();
   const tags = useSelector(selectTags);
   const error = useSelector(selectError);
