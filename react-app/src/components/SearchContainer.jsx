@@ -66,6 +66,7 @@ export default function SearchContainer() {
       setSearchResults(filteredResources);
       setLoading(false); // Reset loading state
     }
+
     console.log("Search term:", searchTerm);
     console.log("Filtered resources:", filteredResources);
   };
@@ -81,12 +82,12 @@ export default function SearchContainer() {
       </div>
 
       <ResourceList
-        data={filteredResources}
+        data={searchResults}
         tags={tags}
         loading={loading}
         error={error}
       />
-      
+
     </div>
   );
 }
