@@ -6,6 +6,8 @@
 :root {
   --background: #F6F5FA;
   --foreground: #171717;
+  --gradient-1: #473CE0;
+  --gradient-2: #682FD8; 
 }
 
 @media (prefers-color-scheme: dark) {
