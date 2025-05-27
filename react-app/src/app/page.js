@@ -16,7 +16,7 @@ export default function App() {
       <Provider store={store}>
       <Header className="md:flex" />
       <SearchContainer />
-      <ClearButton />
+  
   
 
       {/*<RecommendSection />*/}

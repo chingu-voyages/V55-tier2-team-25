@@ -8,6 +8,7 @@ import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
 import ResourceList from "./ResourceList";
 import Filter from "./Filter";
+import ClearButton from "./ClearButton";
 
 export default function SearchContainer() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -66,9 +67,17 @@ export default function SearchContainer() {
       setSearchResults(filteredResources);
       setLoading(false); // Reset loading state
     }
+
     console.log("Search term:", searchTerm);
     console.log("Filtered resources:", filteredResources);
   };
+
+  const handleClearSearch = () => {
+    setSearchTerm("");
+    setSearchResults([]);
+    setSelectedTags([]);
+  }
+
 
   return (
     <div className="flex flex-col items-center justify-center p-4">
@@ -81,12 +90,12 @@ export default function SearchContainer() {
       </div>
 
       <ResourceList
-        data={filteredResources}
+        data={searchResults}
         tags={tags}
         loading={loading}
         error={error}
       />
-      
+<ClearButton onClick={handleClearSearch}/>
     </div>
   );
 }
