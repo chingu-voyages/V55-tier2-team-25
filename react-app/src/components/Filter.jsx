@@ -7,6 +7,7 @@ import {
   selectLoading,
 } from "@/redux/dataSlice";
 import { FiFilter } from "react-icons/fi";
+import { FiTag } from "react-icons/fi";
 
 export default function Filter({ selectedTags, setSelectedTags }) {
   const dispatch = useDispatch();
@@ -45,15 +46,19 @@ export default function Filter({ selectedTags, setSelectedTags }) {
         htmlFor="filter-toggle"
         className="cursor-pointer flex items-center select-none"
       >
-        <FiFilter className="text-3xl" />
+        <FiFilter className="text-3xl text-white bg-gradient-to-r from-[var(--gradient-1)] to-[var(--gradient-2)] rounded-full w-10 h-10 p-2" />
       </label>
 
-      <div className="absolute bg-white border border-gray-200 mt-1 p-2 transition-opacity opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto z-10 max-h-64 overflow-auto min-w-[150px]">
+      <div className="absolute bg-[var(--background)] border border-gray-200 mt-1 p-2 transition-opacity opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto z-10 max-h-64 overflow-auto min-w-[150px]">
         {/* Dropdown content */}
-        <ul>
+        <h3 className="flex flex-wrap gap-1">
+          <FiTag className="text-[var(--gradient-1)] self-center" />
+          Tags
+        </h3>
+        <ul className="flex flex-wrap gap-1">
           {tags.map((tag) => (
             <li key={tag.id}>
-              <label className="flex whitespace-nowrap cursor-pointer px-2 py-1 transition-colors hover:bg-blue-100 [&:has(input:checked)]:bg-blue-200">
+              <label className="flex whitespace-nowrap cursor-pointer px-2 py-1 transition-colors">
                 <input
                   type="checkbox"
                   id="filter-menu"
@@ -70,7 +75,7 @@ export default function Filter({ selectedTags, setSelectedTags }) {
                   }}
                   className="peer hidden" // gives it a button look rather than a checkbox list
                 />
-                <span className="inline-block px-3 py-1 rounded-full border border-blue-500 text-blue-500 peer-checked:bg-blue-500 peer-checked:text-white transition-all hover:bg-blue-100">
+                <span className="inline-block px-3 py-1 rounded-full border border-[var(--foreground)] text-[var(--foreground)] peer-checked:bg-[var(--background)] peer-checked:border-[var(--gradient-1)] peer-checked:text-[var(--gradient-1)] transition-all">
                   {tag.tag}
                 </span>
               </label>

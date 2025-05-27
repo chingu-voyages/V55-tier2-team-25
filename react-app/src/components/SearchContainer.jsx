@@ -29,38 +29,32 @@ export default function SearchContainer() {
     return map;
   }, [tags]);
 
-  const filteredResources = useMemo(() => {
-    if (!searchTerm) return [];
-    return resources.filter((resource) => {
-      const tagNames = resource.appliedTags.map((tagId) => tagMap[tagId] || "");
-      return (
-        resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        tagNames.some((tag) =>
-          tag.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      );
-    });
-  }, [resources, searchTerm, tagMap]);
-
   const handleSearch = (e) => {
     //   console.log("Search button clicked");
     e.preventDefault();
 
-    if (searchTerm.trim() !== "") {
+    if (searchTerm.trim() !== "" || selectedTags.length > 0) {
       setLoading(true); // Set loading state
-      // dispatch(fetchData(searchTerm));
+      dispatch(fetchData(searchTerm, selectedTags));
       fetchData(searchTerm);
       // Set filtered resources on submit
       const filteredResources = resources.filter((resource) => {
         const tagNames = resource.appliedTags.map(
           (tagId) => tagMap[tagId] || ""
         );
-        return (
+
+        const matchesSearch =
+          searchTerm === "" ||
           resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           tagNames.some((tag) =>
             tag.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-        );
+          );
+
+        const matchesTags =
+          selectedTags.length === 0 ||
+          selectedTags.every((selectedTag) => tagNames.includes(selectedTag));
+
+        return matchesSearch && matchesTags;
       });
 
       //Update search results
@@ -69,18 +63,17 @@ export default function SearchContainer() {
     }
 
     console.log("Search term:", searchTerm);
-    console.log("Filtered resources:", filteredResources);
+    console.log("Filtered resources:", searchResults);
   };
 
   const handleClearSearch = () => {
     setSearchTerm("");
     setSearchResults([]);
     setSelectedTags([]);
-  }
-
+  };
 
   return (
-    <div className="flex flex-col items-center justify-center p-4">
+    <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">🔍 Search</h2>
       <div className="flex flex-row w-full items-center justify-center">
         <Filter selectedTags={selectedTags} setSelectedTags={setSelectedTags} />
@@ -89,13 +82,17 @@ export default function SearchContainer() {
         <SearchButton onClick={handleSearch} />
       </div>
 
+      {!loading && searchResults.length === 0 && (
+        <p className="mt-4">No results found.</p>
+      )}
+
       <ResourceList
         data={searchResults}
         tags={tags}
         loading={loading}
         error={error}
       />
-<ClearButton onClick={handleClearSearch}/>
+      <ClearButton onClick={handleClearSearch} />
     </div>
   );
 }
