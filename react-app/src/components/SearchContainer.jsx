@@ -63,6 +63,11 @@ export default function SearchContainer() {
       setSearchResults(filteredResources);
       setLoading(false); // Reset loading state
     }
+//if the search term is empty and no tags are selected, reset the search results
+    if (searchTerm.trim() === "" && selectedTags.length === 0) {
+      setSearchResults(resources);
+      setLoading(false); // Reset loading state
+    }
 
     console.log("Search term:", searchTerm);
     console.log("Filtered resources:", searchResults);
@@ -86,7 +91,11 @@ export default function SearchContainer() {
 
       {!loading && searchResults.length === 0 && (
         <p className="mt-4">No results found.</p>
-      )}
+      ) || !loading ? searchResults.length > 0 && (
+        <p className="mt-4">Found {searchResults.length} results.</p>
+      ) : null}
+    
+      {/* Clear Search Button */}
 
 <ClearButton onClick={handleClearSearch} name="Clear Search"/>
 
