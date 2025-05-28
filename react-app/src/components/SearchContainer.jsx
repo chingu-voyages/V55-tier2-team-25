@@ -45,8 +45,8 @@ export default function SearchContainer() {
   const handleSearch = (e) => {
   //   console.log("Search button clicked");
     e.preventDefault();
-
-    if (searchTerm.trim() !== "") {
+//search function that filters resources based on search term and selected tags
+    if (searchTerm.trim() !== "" || selectedTags.length > 0) {
       setLoading(true); // Set loading state
       // dispatch(fetchData(searchTerm));
       (fetchData(searchTerm));
@@ -67,6 +67,13 @@ export default function SearchContainer() {
       setSearchResults(filteredResources);
       setLoading(false); // Reset loading state
     }
+
+    //if searchTerm is empty and no tags are selected, return all resources
+    if (searchTerm.trim() === "" && selectedTags.length === 0) {
+      setSearchResults(resources);
+      setLoading(false); // Reset loading state
+    }
+
     console.log("Search term:", searchTerm);
     console.log("Filtered resources:", filteredResources);
  
@@ -80,15 +87,21 @@ export default function SearchContainer() {
 
         <SearchButton onClick={handleSearch} />
       </div>
-      {/* {loading && <p>Loading...</p>} */}
-      {/* {error && <p>Error: {error}</p>} */}
-      {/* {searchResults && searchResults.length > 0 && ( */}
 
-      <SearchResults results={filteredResources} />
-      {/* tags={tags}  /> */}
-      
+      {!loading && searchResults.length === 0 && (
+        <p className="mt-4">No results found.</p>
+      ) || !loading ? searchResults.length > 0 && (
+        <p className="mt-4">{searchResults.length} results</p>
+      ) : null}
 
-      {/* )} */}
+<ClearButton onClick={handleClearSearch} name="Clear Search"/>
+
+      <ResourceList
+        data={searchResults}
+        tags={tags}
+        loading={loading}
+        error={error}
+      />
     </div>
   );
 };
