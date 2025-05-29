@@ -59,14 +59,14 @@ export default function Filter({ searchTerm, setSearchTerm, selectedTags, setSel
         <span className="sr-only">Filter menu based on resource tags</span>
       </label>
 
-      <div className="absolute bg-[var(--background)] border border-gray-200 mt-1 p-2 transition-opacity opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto z-10 max-h-64 overflow-auto min-w-[150px]">
+      <div className="p-4 absolute bg-[var(--background)] border border-gray-200 mt-1 transition-opacity opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto z-10 h-fulloverflow-auto min-w-[150px] rounded-2xl">
         {/* Dropdown content */}
         <div className="flex flex-wrap justify-between">
-          <h3 className="font-bold	font-3">Filters</h3>
+          <h3 className="font-bold font-3 p-2 pb-4">Filters</h3>
           <ClearButton onClick={handleClearSearch} name="Reset"/>
         </div>
-        <legend className="flex flex-wrap gap-1">
-          <FiTag className="text-[var(--gradient-1)] self-center" />
+        <legend className="pl-3 flex flex-wrap gap-1">
+          <FiTag className="self-center" />
           <span className="sr-only">Filter by</span>Tags
         </legend>
         <ul className="flex flex-wrap gap-1">
@@ -92,7 +92,7 @@ export default function Filter({ searchTerm, setSearchTerm, selectedTags, setSel
                   }}
                   className="peer hidden" // gives it a button look rather than a checkbox list
                 />
-                <span className="inline-block px-3 py-1 rounded-full border border-[var(--foreground)] text-[var(--foreground)] peer-checked:bg-[var(--background)] peer-checked:border-[var(--gradient-1)] peer-checked:text-[var(--gradient-1)] transition-all">
+                <span className="inline-block px-3 py-3 rounded-full border border-[var(--foreground)] bg-white text-[var(--foreground)] peer-checked:border-[var(--gradient-1)] peer-checked:text-[var(--gradient-1)] transition-all">
                   {tag.tag}
                 </span>
               </label>
