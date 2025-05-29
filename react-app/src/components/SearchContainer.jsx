@@ -81,7 +81,6 @@ export default function SearchContainer() {
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4 sr-only">Search</h2>
       <div className="flex flex-row w-full items-center justify-center relative">
-        
         <SearchBar query={searchTerm} setQuery={setSearchTerm} />
         <Filter
           searchTerm={searchTerm}
@@ -92,25 +91,25 @@ export default function SearchContainer() {
           className="absolute top-0 left-0 z-10"
         />
 
-        <SearchButton
-          onClick={handleSearch}
-          className="absolute top-0 right-0 z-30"
-        />
+        <div className="flex items-center z-30 space-x-2 absolute right-3 -top-23 gap-1">
+          <ClearButton onClick={handleClearSearch} name="X" />
+          <SearchButton onClick={handleSearch} />
+        </div>
       </div>
 
-      <div className="pt-20">
+      <div className="pt-4">
         {(!loading && searchResults.length === 0 && (
-          <p className="mt-4">No results found.</p>
+          <h2 className="font-bold text-xl">No results found.</h2>
         )) ||
         !loading
           ? searchResults.length > 0 && (
-              <p className="mt-4">Found {searchResults.length} results.</p>
+              <h2 className="font-bold text-xl">
+                {searchResults.length} Results Found
+              </h2>
             )
           : null}
 
         {/* Clear Search Button */}
-
-        <ClearButton onClick={handleClearSearch} name="Clear Search" />
       </div>
       <ResourceList
         data={searchResults}
