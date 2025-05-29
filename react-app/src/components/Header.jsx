@@ -26,20 +26,24 @@ export default function Header() {
 
   return (
     <div>
-      <header className="flex items-center justify-between flex-col p-4 bg-gradient-to-br from-blue-500 to-violet-500 p-4 rounded-lg">
-        <div className="flex flex-nowrap w-full justify-between text-white">
-          <div className="flex flex-nowrap">
-            <img src="icon.png" alt="PeerPicks icon" className="w-12 h-12" />
-            <h1 className="text-2xl font-bold md:text-3xl">Peer Picks</h1>
+      <header className="flex flex-col p-4 bg-gradient-to-r from-[#385894] via-[#473CE0] to-[#682FD8] rounded-lg p-[24px]">
+        <div className="flex justify-between w-full text-white">
+          <div className="flex w-1/2">
+            <img
+              src="peerpicks-logo-white.png"
+              alt="PeerPicks icon"
+              className="h-auto object-contain"
+            />
+            {/*<h1 className="text-2xl font-bold md:text-3xl">Peer Picks</h1>-->*/}
           </div>
-          <h2 className="text-gray-500 text-shadow-md text-s font-normal md:text-lg text-white">
+          <h2 className="flex justify-end text-gray-500 text-shadow-md text-xs font-normal md:text-lg text-white w-1/2 font-helvetica">
             {getCurrentDate()}
           </h2>
         </div>
-        <div className="headerText text-white">
-          <h3>Find your next</h3>
-          <h3>PeerPick</h3>
-          <h3>try tags + Keywords</h3>
+        <div className="flex flex-col self-start headerText text-white font-bold text-xl pt-[1.5em]">
+          <h3 className="text-left">Find your next</h3>
+          <h3 className="text-left">PeerPick</h3>
+          <h3 className="text-left">try tags + Keywords</h3>
         </div>
       </header>
     </div>

@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
+
     <footer>
         {/* */}
       <div className="team-info flex justify-center flex-col items-center">   {/*flex justify center flex-direction column #385894 #473CE0 #682FD8*/}
