@@ -47,7 +47,7 @@ export default function Filter({ searchTerm, setSearchTerm, selectedTags, setSel
   };
 
   return (
-    <div className="absolute left-1.5 -top-25 w-full"> {/* positioning of filter icon */}
+    <div className="absolute left-1.5 -top-25"> {/* positioning of filter icon */}
       <input type="checkbox" className="hidden peer" id="filter-toggle" />
 
       {/* Label tied to checkbox via htmlFor - makes this clickable */}
