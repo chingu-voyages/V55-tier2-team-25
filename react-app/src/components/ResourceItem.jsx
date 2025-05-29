@@ -31,11 +31,8 @@ Array.isArray(tags) && Array.isArray(appliedTags)
         rel="noopener noreferrer"
       >
         <section className="h-35">
-          <h3 className="text-xl font-semibold line-clamp-3">
-            {resource.name}
-          </h3>
 
-          <div className="pt-4 pb-2">
+          <div className="">
             {tagNames.length > 0 ? (
               tagNames.map((tag) => (
                 <span
@@ -49,6 +46,11 @@ Array.isArray(tags) && Array.isArray(appliedTags)
               <span className="text-sm text-gray-400 p-6">No tags</span>
             )}
           </div>
+
+          <h3 className="text-xl font-semibold line-clamp-3">
+            {resource.name}
+          </h3>
+
         </section>
         <section className="h-15 w-full border-t flex justify-between items-center">
           <p className="text-sm p-5 pl-0 pb-1 pt-4">
