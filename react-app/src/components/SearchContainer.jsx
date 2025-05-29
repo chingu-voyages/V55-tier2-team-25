@@ -10,8 +10,6 @@ import ResourceList from "./ResourceList";
 import Filter from "./Filter";
 import ClearButton from "./ClearButton";
 
-
-
 export default function SearchContainer() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -63,7 +61,7 @@ export default function SearchContainer() {
       setSearchResults(filteredResources);
       setLoading(false); // Reset loading state
     }
-//if the search term is empty and no tags are selected, reset the search results
+    //if the search term is empty and no tags are selected, reset the search results
     if (searchTerm.trim() === "" && selectedTags.length === 0) {
       setSearchResults(resources);
       setLoading(false); // Reset loading state
@@ -81,24 +79,39 @@ export default function SearchContainer() {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">🔍 Search</h2>
-      <div className="flex flex-row w-full items-center justify-center">
-        <Filter searchTerm={searchTerm} setSearchTerm={setSearchTerm} selectedTags={selectedTags} setSelectedTags={setSelectedTags} setSearchResults={setSearchResults}/>
+      <h2 className="text-2xl font-bold mb-4 sr-only">Search</h2>
+      <div className="flex flex-row w-full items-center justify-center relative">
+        
         <SearchBar query={searchTerm} setQuery={setSearchTerm} />
+        <Filter
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          selectedTags={selectedTags}
+          setSelectedTags={setSelectedTags}
+          setSearchResults={setSearchResults}
+          className="absolute top-0 left-0 z-10"
+        />
 
-        <SearchButton onClick={handleSearch} />
+        <SearchButton
+          onClick={handleSearch}
+          className="absolute top-0 right-0 z-30"
+        />
       </div>
 
-      {!loading && searchResults.length === 0 && (
-        <p className="mt-4">No results found.</p>
-      ) || !loading ? searchResults.length > 0 && (
-        <p className="mt-4">Found {searchResults.length} results.</p>
-      ) : null}
-    
-      {/* Clear Search Button */}
+      <div className="pt-20">
+        {(!loading && searchResults.length === 0 && (
+          <p className="mt-4">No results found.</p>
+        )) ||
+        !loading
+          ? searchResults.length > 0 && (
+              <p className="mt-4">Found {searchResults.length} results.</p>
+            )
+          : null}
 
-<ClearButton onClick={handleClearSearch} name="Clear Search"/>
+        {/* Clear Search Button */}
 
+        <ClearButton onClick={handleClearSearch} name="Clear Search" />
+      </div>
       <ResourceList
         data={searchResults}
         tags={tags}
