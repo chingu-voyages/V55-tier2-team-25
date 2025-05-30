@@ -8,7 +8,24 @@
   --foreground: #171717;
   --gradient-1: #473CE0;
   --gradient-2: #682FD8; 
+  --color-text-primary: #111827;
+  --color-text-secondary: #545963;
+  --color-text-tertiary: #9ca3af;
+  --color-text-disabled: #d1d5db;
+  --color-text-on-primary: #ffffff;
+  --color-text-accent: #4136e0 
+  
+  --color alpha-white-10: rgba(255, 255, 255, 0.1);
+  --color-alpha-black-50: rgba(0, 0, 0, 0.5);
+
+  --color-accent-700: #4136e0;
+  --color-accent-400: #7181ff;
+
+  --color-border-primary: #e5e7eb;
+  --color-background-primary: #ffffff;
 }
+
+
 
 /* @media (prefers-color-scheme: dark) {
   :root {
