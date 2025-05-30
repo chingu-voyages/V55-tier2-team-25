@@ -100,7 +100,7 @@ export default function SearchContainer() {
           className="absolute top-0 left-0 z-10"
         />
 
-        <div className="flex items-center z-30 space-x-2 absolute right-3 -top-23 gap-1">
+        <div className="flex items-center z-30 space-x-2 absolute right-5 -top-22 gap-1">
           <ClearButton onClick={handleClearSearch} name="X" />
           <SearchButton onClick={handleSearch} />
         </div>
