@@ -71,6 +71,15 @@ export default function SearchContainer() {
     console.log("Filtered resources:", searchResults);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent form submission
+      handleSearch(e); // Call the search function
+    }
+  }
+
+  
+
   const handleClearSearch = () => {
     setSearchTerm("");
     setSearchResults([]);
@@ -81,7 +90,7 @@ export default function SearchContainer() {
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4 sr-only">Search</h2>
       <div className="flex flex-row w-full items-center justify-center relative">
-        <SearchBar query={searchTerm} setQuery={setSearchTerm} />
+        <SearchBar query={searchTerm} setQuery={setSearchTerm} handleKeyDown={handleKeyDown} />
         <Filter
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
