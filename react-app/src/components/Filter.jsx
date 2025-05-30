@@ -47,7 +47,7 @@ export default function Filter({ searchTerm, setSearchTerm, selectedTags, setSel
   };
 
   return (
-    <div className="w-full">
+    <div className="absolute left-1.5 -top-25"> {/* positioning of filter icon */}
       <input type="checkbox" className="hidden peer" id="filter-toggle" />
 
       {/* Label tied to checkbox via htmlFor - makes this clickable */}
@@ -55,17 +55,17 @@ export default function Filter({ searchTerm, setSearchTerm, selectedTags, setSel
         htmlFor="filter-toggle"
         className="cursor-pointer flex items-center select-none"
       >
-        <FiFilter className="text-3xl text-white bg-gradient-to-r from-[var(--gradient-1)] to-[var(--gradient-2)] rounded-full w-10 h-10 p-2" />
+        <FiFilter className="text-5xl text-white bg-gradient-to-r from-[var(--gradient-1)] to-[var(--gradient-2)] rounded-full w-10 h-10 p-2" />
         <span className="sr-only">Filter menu based on resource tags</span>
       </label>
 
-      <div className="p-4 absolute bg-[var(--background)] border border-gray-200 mt-1 transition-opacity opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto z-10 h-fulloverflow-auto min-w-[150px] rounded-2xl">
+      <div className="p-4 absolute bg-white border border-gray-200 mt-1 transition-opacity opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto z-10 h-fulloverflow-auto min-w-[150px] rounded-2xl mt-3 mr-2.5">
         {/* Dropdown content */}
-        <div className="flex flex-wrap justify-between">
+        <div className="flex flex-wrap justify-between pt-4 pr-5">
           <h3 className="font-bold font-3 p-2 pb-4">Filters</h3>
           <ClearButton onClick={handleClearSearch} name="Reset"/>
         </div>
-        <legend className="pl-3 flex flex-wrap gap-1">
+        <legend className="pl-3 flex flex-wrap gap-1 pt-4">
           <FiTag className="self-center" />
           <span className="sr-only">Filter by</span>Tags
         </legend>
