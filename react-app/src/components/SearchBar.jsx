@@ -21,9 +21,9 @@ export default function SearchBar({ query, setQuery, handleKeyDown }) {
         placeholder="Find your next pick..."
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
-        className="border rounded-4xl p-2 bg-white w-[100%] pl-16 h-12 absolute -top-26 text-sm"
+        className="border rounded-4xl p-2 bg-white w-[100%] pl-20 h-14 absolute -top-26 text-sm self-center"
       />
-      <FiSearch className="mr-2 text-gray-500 absolute -top-22 left-12"/>
+      <FiSearch className="mr-2 text-gray-500 absolute -top-21 left-16"/>
     </div>
   );
 }
