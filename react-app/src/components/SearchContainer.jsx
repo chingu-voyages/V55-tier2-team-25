@@ -20,6 +20,13 @@ export default function SearchContainer( {onOpenFilter, isFilterOpen, onCloseFil
   const resources = useSelector((state) => state.data.resources);
   const tags = useSelector((state) => state.data.tags);
 
+//function to close the filter menu if it's open after the search is performed
+    const closeIfOpen =  () => {
+      if(isFilterOpen){ 
+      onCloseFilter(); // Close the filter menu if it's open
+      }
+    };
+
   //mapping of tag ids to resources
   const tagMap = useMemo(() => {
     const map = {};
@@ -31,6 +38,7 @@ export default function SearchContainer( {onOpenFilter, isFilterOpen, onCloseFil
 
   const handleSearch = (e) => {
     //   console.log("Search button clicked");
+    // Prevent default form submission behavior
     e.preventDefault();
 
     if (searchTerm.trim() !== "" || selectedTags.length > 0) {
@@ -60,16 +68,24 @@ export default function SearchContainer( {onOpenFilter, isFilterOpen, onCloseFil
       //Update search results
       setSearchResults(filteredResources);
       setLoading(false); // Reset loading state
+      closeIfOpen(); // Close the filter menu if it's open
+  
     }
     //if the search term is empty and no tags are selected, reset the search results
     if (searchTerm.trim() === "" && selectedTags.length === 0) {
       setSearchResults(resources);
       setLoading(false); // Reset loading state
+      // closeIfOpen(); // Close the filter menu if it's open
     }
 
     console.log("Search term:", searchTerm);
     console.log("Filtered resources:", searchResults);
+
   };
+
+
+
+
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
