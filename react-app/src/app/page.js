@@ -1,29 +1,47 @@
 //This is the main page of the application
 'use client';
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
-import ClearButton from "../components/ClearButton";
 import Footer from "../components/Footer";
-import RecommendSection from "../components/RecommendSection";
 import LatestSection from "../components/LatestSection";
 import store from "./store";
 import { Provider } from "react-redux";
 import SearchContainer from "@/components/SearchContainer";
+import './globals.css';
+import Filter from "@/components/Filter";
+
 
 export default function App() {
-  return (
-    <div>
-      <Provider store={store}>
-      <Header className="md:flex" />
-      <SearchContainer />
-  
-  
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const openFilterMenu = () => {
+    setIsFilterOpen(true);
+  };
+  const closeFilterMenu = () => {
+    setIsFilterOpen(false);
+  };
 
-      {/*<RecommendSection />*/}
-      <LatestSection />
-      {/* Add more sections as needed */}
+
+  return (
+      <Provider store={store}>
+     
+      <Header className="md:flex" />
+      <div className={isFilterOpen ? "blurred-background" : ""}>
+
+      <SearchContainer 
+      onOpenFilter={openFilterMenu} 
+      isFilterOpen={isFilterOpen} 
+      onCloseFilter={closeFilterMenu} 
+  />
+ {/* <div className={isFilterOpen ? "blurred-background" : ""}> */}
+        <LatestSection />
+</div>
       <Footer />
+ 
+ {/* Filter and Backdrop outside the grayed-out wrapper */}
+      {isFilterOpen && (
+      <></>
+      )}
       </Provider>
-    </div>
+ 
   );
 }

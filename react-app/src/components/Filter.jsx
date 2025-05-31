@@ -17,13 +17,16 @@ export default function Filter({
   selectedTags,
   setSelectedTags,
   setSearchResults,
+  isOpen,
+  onOpen,
+  onClose,
 }) {
   // const [searchResults, setSearchResults] = useState([]);
   const dispatch = useDispatch();
   const tags = useSelector(selectTags);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
   console.log(tags);
 
@@ -38,7 +41,19 @@ export default function Filter({
   };
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
+    // setIsOpen((prev) => !prev);
+    // console.log("menu is open now:", !isOpen);
+  
+    if (!isOpen) {
+      onOpen(); // Call onOpen when opening the menu
+    }
+    if (isOpen) {
+      onClose(); // Call onClose when closing the menu
+    }
+    // if (isAlreadyOpen) {
+    //   onClose(); // Call onClose when closing the menu
+    // } else {
+    //   onOpen(); // Call onOpen when opening the menu
   };
 
   if (loading)

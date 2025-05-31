@@ -10,7 +10,7 @@ import ResourceList from "./ResourceList";
 import Filter from "./Filter";
 import ClearButton from "./ClearButton";
 
-export default function SearchContainer() {
+export default function SearchContainer( {onOpenFilter, isFilterOpen, onCloseFilter, showFilter} ) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -97,6 +97,9 @@ export default function SearchContainer() {
           selectedTags={selectedTags}
           setSelectedTags={setSelectedTags}
           setSearchResults={setSearchResults}
+          isOpen={isFilterOpen}
+          onOpen={onOpenFilter}
+          onClose={onCloseFilter}
           className="absolute top-0 left-0 z-10"
         />
 

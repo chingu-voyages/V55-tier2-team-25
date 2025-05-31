@@ -181,3 +181,12 @@ body {
 .bg-gradient {
   background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
 }
+
+
+
+.blurred-background {
+    /* filter: blur(5px); /* Adjust the pixel value for more or less blur */
+    /* pointer-events: none; */
+  background-color: rgba(0, 0, 0, 0.4); 
+
+}
