@@ -20,18 +20,16 @@ export default function App() {
     setIsFilterOpen(false);
   };
 
-
   return (
       <Provider store={store}>
      <div className={isFilterOpen ? "blurred-background" : ""}>
-      <Header className="md:flex" />
-      <SearchContainer 
+<Header className={`md:flex`} />
+<SearchContainer 
       onOpenFilter={openFilterMenu} 
       isFilterOpen={isFilterOpen} 
       onCloseFilter={closeFilterMenu} 
   />
- {/* <div className={isFilterOpen ? "blurred-background" : ""}> */}
-        <LatestSection />
+        <LatestSection className={isFilterOpen ? " pointer-events-none" : ""} />
    
 </div>
       <Footer />
