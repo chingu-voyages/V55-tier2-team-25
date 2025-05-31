@@ -23,10 +23,8 @@ export default function App() {
 
   return (
       <Provider store={store}>
-     
+     <div className={isFilterOpen ? "blurred-background" : ""}>
       <Header className="md:flex" />
-      <div className={isFilterOpen ? "blurred-background" : ""}>
-
       <SearchContainer 
       onOpenFilter={openFilterMenu} 
       isFilterOpen={isFilterOpen} 
@@ -34,6 +32,7 @@ export default function App() {
   />
  {/* <div className={isFilterOpen ? "blurred-background" : ""}> */}
         <LatestSection />
+   
 </div>
       <Footer />
  
