@@ -75,7 +75,7 @@ export default function SearchContainer( {onOpenFilter, isFilterOpen, onCloseFil
     if (searchTerm.trim() === "" && selectedTags.length === 0) {
       setSearchResults(resources);
       setLoading(false); // Reset loading state
-      // closeIfOpen(); // Close the filter menu if it's open
+      closeIfOpen(); // Close the filter menu if it's open
     }
 
     console.log("Search term:", searchTerm);
@@ -120,7 +120,11 @@ export default function SearchContainer( {onOpenFilter, isFilterOpen, onCloseFil
         />
 
         <div className="flex items-center z-30 space-x-2 absolute right-5 -top-22 gap-1">
-          <ClearButton onClick={handleClearSearch} name="X" />
+          <ClearButton onClick={() => {
+            handleClearSearch();
+            closeIfOpen();
+          }}
+             name="X" />
           <SearchButton onClick={handleSearch} />
         </div>
       </div>
