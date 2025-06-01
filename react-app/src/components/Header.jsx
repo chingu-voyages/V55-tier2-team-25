@@ -24,7 +24,7 @@ export default function Header() {
             {getCurrentDate()}
           </h2>
         </div>
-        <div className="flex flex-col self-start headerText text-red-500 font-bold text-xl pt-[1.5em] text-left font-pretendard">
+        <div className="flex flex-col self-start headerText text-white font-bold text-xl pt-[1.5em] text-left font-pretendard">
           <h3>
             Find your next <br />
             PeerPick <br />
