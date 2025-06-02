@@ -132,9 +132,9 @@ export default function Filter({
                               : [...prev, value] // add if not selected
                         );
                       }}
-                      className="peer hidden" // gives it a button look rather than a checkbox list
+                      className="peer sr-only" // gives it a button look rather than a checkbox list, but keeps it visible to screen readers
                     />
-                    <span className="inline-block px-3 py-3 rounded-full border border-[var(--primary)] bg-white text-[var(--foreground)] peer-checked:[border-color:var(--gradient-1)] peer-checked:text-[var(--gradient-1)] transition-all">
+                    <span className="inline-block px-3 py-3 rounded-full border border-[var(--primary)] bg-white text-[var(--foreground)] transition-all peer-checked:[border-color:var(--gradient-1)] peer-checked:text-[var(--gradient-1)] peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-[var(--gradient-1)]">
                       {tag.tag}
                     </span>
                   </label>
