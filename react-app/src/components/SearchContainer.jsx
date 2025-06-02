@@ -10,9 +10,7 @@ import ResourceList from "./ResourceList";
 import Filter from "./Filter";
 import ClearButton from "./ClearButton";
 
-
-
-export default function SearchContainer() {
+export default function SearchContainer( {onOpenFilter, isFilterOpen, onCloseFilter, showFilter} ) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -21,6 +19,13 @@ export default function SearchContainer() {
   const error = useSelector(selectError);
   const resources = useSelector((state) => state.data.resources);
   const tags = useSelector((state) => state.data.tags);
+
+//function to close the filter menu if it's open after the search is performed
+    const closeIfOpen =  () => {
+      if(isFilterOpen){ 
+      onCloseFilter(); // Close the filter menu if it's open
+      }
+    };
 
   //mapping of tag ids to resources
   const tagMap = useMemo(() => {
@@ -33,6 +38,7 @@ export default function SearchContainer() {
 
   const handleSearch = (e) => {
     //   console.log("Search button clicked");
+    // Prevent default form submission behavior
     e.preventDefault();
 
     if (searchTerm.trim() !== "" || selectedTags.length > 0) {
@@ -62,11 +68,33 @@ export default function SearchContainer() {
       //Update search results
       setSearchResults(filteredResources);
       setLoading(false); // Reset loading state
+      closeIfOpen(); // Close the filter menu if it's open
+  
+    }
+    //if the search term is empty and no tags are selected, reset the search results
+    if (searchTerm.trim() === "" && selectedTags.length === 0) {
+      setSearchResults(resources);
+      setLoading(false); // Reset loading state
+      closeIfOpen(); // Close the filter menu if it's open
     }
 
     console.log("Search term:", searchTerm);
     console.log("Filtered resources:", searchResults);
+
   };
+
+
+
+
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // Prevent form submission
+      handleSearch(e); // Call the search function
+    }
+  }
+
+  
 
   const handleClearSearch = () => {
     setSearchTerm("");
@@ -76,20 +104,45 @@ export default function SearchContainer() {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">🔍 Search</h2>
-      <div className="flex flex-row w-full items-center justify-center">
-        <Filter searchTerm={searchTerm} setSearchTerm={setSearchTerm} selectedTags={selectedTags} setSelectedTags={setSelectedTags} setSearchResults={setSearchResults}/>
-        <SearchBar query={searchTerm} setQuery={setSearchTerm} />
+      <h2 className="text-2xl font-bold mb-4 sr-only">Search</h2>
+      <div className="flex flex-row w-full items-center justify-center relative">
+        <SearchBar query={searchTerm} setQuery={setSearchTerm} handleKeyDown={handleKeyDown} />
+        <Filter
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          selectedTags={selectedTags}
+          setSelectedTags={setSelectedTags}
+          setSearchResults={setSearchResults}
+          isOpen={isFilterOpen}
+          onOpen={onOpenFilter}
+          onClose={onCloseFilter}
+          className="absolute top-0 left-0 z-10"
+        />
 
-        <SearchButton onClick={handleSearch} />
+        <div className="flex items-center z-30 space-x-2 absolute right-5 -top-22 gap-1">
+          <ClearButton onClick={() => {
+            handleClearSearch();
+            closeIfOpen();
+          }}
+             name="X" />
+          <SearchButton onClick={handleSearch} />
+        </div>
       </div>
 
-      {!loading && searchResults.length === 0 && (
-        <p className="mt-4">No results found.</p>
-      )}
+      <div className="pt-4">
+        {(!loading && searchResults.length === 0 && (
+          <h2 className="font-bold text-xl">No results found.</h2>
+        )) ||
+        !loading
+          ? searchResults.length > 0 && (
+              <h2 className="font-bold text-xl">
+                {searchResults.length} Results Found
+              </h2>
+            )
+          : null}
 
-<ClearButton onClick={handleClearSearch} name="Clear Search"/>
-
+        {/* Clear Search Button */}
+      </div>
       <ResourceList
         data={searchResults}
         tags={tags}

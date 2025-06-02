@@ -11,18 +11,50 @@ import { FiTag } from "react-icons/fi";
 import ClearButton from "./ClearButton";
 // import { searchResults } from "./SearchContainer";
 
-export default function Filter({ searchTerm, setSearchTerm, selectedTags, setSelectedTags, setSearchResults }) {
+export default function Filter({
+  searchTerm,
+  setSearchTerm,
+  selectedTags,
+  setSelectedTags,
+  setSearchResults,
+  isOpen,
+  onOpen,
+  onClose,
+}) {
   // const [searchResults, setSearchResults] = useState([]);
   const dispatch = useDispatch();
   const tags = useSelector(selectTags);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
+  // const [isOpen, setIsOpen] = useState(false);
 
   console.log(tags);
 
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
+
+  const handleClearSearch = () => {
+    setSearchTerm("");
+    setSearchResults([]);
+    setSelectedTags([]);
+  };
+
+  const toggleMenu = () => {
+    // setIsOpen((prev) => !prev);
+    // console.log("menu is open now:", !isOpen);
+  
+    if (!isOpen) {
+      onOpen(); // Call onOpen when opening the menu
+    }
+    if (isOpen) {
+      onClose(); // Call onClose when closing the menu
+    }
+    // if (isAlreadyOpen) {
+    //   onClose(); // Call onClose when closing the menu
+    // } else {
+    //   onOpen(); // Call onOpen when opening the menu
+  };
 
   if (loading)
     return (
@@ -40,65 +72,77 @@ export default function Filter({ searchTerm, setSearchTerm, selectedTags, setSel
     );
   }
 
-  const handleClearSearch = () => {
-    setSearchTerm("");
-    setSearchResults([]);
-    setSelectedTags([]);
-  };
-
   return (
-    <div className="w-full">
-      <input type="checkbox" className="hidden peer" id="filter-toggle" />
-
-      {/* Label tied to checkbox via htmlFor - makes this clickable */}
-      <label
-        htmlFor="filter-toggle"
-        className="cursor-pointer flex items-center select-none"
+    <div className="absolute left-1.5 -top-25">
+      {" "}
+      {/* positioning of filter icon */}
+      <button
+        type="button"
+        onClick={toggleMenu}
+        aria-expanded={isOpen}
+        aria-controls="filter-menu"
+        className="cursor-pointer flex items-center"
       >
-        <FiFilter className="text-3xl text-white bg-gradient-to-r from-[var(--gradient-1)] to-[var(--gradient-2)] rounded-full w-10 h-10 p-2" />
+        <FiFilter
+          className={`text-5xl rounded-full p-2 ${
+            isOpen
+              ? "text-[var(--gradient-1)] bg-white border-2 border-[var(--gradient-1)]"
+              : "text-white bg-gradient-to-r from-[var(--gradient-1)] to-[var(--gradient-2)]"
+          }`}
+        />
         <span className="sr-only">Filter menu based on resource tags</span>
-      </label>
+      </button>
+      <div className="relative">
+        <div
+          id="filter-menu"
+          role="dialog"
+          aria-label="Filter menu"
+          aria-hidden="true"
+          tabIndex={-1}
+          className={`absolute left-0 top-full mt-3 w-[93vw] p-4 bg-surface-tertiary border border-gray-200 z-10 rounded-2xl shadow-lg ${isOpen ? "block" : "hidden"}`}
+        >
+          <div className="flex justify-between items-center">
+            <h2 className="font-bold text-lg">Filters</h2>
+            <ClearButton onClick={handleClearSearch} name="Reset" />
+          </div>
 
-      <div className="absolute bg-[var(--background)] border border-gray-200 mt-1 p-2 transition-opacity opacity-0 pointer-events-none peer-checked:opacity-100 peer-checked:pointer-events-auto z-10 max-h-64 overflow-auto min-w-[150px]">
-        {/* Dropdown content */}
-        <div className="flex flex-wrap justify-between">
-          <h3 className="font-bold	font-3">Filters</h3>
-          <ClearButton onClick={handleClearSearch} name="Reset"/>
+          <fieldset className="mt-4">
+            <legend className="pl-3 flex flex-wrap gap-1 pt-4">
+              <FiTag className="self-center" />
+              <span className="sr-only">Filter by</span>Tags
+            </legend>
+            <ul className="flex flex-wrap gap-1">
+              {tags.map((tag) => (
+                <li key={tag.id}>
+                  <label
+                    htmlFor={`tag-${tag.id}`}
+                    className="flex whitespace-nowrap cursor-pointer px-2 py-1 transition-colors"
+                  >
+                    <input
+                      type="checkbox"
+                      id={`tag-${tag.id}`}
+                      value={tag.tag}
+                      checked={(selectedTags || []).includes(tag.tag)}
+                      onChange={(e) => {
+                        const value = e.target.value;
+                        setSelectedTags(
+                          (prev) =>
+                            prev.includes(value)
+                              ? prev.filter((tag) => tag !== value) // remove if already selected
+                              : [...prev, value] // add if not selected
+                        );
+                      }}
+                      className="peer hidden" // gives it a button look rather than a checkbox list
+                    />
+                    <span className="inline-block px-3 py-3 rounded-full border border-primary bg-white text-[var(--foreground)] peer-checked:border-[var(--gradient-1)] peer-checked:text-[var(--gradient-1)] transition-all">
+                      {tag.tag}
+                    </span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </fieldset>
         </div>
-        <legend className="flex flex-wrap gap-1">
-          <FiTag className="text-[var(--gradient-1)] self-center" />
-          <span className="sr-only">Filter by</span>Tags
-        </legend>
-        <ul className="flex flex-wrap gap-1">
-          {tags.map((tag) => (
-            <li key={tag.id}>
-              <label
-                htmlFor={`tag-${tag.id}`}
-                className="flex whitespace-nowrap cursor-pointer px-2 py-1 transition-colors"
-              >
-                <input
-                  type="checkbox"
-                  id={`tag-${tag.id}`}
-                  value={tag.tag}
-                  checked={(selectedTags || []).includes(tag.tag)}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    setSelectedTags(
-                      (prev) =>
-                        prev.includes(value)
-                          ? prev.filter((tag) => tag !== value) // remove if already selected
-                          : [...prev, value] // add if not selected
-                    );
-                  }}
-                  className="peer hidden" // gives it a button look rather than a checkbox list
-                />
-                <span className="inline-block px-3 py-1 rounded-full border border-[var(--foreground)] text-[var(--foreground)] peer-checked:bg-[var(--background)] peer-checked:border-[var(--gradient-1)] peer-checked:text-[var(--gradient-1)] transition-all">
-                  {tag.tag}
-                </span>
-              </label>
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   );

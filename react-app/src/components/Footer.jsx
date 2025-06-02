@@ -1,10 +1,7 @@
-//This is the header component
-
 import React from 'react';
 
 export default function Footer() {
   return (
-    <div>
         {/* */}
       <div className="team-info flex justify-center flex-col items-center bg-[linear-gradient(to_right,_#385894_0%,_#473CE0_48%,_#682FD8_85%)]">   {/*flex justify center flex-direction column #385894 #473CE0 #682FD8*/}
         <div className="footer-bold flex justify-around w-full">{/* flex justify-space around*/}
@@ -67,60 +64,48 @@ export default function Footer() {
         <p>@2025 Chingu. All rights reserved.</p>
       </div>
 
-
-      </div><header className="p-4 border-2">
-        <h2 className="text-2xl font-bold">My Footer</h2>
-         We can code our information here 
-      </header>
-    </div>  
-
-  );
-
-
-  /*  <div className="p-4">
-      <header className="border-2 whitespace-normal break-words">
-        <h2 className="text-2xl font-bold text-center pt-4">Team Members</h2>
-
-      </header>
-
-    </div>
+    </footer>
 
 
 
+  //   <div className="p-4">
+  //     <footer className="border-2 whitespace-normal break-words">
+  //       <h2 className="text-2xl font-bold text-center pt-4">Team Members</h2>
+  //       <ul className="p-4">
+  //         <li>
+  //           Marissa Lamothe: 
+  //           <a href="https://github.com/msrissaxox" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/marissalamothe/" target='_blank'>LinkedIn</a>
+  //         </li>
 
-        <ul className="p-4">
-          <li>
-            Marissa Lamothe: 
-            <a href="https://github.com/msrissaxox" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/marissalamothe/" target='_blank'>LinkedIn</a>
-          </li>
-
-          <li>
-            Alison Holland: 
-            <a href="https://github.com/alison-ah" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/andersonholland/" target='_blank'>LinkedIn</a>
-          </li>
+  //         <li>
+  //           Alison Holland: 
+  //           <a href="https://github.com/alison-ah" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/andersonholland/" target='_blank'>LinkedIn</a>
+  //         </li>
          
-          <li>
-            Valerie: 
-            <a href='https://github.com/val-ue' target='_blank'>GitHub</a> / <a href='https://www.linkedin.com/in/valerielabideveloper/' target='_blank'>LinkedIn</a>
-          </li>
+  //         <li>
+  //           Valerie: 
+  //           <a href='https://github.com/val-ue' target='_blank'>GitHub</a> / <a href='https://www.linkedin.com/in/valerielabideveloper/' target='_blank'>LinkedIn</a>
+  //         </li>
             
-          <li>
-            Molly: 
-            <a href='https://github.com/learningcoding2022' target='_blank'>GitHub</a> / <a href='https://www.linkedin.com/in/molly-b-97877492/' target='_blank'>LinkedIn</a>
-          </li>
+  //         <li>
+  //           Molly: 
+  //           <a href='https://github.com/learningcoding2022' target='_blank'>GitHub</a> / <a href='https://www.linkedin.com/in/molly-b-97877492/' target='_blank'>LinkedIn</a>
+  //         </li>
 
-          <li>
-            MJ: 
-            <a href='https://github.com/lmj5081' target='_blank'>GitHub</a> / <a href='https://www.linkedin.com/in/mjleedesigners/' target='_blank'>LinkedIn</a>
-          </li>
+  //         <li>
+  //           MJ: 
+  //           <a href='https://github.com/lmj5081' target='_blank'>GitHub</a> / <a href='https://www.linkedin.com/in/mjleedesigners/' target='_blank'>LinkedIn</a>
+  //         </li>
 
-          <li>
-            Jim Schibler: 
-            <a href="https://github.com/jaschibler" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/jimschibler/" target='_blank'>LinkedIn</a>
-          </li>
+  //         <li>
+  //           Jim Schibler: 
+  //           <a href="https://github.com/jaschibler" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/jimschibler/" target='_blank'>LinkedIn</a>
+  //         </li>
 
-          <li>
-            James: 
-            <a href="https://github.com/Nwumfor" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/james-nwumfor-56008144/" target='_blank'>LinkedIn</a>
-          </li>
-        </ul>*/}
+  //         <li>
+  //           James: 
+  //           <a href="https://github.com/Nwumfor" target='_blank'>GitHub</a> / <a href="https://www.linkedin.com/in/james-nwumfor-56008144/" target='_blank'>LinkedIn</a>
+  //         </li>
+  //       </ul>
+  //     </footer>
+  //   </div>
