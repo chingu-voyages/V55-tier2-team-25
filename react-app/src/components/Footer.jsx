@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-        {/* */}
+      <div>
       <div className="team-info flex justify-center flex-col items-center bg-[linear-gradient(to_right,_#385894_0%,_#473CE0_48%,_#682FD8_85%)]">   {/*flex justify center flex-direction column #385894 #473CE0 #682FD8*/}
         <div className="footer-bold flex justify-around w-full">{/* flex justify-space around*/}
           <h3>Team</h3>
@@ -35,12 +35,12 @@ export default function Footer() {
 
     
 
-{/*export default function Footer() {
+/*export default function Footer() {
   return (
     <div>
        
-      <div className="team-info flex justify-center flex-col items-center">   {/*flex justify center flex-direction column #385894 #473CE0 #682FD8*/}
-       {/* <div className="footer-bold flex justify-between w-full"> flex justify-space apart*
+      <div className="team-info flex justify-center flex-col items-center">   {/*flex justify center flex-direction column #385894 #473CE0 #682FD8*/
+       /* <div className="footer-bold flex justify-between w-full"> flex justify-space apart*
           <h3>Team</h3>
           <h3>icon</h3>
           {/* Github Icon*
@@ -108,4 +108,4 @@ export default function Footer() {
   //         </li>
   //       </ul>
   //     </footer>
-  //   </div>
+  //   </div> */
