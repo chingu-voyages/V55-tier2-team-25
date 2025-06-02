@@ -149,6 +149,8 @@ export default function SearchContainer({
           <>
             {searchResults.length === 0 ? (
               <h2 className="font-bold text-xl">No results found.</h2>
+            ) : searchResults.length === 1 ? (
+             <h2 className="font-bold text-xl">1 Result Found</h2>
             ) : (
               <h2 className="font-bold text-xl">
                 {searchResults.length} Results Found
