@@ -10,7 +10,7 @@ import ResourceList from "./ResourceList";
 import Filter from "./Filter";
 import ClearButton from "./ClearButton";
 
-export default function SearchContainer() {
+export default function SearchContainer( {onOpenFilter, isFilterOpen, onCloseFilter, showFilter} ) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -19,6 +19,13 @@ export default function SearchContainer() {
   const error = useSelector(selectError);
   const resources = useSelector((state) => state.data.resources);
   const tags = useSelector((state) => state.data.tags);
+
+//function to close the filter menu if it's open after the search is performed
+    const closeIfOpen =  () => {
+      if(isFilterOpen){ 
+      onCloseFilter(); // Close the filter menu if it's open
+      }
+    };
 
   //mapping of tag ids to resources
   const tagMap = useMemo(() => {
@@ -31,6 +38,7 @@ export default function SearchContainer() {
 
   const handleSearch = (e) => {
     //   console.log("Search button clicked");
+    // Prevent default form submission behavior
     e.preventDefault();
 
     if (searchTerm.trim() !== "" || selectedTags.length > 0) {
@@ -60,16 +68,24 @@ export default function SearchContainer() {
       //Update search results
       setSearchResults(filteredResources);
       setLoading(false); // Reset loading state
+      closeIfOpen(); // Close the filter menu if it's open
+  
     }
     //if the search term is empty and no tags are selected, reset the search results
     if (searchTerm.trim() === "" && selectedTags.length === 0) {
       setSearchResults(resources);
       setLoading(false); // Reset loading state
+      closeIfOpen(); // Close the filter menu if it's open
     }
 
     console.log("Search term:", searchTerm);
     console.log("Filtered resources:", searchResults);
+
   };
+
+
+
+
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -97,11 +113,18 @@ export default function SearchContainer() {
           selectedTags={selectedTags}
           setSelectedTags={setSelectedTags}
           setSearchResults={setSearchResults}
+          isOpen={isFilterOpen}
+          onOpen={onOpenFilter}
+          onClose={onCloseFilter}
           className="absolute top-0 left-0 z-10"
         />
 
         <div className="flex items-center z-30 space-x-2 absolute right-5 -top-22 gap-1">
-          <ClearButton onClick={handleClearSearch} name="X" />
+          <ClearButton onClick={() => {
+            handleClearSearch();
+            closeIfOpen();
+          }}
+             name="X" />
           <SearchButton onClick={handleSearch} />
         </div>
       </div>

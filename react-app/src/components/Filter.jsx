@@ -17,13 +17,16 @@ export default function Filter({
   selectedTags,
   setSelectedTags,
   setSearchResults,
+  isOpen,
+  onOpen,
+  onClose,
 }) {
   // const [searchResults, setSearchResults] = useState([]);
   const dispatch = useDispatch();
   const tags = useSelector(selectTags);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
   console.log(tags);
 
@@ -38,7 +41,19 @@ export default function Filter({
   };
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
+    // setIsOpen((prev) => !prev);
+    // console.log("menu is open now:", !isOpen);
+  
+    if (!isOpen) {
+      onOpen(); // Call onOpen when opening the menu
+    }
+    if (isOpen) {
+      onClose(); // Call onClose when closing the menu
+    }
+    // if (isAlreadyOpen) {
+    //   onClose(); // Call onClose when closing the menu
+    // } else {
+    //   onOpen(); // Call onOpen when opening the menu
   };
 
   if (loading)
@@ -84,7 +99,7 @@ export default function Filter({
           aria-label="Filter menu"
           aria-hidden="true"
           tabIndex={-1}
-          className={`absolute left-0 top-full mt-3 w-[93vw] p-4 bg-white border border-gray-200 z-10 rounded-2xl shadow-lg ${isOpen ? "block" : "hidden"}`}
+          className={`absolute left-0 top-full mt-3 w-[93vw] p-4 bg-surface-tertiary border border-gray-200 z-10 rounded-2xl shadow-lg ${isOpen ? "block" : "hidden"}`}
         >
           <div className="flex justify-between items-center">
             <h2 className="font-bold text-lg">Filters</h2>
@@ -119,7 +134,7 @@ export default function Filter({
                       }}
                       className="peer hidden" // gives it a button look rather than a checkbox list
                     />
-                    <span className="inline-block px-3 py-3 rounded-full border border-[var(--foreground)] bg-white text-[var(--foreground)] peer-checked:border-[var(--gradient-1)] peer-checked:text-[var(--gradient-1)] transition-all">
+                    <span className="inline-block px-3 py-3 rounded-full border border-primary bg-white text-[var(--foreground)] peer-checked:border-[var(--gradient-1)] peer-checked:text-[var(--gradient-1)] transition-all">
                       {tag.tag}
                     </span>
                   </label>

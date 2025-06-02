@@ -11,16 +11,191 @@
   --gradient-1: #473ce0;
   --gradient-2: #682fd8;
 }
+=======
+  /* General Layout Colors */
+  --background: #F6F5FA;
+  --foreground: #171717;
+  --gradient-1: #473CE0;
+  --gradient-2: #682FD8;
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
+  /* ==========================
+     Text Colors
+     ========================== */
+  --color-text-primary: #111827;
+  --color-text-secondary: #545963;
+  --color-text-tertiary: #9CA3AF;
+  --color-text-disabled: #D1D5DB;
+  --color-text-on-primary: #FFFFFF;
+  --color-text-accent: #4136E0;
+  --color-text-testpink: #FF69B4;
+  --color-topic-text-1: #92099A;
+  --color-topic-text-2: #0D4CB3;
+  --color-topic-text-3: #42065E;
+  --color-topic-text-4: #065E52;
+  --color-topic-text-5: #F0FFFD;
 
+  /* ==========================
+     Alpha Colors
+     ========================== */
+  --alpha-white-10: rgba(255, 255, 255, 0.1);
+  --alpha-white-30: rgba(255, 255, 255, 0.3);
+  --alpha-white-50: rgba(255, 255, 255, 0.5);
+  --alpha-white-80: rgba(255, 255, 255, 0.8);
+  --alpha-black-10: rgba(0, 0, 0, 0.1);
+  --alpha-black-30: rgba(0, 0, 0, 0.3);
+  --alpha-black-50: rgba(0, 0, 0, 0.5);
+  --alpha-black-80: rgba(0, 0, 0, 0.8);
+
+  /* ==========================
+     Accent Colors (shades)
+     ========================== */
+  --color-accent-50: #ECF1FF;
+  --color-accent-100: #DCE5FF;
+  --color-accent-200: #C0CFFF;
+  --color-accent-300: #99ADFF;
+  --color-accent-400: #7181FF;
+  --color-accent-500: #5056FF;
+  --color-accent-600: #3A31FA;
+  --color-accent-700: #4136E0;
+  --color-accent-800: #2821B2;
+  --color-accent-900: #26238C;
+  --color-accent-950: #171551;
+
+  /* ==========================
+     Base Colors
+     ========================== */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* ==========================
+     Action Colors
+     ========================== */
+  --color-error: #EF4444;
+  --color-error-hover: #DC2626;
+
+  /* ==========================
+     Icon Colors
+     ========================== */
+  --color-icon-primary: #111827;
+  --color-icon-secondary: #6B7280;
+  --color-icon-tertiary: #9CA3AF;
+  --color-icon-default: #6B7280;
+  --color-icon-handle: #D1D5DB;
+
+  /* ==========================
+     Border Colors
+     ========================== */
+  --color-border-primary: #E5E7EB;
+  --color-border-secondary: #545963;
+  --color-border-default: #E5E7EB;
+  --color-border-hover: #D1D5DB;
+
+  /* ==========================
+     Background Colors
+     ========================== */
+  --color-background-primary: #FFFFFF;
+  --color-background-surface-primary: #FFFFFF;
+  --color-background-surface-secondary: #FAFAFA;
+  --color-background-surface-tertiary: #F7F8FC;
+  --color-background-hover: #E5E7EB;
+  --color-background-pressed: #D1D5DB;
+  --color-background-tag: #F3F4F6;
+  --color-background-black: #000000;
+
+  /* ==========================
+     Topic Selector Backgrounds
+     ========================== */
+  --color-topic-background-1: #FFEFFF;
+  --color-topic-background-2: #EFF3FF;
+  --color-topic-background-3: #F8F0FF;
+  --color-topic-background-4: #F0FFFD;
+}
+
+/* ==========================
+   Base Styles
+   ========================== */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: 'Pretendard', sans-serif;
+}
+
+/* ==========================
+   Text Color Utilities
+   ========================== */
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-tertiary { color: var(--color-text-tertiary); }
+.text-disabled { color: var(--color-text-disabled); }
+.text-on-primary { color: var(--color-text-on-primary); }
+.text-accent { color: var(--color-text-accent); }
+.text-testpink { color: var(--color-text-testpink); }
+.text-topic-1 { color: var(--color-topic-text-1); }
+.text-topic-2 { color: var(--color-topic-text-2); }
+.text-topic-3 { color: var(--color-topic-text-3); }
+.text-topic-4 { color: var(--color-topic-text-4); }
+.text-topic-5 { color: var(--color-topic-text-5); }
+
+/* ==========================
+   Background Color Utilities
+   ========================== */
+.bg-primary { background-color: var(--color-background-primary); }
+.bg-surface-primary { background-color: var(--color-background-surface-primary); }
+.bg-surface-secondary { background-color: var(--color-background-surface-secondary); }
+.bg-surface-tertiary { background-color: var(--color-background-surface-tertiary); }
+.bg-hover { background-color: var(--color-background-hover); }
+.bg-pressed { background-color: var(--color-background-pressed); }
+.bg-tag { background-color: var(--color-background-tag); }
+.bg-black { background-color: var(--color-background-black); }
+.bg-accent { background-color: var(--color-accent-700); }
+.bg-accent-light { background-color: var(--color-accent-400); }
+.bg-topic-1 { background-color: var(--color-topic-background-1); }
+.bg-topic-2 { background-color: var(--color-topic-background-2); }
+.bg-topic-3 { background-color: var(--color-topic-background-3); }
+.bg-topic-4 { background-color: var(--color-topic-background-4); }
+
+/* ==========================
+   Border Color Utilities
+   ========================== */
+.border-primary { border-color: var(--color-border-primary); }
+.border-secondary { border-color: var(--color-border-secondary); }
+.border-default { border-color: var(--color-border-default); }
+.border-hover { border-color: var(--color-border-hover); }
+
+/* ==========================
+   Icon Color Utilities
+   ========================== */
+.icon-primary { color: var(--color-icon-primary); }
+.icon-secondary { color: var(--color-icon-secondary); }
+.icon-tertiary { color: var(--color-icon-tertiary); }
+.icon-default { color: var(--color-icon-default); }
+.icon-handle { color: var(--color-icon-handle); }
+
+/* ==========================
+   Alpha Overlay Utilities
+   ========================== */
+.bg-alpha-white-10 { background-color: var(--alpha-white-10); }
+.bg-alpha-white-30 { background-color: var(--alpha-white-30); }
+.bg-alpha-white-50 { background-color: var(--alpha-white-50); }
+.bg-alpha-white-80 { background-color: var(--alpha-white-80); }
+.bg-alpha-black-10 { background-color: var(--alpha-black-10); }
+.bg-alpha-black-30 { background-color: var(--alpha-black-30); }
+.bg-alpha-black-50 { background-color: var(--alpha-black-50); }
+.bg-alpha-black-80 { background-color: var(--alpha-black-80); }
+
+/* ==========================
+   Gradient Utilities
+   ========================== */
+.bg-gradient {
+  background: linear-gradient(to right, var(--gradient-1), var(--gradient-2));
+}
+
+
+
+.blurred-background {
+    /* filter: blur(5px); /* Adjust the pixel value for more or less blur */
+    /* pointer-events: none; */
+  background-color: rgba(0, 0, 0, 0.4); 
+   z-index: 100;
+   
 }
