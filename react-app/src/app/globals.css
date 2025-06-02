@@ -11,10 +11,10 @@
   --gradient-1: #473ce0;
   --gradient-2: #682fd8;
   /* General Layout Colors */
-  --background: #F6F5FA;
+  /* --background: #F6F5FA;
   --foreground: #171717;
   --gradient-1: #473CE0;
-  --gradient-2: #682FD8;
+  --gradient-2: #682FD8; */
 
   /* ==========================
      Text Colors
@@ -159,7 +159,7 @@ body {
 .border-secondary { border-color: var(--color-border-secondary); }
 .border-default { border-color: var(--color-border-default); }
 .border-hover { border-color: var(--color-border-hover); }
-
+.gradient-1 { border-color: var(--gradient-1); }
 /* ==========================
    Icon Color Utilities
    ========================== */
