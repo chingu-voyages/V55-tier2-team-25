@@ -134,7 +134,7 @@ export default function Filter({
                       }}
                       className="peer hidden" // gives it a button look rather than a checkbox list
                     />
-                    <span className="inline-block px-3 py-3 rounded-full border border-primary bg-white text-[var(--foreground)] peer-checked:border-[var(--gradient-1)] peer-checked:text-[var(--gradient-1)] transition-all">
+                    <span className="inline-block px-3 py-3 rounded-full border border-[var(--primary)] bg-white text-[var(--foreground)] peer-checked:[border-color:var(--gradient-1)] peer-checked:text-[var(--gradient-1)] transition-all">
                       {tag.tag}
                     </span>
                   </label>
