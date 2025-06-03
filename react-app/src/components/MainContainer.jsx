@@ -3,12 +3,18 @@ import React, { useState, useMemo, useEffect } from "react";
 //useDispatch is used to dispatch actions to the store
 //useSelector is used to select data from the store
 import { useDispatch, useSelector } from "react-redux";
-import { fetchData, selectError } from "../redux/dataSlice";
-import SearchBar from "./SearchBar";
-import SearchButton from "./SearchButton";
-import ResourceList from "./ResourceList";
-import Filter from "./Filter";
-import ClearButton from "./ClearButton";
+import {
+  fetchData,
+  selectError,
+  selectMostRecent,
+  selectLoading,
+  selectTags,
+} from "../redux/dataSlice";
+import SearchBar from "./SearchControl/SearchBar";
+import SearchButton from "./SearchControl/SearchButton";
+import ResourceList from "./Results/ResourceList";
+import Filter from "./SearchControl/Filter";
+import ClearButton from "./SearchControl/ClearButton";
 
 export default function SearchContainer({
   onOpenFilter,
@@ -27,6 +33,15 @@ export default function SearchContainer({
   const resources = useSelector((state) => state.data.resources);
   const tags = useSelector((state) => state.data.tags);
 
+  //to get the newly picked
+  const latest = useSelector(selectMostRecent);
+  const isLatestLoaded = useSelector((state) => state.data.isLatestLoaded);
+
+  useEffect(() => {
+    if (!isLatestLoaded) {
+      dispatch(fetchData());
+    }
+  }, [dispatch, isLatestLoaded]);
 
   //function to close the filter menu if it's open after the search is performed
   const closeIfOpen = () => {
@@ -79,7 +94,6 @@ export default function SearchContainer({
       setSearchResults(filteredResources);
       setLoading(false); // Reset loading state
       closeIfOpen(); // Close the filter menu if it's open
-    
     }
 
     //if the search term is empty and no tags are selected, reset the search results
@@ -142,33 +156,43 @@ export default function SearchContainer({
         </div>
       </div>
 
+      <div className={`p-4 ${isFilterOpen ? "blurred-background" : ""}`}>
+        <div className="pt-4">
+          {!loading && !error && !hasSearched ? (
+            <p className="text-gray-600 italic">
+              Start searching by typing in a keyword or selecting a filter.
+            </p>
+          ) : hasSearched ? (
+            <>
+              {searchResults.length === 0 ? (
+                <h2 className="font-bold text-xl">No results found.</h2>
+              ) : searchResults.length === 1 ? (
+                <h2 className="font-bold text-xl">1 Result Found</h2>
+              ) : (
+                <h2 className="font-bold text-xl">
+                  {searchResults.length} Results Found
+                </h2>
+              )}
+            </>
+          ) : null}
+        </div>
 
+        <ResourceList
+          title={"Search Results"}
+          data={searchResults}
+          tags={tags}
+          loading={loading}
+          error={error}
+        />
 
-      <div className="pt-4">
-        { hasSearched && (
-          <>
-            {searchResults.length === 0 ? (
-              <h2 className="font-bold text-xl">No results found.</h2>
-            ) : searchResults.length === 1 ? (
-             <h2 className="font-bold text-xl">1 Result Found</h2>
-            ) : (
-              <h2 className="font-bold text-xl">
-                {searchResults.length} Results Found
-              </h2>
-            )}
-          </>
-        )}
+        <ResourceList
+          title={"Newly Picked"}
+          data={latest}
+          tags={tags}
+          loading={loading}
+          error={error}
+        />
       </div>
-
-
-
-
-      <ResourceList
-        data={searchResults}
-        tags={tags}
-        loading={loading}
-        error={error}
-      />
     </div>
   );
 }

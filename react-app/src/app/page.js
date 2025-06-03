@@ -1,15 +1,12 @@
 //This is the main page of the application
-'use client';
+"use client";
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import LatestSection from "../components/LatestSection";
 import store from "./store";
 import { Provider } from "react-redux";
-import SearchContainer from "@/components/SearchContainer";
-import './globals.css';
-import Filter from "@/components/Filter";
-
+import MainContainer from "@/components/MainContainer";
+import "./globals.css";
 
 export default function App() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -21,24 +18,17 @@ export default function App() {
   };
 
   return (
-      <Provider store={store}>
-     <div className={isFilterOpen ? "blurred-background" : ""}>
-<Header className={`md:flex`} />
-<SearchContainer 
-      onOpenFilter={openFilterMenu} 
-      isFilterOpen={isFilterOpen} 
-      onCloseFilter={closeFilterMenu} 
-  />
-        <LatestSection className={isFilterOpen ? " pointer-events-none" : ""} />
-   
-</div>
+    <Provider store={store}>
+      <Header className="md:flex" />
+      <main>
+        <MainContainer
+          onOpenFilter={openFilterMenu}
+          isFilterOpen={isFilterOpen}
+          onCloseFilter={closeFilterMenu}
+        />
+      </main>
+
       <Footer />
- 
- {/* Filter and Backdrop outside the grayed-out wrapper */}
-      {isFilterOpen && (
-      <></>
-      )}
-      </Provider>
- 
+    </Provider>
   );
 }

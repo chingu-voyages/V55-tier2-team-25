@@ -43,7 +43,7 @@ export default function Filter({
   const toggleMenu = () => {
     // setIsOpen((prev) => !prev);
     // console.log("menu is open now:", !isOpen);
-  
+
     if (!isOpen) {
       onOpen(); // Call onOpen when opening the menu
     }
@@ -59,7 +59,7 @@ export default function Filter({
   if (loading)
     return (
       <div className="p-4">
-        <p className="p-4">Loading, please wait.</p>
+        <p>Loading, please wait.</p>
       </div>
     );
 

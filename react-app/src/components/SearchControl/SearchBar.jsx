@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Filter from "./Filter";
 import { FiSearch } from "react-icons/fi";
 
 export default function SearchBar({ query, setQuery, handleKeyDown }) {
