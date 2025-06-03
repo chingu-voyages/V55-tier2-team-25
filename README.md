@@ -1,12 +1,30 @@
-# App Name
+# PeerPicks
 
+PeerPicks is a React app that helps users find resources to learn software development recommended by the Chingu Community.
 
 This app was created through a [Chingu](https://www.chingu.io/) tier 2 voyage. As a team, we built a web application, PeerPicks, which lets its users find the information they need to reach their learning goals as software developers.
 
 Insert screenshots
 
 ## Features
-- Insert
+### Search Form
+- Input fields allow users to search for resources by tag name and words in the resource title.
+- Submit button to initiate the search.
+- Clicking the Clear button removes previous search results from the display.
+- Users can update search fields between submissions without restriction.
+- Users may enter any combination of fields — or leave them blank — to retrieve all resources.
+
+### Search Results Area
+- Upon submitting a search, the results area is dynamically updated with matching resources.
+- Results are paginated (on larger screens) to handle large datasets.
+- Users can navigate forward and backward through pages.
+
+### Validation and Error Handling
+- Displays loading message when connecting to the API or processing a search.
+- Displays error messages when the API cannot load.
+
+### Responsive Design
+- The interface is fully responsive and works across various screen sizes.
 
 ## Technologies
 Frontend: 
@@ -14,17 +32,18 @@ Frontend:
 - Taiwind CSS - To build a clean, responsive UI quickly and consistently
 
 API: 
-- Railway
+- Railway - The API was provided by Chingu via Railway, with continuous updates communicated through Discord.
 
-Deployment: 
-- Insert - TBD
+Deployment:
+- Vercel – To host the frontend application.
 
-UI Design: 
-- Figma – For designing and prototyping a cohesive user experience
+UI Design:
+- Figma – For designing and prototyping a cohesive user experience.
+
 
 ## Running the Project
 ### Live Version:
-Insert deployment link
+[PeerPicks](https://peerpicks.vercel.app/)
 
 ### From the Repo:
 1. Clone this project locally
@@ -32,7 +51,28 @@ Insert deployment link
 3. Run npm run dev in your bash / command line
 
 ## Dependencies
-Insert
+```
+"@reduxjs/toolkit": "^2.8.2",
+"next": "15.3.2",
+"pretendard": "^1.3.9",
+"react": "^19.0.0",
+"react-dom": "^19.0.0",
+"react-icons": "^5.5.0",
+"react-redux": "^9.2.0",
+"swiper": "^11.2.6"
+```
+ 
+### Dev Dependencies
+```
+"@eslint/eslintrc": "^3",
+"@tailwindcss/postcss": "^4",
+"autoprefixer": "^10.4.21",
+"eslint": "^9",
+"eslint-config-next": "15.3.2",
+"postcss": "^8.5.4",
+"prettier": "^3.5.3",
+"tailwindcss": "^4.1.8"
+```
 
 ## Acknowledgements
 We would like to extend our heartfelt thanks to Chingu for making this project possible. Their support, community, and structured project-based learning environment provided the perfect foundation for us to collaborate, grow, and build something we're truly proud of.
