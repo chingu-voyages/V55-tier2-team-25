@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
 export default function Header() {
   function getCurrentDate() {
-    const date = new Date();
-    return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
+    const date = new Date()
+    return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`
   }
 
   return (
@@ -24,14 +24,14 @@ export default function Header() {
             {getCurrentDate()}
           </h2>
         </div>
-        <div className="flex flex-col self-start headerText text-white font-bold text-xl pt-[1.5em] text-left">
+        <div className="flex flex-col self-start headerText text-white font-bold text-xl pt-[1.5em] text-left font-pretendard">
           <h3>
             Find your next <br />
-            PeerPick <br/>
+            PeerPick <br />
             try tags + Keywords
           </h3>
         </div>
       </header>
     </div>
-  );
+  )
 }

@@ -43,7 +43,7 @@ export default function Filter({
   const toggleMenu = () => {
     // setIsOpen((prev) => !prev);
     // console.log("menu is open now:", !isOpen);
-  
+
     if (!isOpen) {
       onOpen(); // Call onOpen when opening the menu
     }
@@ -59,7 +59,7 @@ export default function Filter({
   if (loading)
     return (
       <div className="p-4">
-        <p className="p-4">Loading filters</p>
+        <p>Loading, please wait.</p>
       </div>
     );
 
@@ -67,7 +67,7 @@ export default function Filter({
     console.log(`Error loading resources:`, error);
     return (
       <div className="p-4">
-        <p>Unable to load filters. Please try again later.</p>
+        <p>Unable to load. Please try again later.</p>
       </div>
     );
   }
@@ -132,9 +132,9 @@ export default function Filter({
                               : [...prev, value] // add if not selected
                         );
                       }}
-                      className="peer hidden" // gives it a button look rather than a checkbox list
+                      className="peer sr-only" // gives it a button look rather than a checkbox list, but keeps it visible to screen readers
                     />
-                    <span className="inline-block px-3 py-3 rounded-full border border-primary bg-white text-[var(--foreground)] peer-checked:border-[var(--gradient-1)] peer-checked:text-[var(--gradient-1)] transition-all">
+                    <span className="inline-block px-3 py-3 rounded-full border border-gray-300 bg-white text-[var(--foreground)] transition-all peer-checked:border-[var(--gradient-1)] peer-checked:text-[var(--gradient-1)] peer-focus-visible:ring-2 peer-focus-visible:ring-offset-2 peer-focus-visible:ring-[var(--gradient-1)]">
                       {tag.tag}
                     </span>
                   </label>

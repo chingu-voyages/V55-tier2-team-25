@@ -3,6 +3,7 @@ import { FaGithub } from 'react-icons/fa';
 
 export default function Footer() {
   return (
+
   <footer className='text-white flex flex-col justify-center items-center bg-[linear-gradient(to_right,_#385894_0%,_#473CE0_48%,_#682FD8_85%)]'>
 
     <div className="team-info w-[70%] p-8 flex justify-center flex-col items-center">
@@ -31,4 +32,5 @@ export default function Footer() {
   </footer>
   );
 }
+
 
