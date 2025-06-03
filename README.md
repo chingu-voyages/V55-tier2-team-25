@@ -7,7 +7,24 @@ This app was created through a [Chingu](https://www.chingu.io/) tier 2 voyage. A
 Insert screenshots
 
 ## Features
-- Insert
+### Search Form
+- Input fields allow users to search for resources by tag name and words in the resource title.
+- Submit button to initiate the search.
+- Clicking the Clear button removes previous search results from the display.
+- Users can update search fields between submissions without restriction.
+- Users may enter any combination of fields — or leave them blank — to retrieve all resources.
+
+### Search Results Area
+- Upon submitting a search, the results area is dynamically updated with matching resources.
+- Results are paginated (on larger screens) to handle large datasets.
+- Users can navigate forward and backward through pages.
+
+### Validation and Error Handling
+- Displays loading message when connecting to the API or processing a search.
+- Displays error messages when the API cannot load.
+
+### Responsive Design
+- The interface is fully responsive and works across various screen sizes.
 
 ## Technologies
 Frontend: 
@@ -15,13 +32,14 @@ Frontend:
 - Taiwind CSS - To build a clean, responsive UI quickly and consistently
 
 API: 
-- Railway
+- Railway - The API was provided by Chingu via Railway, with continuous updates communicated through Discord.
 
-Deployment: 
-- Vercel
+Deployment:
+- Vercel – To host the frontend application.
 
-UI Design: 
-- Figma – For designing and prototyping a cohesive user experience
+UI Design:
+- Figma – For designing and prototyping a cohesive user experience.
+
 
 ## Running the Project
 ### Live Version:
@@ -47,7 +65,6 @@ UI Design:
 ### Dev Dependencies
 ```
 "@eslint/eslintrc": "^3",
-"@netlify/plugin-nextjs": "^5.11.1",
 "@tailwindcss/postcss": "^4",
 "autoprefixer": "^10.4.21",
 "eslint": "^9",
