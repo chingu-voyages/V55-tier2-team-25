@@ -59,7 +59,7 @@ export default function Filter({
   if (loading)
     return (
       <div className="p-4">
-        <p className="p-4">Loading filters</p>
+        <p className="p-4">Loading, please wait.</p>
       </div>
     );
 
@@ -67,7 +67,7 @@ export default function Filter({
     console.log(`Error loading resources:`, error);
     return (
       <div className="p-4">
-        <p>Unable to load filters. Please try again later.</p>
+        <p>Unable to load. Please try again later.</p>
       </div>
     );
   }
