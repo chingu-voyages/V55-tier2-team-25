@@ -1,5 +1,6 @@
-# App Name
+# PeerPicks
 
+PeerPicks is a React app that helps users find resources to learn software development recommended by the Chingu Community.
 
 This app was created through a [Chingu](https://www.chingu.io/) tier 2 voyage. As a team, we built a web application, PeerPicks, which lets its users find the information they need to reach their learning goals as software developers.
 
@@ -17,14 +18,14 @@ API:
 - Railway
 
 Deployment: 
-- Insert - TBD
+- Vercel
 
 UI Design: 
 - Figma – For designing and prototyping a cohesive user experience
 
 ## Running the Project
 ### Live Version:
-Insert deployment link
+[PeerPicks](https://peerpicks.vercel.app/)
 
 ### From the Repo:
 1. Clone this project locally
@@ -32,7 +33,29 @@ Insert deployment link
 3. Run npm run dev in your bash / command line
 
 ## Dependencies
-Insert
+```
+"@reduxjs/toolkit": "^2.8.2",
+"next": "15.3.2",
+"pretendard": "^1.3.9",
+"react": "^19.0.0",
+"react-dom": "^19.0.0",
+"react-icons": "^5.5.0",
+"react-redux": "^9.2.0",
+"swiper": "^11.2.6"
+```
+ 
+### Dev Dependencies
+```
+"@eslint/eslintrc": "^3",
+"@netlify/plugin-nextjs": "^5.11.1",
+"@tailwindcss/postcss": "^4",
+"autoprefixer": "^10.4.21",
+"eslint": "^9",
+"eslint-config-next": "15.3.2",
+"postcss": "^8.5.4",
+"prettier": "^3.5.3",
+"tailwindcss": "^4.1.8"
+```
 
 ## Acknowledgements
 We would like to extend our heartfelt thanks to Chingu for making this project possible. Their support, community, and structured project-based learning environment provided the perfect foundation for us to collaborate, grow, and build something we're truly proud of.
