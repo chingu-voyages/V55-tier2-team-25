@@ -21,7 +21,7 @@ Array.isArray(tags) && Array.isArray(appliedTags)
   return (
     <article
       key={`${resource.id} - ${resource.name}`}
-      className="w-full max-w-sm self-center h-60 shadow-sm shadow-gray-300 p-6 pt-4 rounded-4xl m-2"
+      className="w-full max-w-sm self-center h-60 shadow-sm shadow-gray-300 p-6 pt-4 rounded-4xl m-2 mb-10"
     >
       <a
         href={resource.url}
