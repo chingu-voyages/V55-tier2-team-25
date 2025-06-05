@@ -126,13 +126,16 @@ export default function SearchContainer({
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4 sr-only">Search</h2>
-      <div className="flex flex-row w-full items-center justify-center relative">
+      <div className="flex flex-row w-full items-center justify-center gap-4 relative mb-4">
+     
         <SearchBar
+          className="max-w-md w-full"
           query={searchTerm}
           setQuery={setSearchTerm}
           handleKeyDown={handleKeyDown}
         />
         <Filter
+          className="max-w-md w-full"
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           selectedTags={selectedTags}
@@ -141,7 +144,7 @@ export default function SearchContainer({
           isOpen={isFilterOpen}
           onOpen={onOpenFilter}
           onClose={onCloseFilter}
-          className="absolute top-0 left-0 z-10"
+          // className="absolute w-full top-0 left-0 z-10"
         />
 
         <div className="flex items-center z-30 space-x-2 absolute right-5 -top-22 gap-1">
