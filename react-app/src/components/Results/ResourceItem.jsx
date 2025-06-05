@@ -32,12 +32,12 @@ Array.isArray(tags) && Array.isArray(appliedTags)
       >
         <section className="h-35">
 
-          <div className="">
+          <div className="line-clamp-1">
             {tagNames.length > 0 ? (
               tagNames.map((tag) => (
                 <span
                   key={`${resource.id}- ${tag}`}
-                  className="line-clamp-1 inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 p-6"
+                  className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 p-6"
                 >
                   {tag}
                 </span>
