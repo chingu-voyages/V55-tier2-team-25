@@ -285,3 +285,12 @@ body {
   /* background-color: rgba(0, 0, 0, 0.4); 
    z-index: 100; */
 }
+
+/* ==========================
+   Swiper Utilities
+   ========================== */
+
+.swiper-pagination-bullet-active {
+  opacity: var(--swiper-pagination-bullet-opacity, 1);
+  background: var(--swiper-pagination-color, var(--gradient-1));
+}
