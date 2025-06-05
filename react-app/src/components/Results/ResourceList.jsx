@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData, selectMostRecent } from "../redux/dataSlice";
+import { fetchData, selectMostRecent } from "../../redux/dataSlice";
 import ResourceItem from "./ResourceItem";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,9 +8,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
-export default function ResourceList({ data, tags, loading, error }) {
+export default function ResourceList({ title, data, tags, loading, error }) {
   const dispatch = useDispatch();
-  const latest = useSelector(selectMostRecent);
 
   // State to track mobile screen size
   const [isMobile, setIsMobile] = useState(false);
@@ -34,24 +33,11 @@ export default function ResourceList({ data, tags, loading, error }) {
     return () => window.removeEventListener("resize", handleResize);
   }, [dispatch]);
 
-  if (loading)
-    return (
-      <div className="p-4">
-        <p className="p-4">Connecting to the server. Please wait.</p>
-      </div>
-    );
-
-  if (error) {
-    console.log(`Error loading resources:`, error);
-    return (
-      <div className="p-4">
-        <p>Unable to load resources. Please try again later.</p>
-      </div>
-    );
-  }
+  if (loading || !data || data.length === 0) return null;
 
   return (
     <section className="p-4 self-center">
+      <h2 className="text-2xl font-bold mb-4">{title}</h2>
       {/* Mobile: show all items as a list; larger screen view with Swiper */}
       {isMobile ? (
         <div className="flex flex-col items-center md:hidden space-y-4">
