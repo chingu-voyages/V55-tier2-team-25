@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchData,
@@ -9,7 +9,6 @@ import {
 import { FiFilter } from "react-icons/fi";
 import { FiTag } from "react-icons/fi";
 import ClearButton from "./ClearButton";
-// import { searchResults } from "./SearchContainer";
 
 export default function Filter({
   searchTerm,
@@ -21,25 +20,27 @@ export default function Filter({
   onOpen,
   onClose,
 }) {
-  // const [searchResults, setSearchResults] = useState([]);
   const dispatch = useDispatch();
   const tags = useSelector(selectTags);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
-  // const [isOpen, setIsOpen] = useState(false);
+
+  const filterRef = useRef(null);
 
   console.log(tags);
-
+//  // Fetch data when the component mounts and when dispatch changes
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
 
+  // Function to handle clearing the search input and results
   const handleClearSearch = () => {
     setSearchTerm("");
     setSearchResults([]);
     setSelectedTags([]);
   };
 
+  // Function to toggle the filter menu
   const toggleMenu = () => {
     // setIsOpen((prev) => !prev);
     // console.log("menu is open now:", !isOpen);
@@ -55,6 +56,23 @@ export default function Filter({
     // } else {
     //   onOpen(); // Call onOpen when opening the menu
   };
+
+ // Effect to handle clicks outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
+      onClose(); // Close the filter if click is outside
+      }
+    }
+// Add event listener when the component mounts
+    document.addEventListener('mousedown', handleClickOutside);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [filterRef]); // Re-run if filterRef changes (unlikely for a static ref)
+
 
   if (loading)
     return (
@@ -73,7 +91,7 @@ export default function Filter({
   }
 
   return (
-    <div className="absolute left-1.5 -top-25">
+    <div ref={filterRef} className="absolute left-1.5 -top-25">
       {" "}
       {/* positioning of filter icon */}
       <button
