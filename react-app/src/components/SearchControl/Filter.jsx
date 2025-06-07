@@ -6,9 +6,11 @@ import {
   selectError,
   selectLoading,
 } from "@/redux/dataSlice";
+
 import { FiFilter } from "react-icons/fi";
 import { FiTag } from "react-icons/fi";
 import ClearButton from "./ClearButton";
+import { selectIsMobile } from "@/redux/dataSlice";
 
 export default function Filter({
   searchTerm,
@@ -24,6 +26,7 @@ export default function Filter({
   const tags = useSelector(selectTags);
   const error = useSelector(selectError);
   const loading = useSelector(selectLoading);
+  const isMobile = useSelector(selectIsMobile);
 
   const filterRef = useRef(null);
 
@@ -107,14 +110,14 @@ export default function Filter({
               : "text-white bg-gradient-to-r from-[var(--gradient-1)] to-[var(--gradient-2)]"
           }`}
       >
-        <FiFilter className="shrink-0"/>
+        <FiFilter className="shrink-0" />
         {selectedTags.length > 0 && (
           <span
             className={`ml-0 text-sm font-bold ${
               isOpen ? "text-[var(--gradient-1)]" : "text-white"
             }`}
           >
-          +{selectedTags.length}
+            +{selectedTags.length}
           </span>
         )}
         <span className="sr-only">Filter menu based on resource tags</span>

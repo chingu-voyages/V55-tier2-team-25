@@ -1,6 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { selectIsMobile } from "@/redux/dataSlice";
+import { useSelector } from 'react-redux';
 
 export default function Header() {
+  const isMobile = useSelector(selectIsMobile);
+
   function getCurrentDate() {
     const date = new Date()
     return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`

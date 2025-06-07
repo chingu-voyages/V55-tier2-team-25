@@ -1,7 +1,11 @@
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
+import { selectIsMobile } from "@/redux/dataSlice";
+import { useSelector } from 'react-redux';
 
 export default function Footer() {
+  const isMobile = useSelector(selectIsMobile);
+  
   return (
 
   <footer className='text-white flex flex-col justify-center items-center bg-[linear-gradient(to_right,_#385894_0%,_#473CE0_48%,_#682FD8_85%)]'>

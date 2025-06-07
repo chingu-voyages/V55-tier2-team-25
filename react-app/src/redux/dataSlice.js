@@ -61,6 +61,7 @@ const dataSlice = createSlice({
     searchTerm: '',
     selectedTags: [],
     searchResults: [],
+    isMobile: false,
   },
   reducers: {
     //search term reducer
@@ -77,6 +78,9 @@ const dataSlice = createSlice({
       state.searchResults = state.resources.filter(item =>
         JSON.stringify(item).toLowerCase().includes(action.payload.toLowerCase())
       );
+    },
+    setIsMobile: (state, action) => {
+      state.isMobile = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -100,7 +104,7 @@ const dataSlice = createSlice({
   },
 });
 
-export const { setSearchTerm } = dataSlice.actions;
+export const { setSearchTerm, setIsMobile } = dataSlice.actions;
 
 // Selectors
 export const selectResources = (state) => state.data.resources;
@@ -110,5 +114,7 @@ export const selectLoading = (state) => state.data.loading;
 export const selectError = (state) => state.data.error;
 export const selectSearchTerm = (state) => state.data.searchTerm;
 export const selectSearchResults = (state) => state.data.searchResults;
+export const selectIsMobile = (state) => state.data.isMobile;
+
 
 export default dataSlice.reducer;
