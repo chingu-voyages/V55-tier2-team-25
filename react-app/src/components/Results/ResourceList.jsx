@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchData, selectMostRecent } from "../../redux/dataSlice";
+import { useSelector } from "react-redux";
+import { selectIsMobile } from "@/redux/dataSlice";
 import ResourceItem from "./ResourceItem";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,30 +8,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
+
 export default function ResourceList({ title, data, tags, loading, error }) {
-  const dispatch = useDispatch();
-
-  // State to track mobile screen size
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Fetch data when the component mounts
-  // and when the dispatch function changes
-  // This is a common pattern in React to ensure that the data is fetched
-  useEffect(() => {
-    dispatch(fetchData());
-
-    // Function to update isMobile based on window width
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-
-    // Initial check
-    handleResize();
-
-    // Add listener
-    window.addEventListener("resize", handleResize);
-
-    // Clean up listener
-    return () => window.removeEventListener("resize", handleResize);
-  }, [dispatch]);
+  const isMobile = useSelector(selectIsMobile); //Switching to gloabl screen size listener
 
   if (loading || !data || data.length === 0) return null;
 
