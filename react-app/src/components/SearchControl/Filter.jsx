@@ -28,7 +28,7 @@ export default function Filter({
   const filterRef = useRef(null);
 
   console.log(tags);
-//  // Fetch data when the component mounts and when dispatch changes
+  //  // Fetch data when the component mounts and when dispatch changes
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
@@ -57,22 +57,21 @@ export default function Filter({
     //   onOpen(); // Call onOpen when opening the menu
   };
 
- // Effect to handle clicks outside
+  // Effect to handle clicks outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (filterRef.current && !filterRef.current.contains(event.target)) {
-      onClose(); // Close the filter if click is outside
+        onClose(); // Close the filter if click is outside
       }
     }
-// Add event listener when the component mounts
-    document.addEventListener('mousedown', handleClickOutside);
+    // Add event listener when the component mounts
+    document.addEventListener("mousedown", handleClickOutside);
 
     // Clean up the event listener when the component unmounts
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [filterRef]); // Re-run if filterRef changes (unlikely for a static ref)
-
 
   if (loading)
     return (
@@ -99,15 +98,25 @@ export default function Filter({
         onClick={toggleMenu}
         aria-expanded={isOpen}
         aria-controls="filter-menu"
-        className="cursor-pointer flex items-center"
-      >
-        <FiFilter
-          className={`text-5xl rounded-full p-2 ${
+        className={`relative flex items-center justify-center transition-all duration-200
+    ${selectedTags.length > 0 ? "px-4 w-15 h-12 rounded-3xl" : "w-12 h-12 rounded-full"}
+    text-2xl p-4 border-2 
+          ${
             isOpen
               ? "text-[var(--gradient-1)] bg-white border-2 border-[var(--gradient-1)]"
               : "text-white bg-gradient-to-r from-[var(--gradient-1)] to-[var(--gradient-2)]"
           }`}
-        />
+      >
+        <FiFilter className="shrink-0"/>
+        {selectedTags.length > 0 && (
+          <span
+            className={`ml-0 text-sm font-bold ${
+              isOpen ? "text-[var(--gradient-1)]" : "text-white"
+            }`}
+          >
+          +{selectedTags.length}
+          </span>
+        )}
         <span className="sr-only">Filter menu based on resource tags</span>
       </button>
       <div className="relative">
