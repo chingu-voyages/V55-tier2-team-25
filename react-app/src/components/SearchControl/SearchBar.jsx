@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { FiSearch } from "react-icons/fi";
+import React, { useState } from 'react'
+import { FiSearch } from 'react-icons/fi'
 
 export default function SearchBar({ query, setQuery, handleKeyDown }) {
-  console.log("setQuery prop:", query);
+  console.log('setQuery prop:', query)
 
   return (
-    <div className="absolute w-full top-0">{/* positioning of search bar */}
+    <div className="absolute w-full top-0 lg:w-[540px]">
+      {/* positioning of search bar */}
 
       <label htmlFor="search-bar" className="sr-only">
         Search Bar
       </label>
 
-      
       <input
         type="text"
         id="search-bar"
@@ -22,7 +22,7 @@ export default function SearchBar({ query, setQuery, handleKeyDown }) {
         onKeyDown={handleKeyDown}
         className="border rounded-4xl p-2 bg-white w-[100%] pl-22 h-14 absolute -top-26 text-sm self-center"
       />
-      <FiSearch className="mr-2 text-gray-500 absolute -top-21 left-18"/>
+      <FiSearch className="mr-2 text-gray-500 absolute -top-21 left-18" />
     </div>
-  );
+  )
 }
