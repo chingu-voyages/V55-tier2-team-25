@@ -1,16 +1,16 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   fetchData,
   selectTags,
   selectError,
   selectLoading,
-} from "@/redux/dataSlice";
+} from '@/redux/dataSlice'
 
-import { FiFilter } from "react-icons/fi";
-import { FiTag } from "react-icons/fi";
-import ClearButton from "./ClearButton";
-import { selectIsMobile } from "@/redux/dataSlice";
+import { FiFilter } from 'react-icons/fi'
+import { FiTag } from 'react-icons/fi'
+import ClearButton from './ClearButton'
+import { selectIsMobile } from '@/redux/dataSlice'
 
 export default function Filter({
   searchTerm,
@@ -22,26 +22,26 @@ export default function Filter({
   onOpen,
   onClose,
 }) {
-  const dispatch = useDispatch();
-  const tags = useSelector(selectTags);
-  const error = useSelector(selectError);
-  const loading = useSelector(selectLoading);
-  const isMobile = useSelector(selectIsMobile);
+  const dispatch = useDispatch()
+  const tags = useSelector(selectTags)
+  const error = useSelector(selectError)
+  const loading = useSelector(selectLoading)
+  const isMobile = useSelector(selectIsMobile)
 
-  const filterRef = useRef(null);
+  const filterRef = useRef(null)
 
-  console.log(tags);
+  console.log(tags)
   //  // Fetch data when the component mounts and when dispatch changes
   useEffect(() => {
-    dispatch(fetchData());
-  }, [dispatch]);
+    dispatch(fetchData())
+  }, [dispatch])
 
   // Function to handle clearing the search input and results
   const handleClearSearch = () => {
-    setSearchTerm("");
-    setSearchResults([]);
-    setSelectedTags([]);
-  };
+    setSearchTerm('')
+    setSearchResults([])
+    setSelectedTags([])
+  }
 
   // Function to toggle the filter menu
   const toggleMenu = () => {
@@ -49,52 +49,55 @@ export default function Filter({
     // console.log("menu is open now:", !isOpen);
 
     if (!isOpen) {
-      onOpen(); // Call onOpen when opening the menu
+      onOpen() // Call onOpen when opening the menu
     }
     if (isOpen) {
-      onClose(); // Call onClose when closing the menu
+      onClose() // Call onClose when closing the menu
     }
     // if (isAlreadyOpen) {
     //   onClose(); // Call onClose when closing the menu
     // } else {
     //   onOpen(); // Call onOpen when opening the menu
-  };
+  }
 
   // Effect to handle clicks outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (filterRef.current && !filterRef.current.contains(event.target)) {
-        onClose(); // Close the filter if click is outside
+        onClose() // Close the filter if click is outside
       }
     }
     // Add event listener when the component mounts
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
 
     // Clean up the event listener when the component unmounts
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [filterRef]); // Re-run if filterRef changes (unlikely for a static ref)
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [filterRef]) // Re-run if filterRef changes (unlikely for a static ref)
 
   if (loading)
     return (
       <div className="p-4">
         <p>Loading, please wait.</p>
       </div>
-    );
+    )
 
   if (error) {
-    console.log(`Error loading resources:`, error);
+    console.log(`Error loading resources:`, error)
     return (
       <div className="p-4">
         <p>Unable to load. Please try again later.</p>
       </div>
-    );
+    )
   }
 
   return (
-    <div ref={filterRef} className="absolute left-1.5 -top-25">
-      {" "}
+    <div
+      ref={filterRef}
+      className="absolute left-1.5 -top-25 lg:left-[480px] lg:top-[-100px]"
+    >
+      {' '}
       {/* positioning of filter icon */}
       <button
         type="button"
@@ -102,19 +105,19 @@ export default function Filter({
         aria-expanded={isOpen}
         aria-controls="filter-menu"
         className={`relative flex items-center justify-center transition-all duration-200
-    ${selectedTags.length > 0 ? "px-4 w-15 h-12 rounded-3xl" : "w-12 h-12 rounded-full"}
+    ${selectedTags.length > 0 ? 'px-4 w-15 h-12 rounded-3xl' : 'w-12 h-12 rounded-full'}
     text-2xl p-4 border-2 
           ${
             isOpen
-              ? "text-[var(--gradient-1)] bg-white border-2 border-[var(--gradient-1)]"
-              : "text-white bg-gradient-to-r from-[var(--gradient-1)] to-[var(--gradient-2)]"
+              ? 'text-[var(--gradient-1)] bg-white border-2 border-[var(--gradient-1)]'
+              : 'text-white bg-gradient-to-r from-[var(--gradient-1)] to-[var(--gradient-2)]'
           }`}
       >
         <FiFilter className="shrink-0" />
         {selectedTags.length > 0 && (
           <span
             className={`ml-0 text-sm font-bold ${
-              isOpen ? "text-[var(--gradient-1)]" : "text-white"
+              isOpen ? 'text-[var(--gradient-1)]' : 'text-white'
             }`}
           >
             +{selectedTags.length}
@@ -129,7 +132,7 @@ export default function Filter({
           aria-label="Filter menu"
           aria-hidden="true"
           tabIndex={-1}
-          className={`absolute left-0 top-full mt-3 w-[93vw] p-4 bg-surface-tertiary border border-gray-200 z-10 rounded-2xl shadow-lg ${isOpen ? "block" : "hidden"}`}
+          className={`absolute left-0 top-full mt-3 w-[93vw] p-4 bg-surface-tertiary border border-gray-200 z-10 rounded-2xl shadow-lg ${isOpen ? 'block' : 'hidden'}`}
         >
           <div className="flex justify-between items-center">
             <h2 className="font-bold text-lg">Filters</h2>
@@ -154,13 +157,13 @@ export default function Filter({
                       value={tag.tag}
                       checked={(selectedTags || []).includes(tag.tag)}
                       onChange={(e) => {
-                        const value = e.target.value;
+                        const value = e.target.value
                         setSelectedTags(
                           (prev) =>
                             prev.includes(value)
                               ? prev.filter((tag) => tag !== value) // remove if already selected
                               : [...prev, value] // add if not selected
-                        );
+                        )
                       }}
                       className="peer sr-only" // gives it a button look rather than a checkbox list, but keeps it visible to screen readers
                     />
@@ -175,5 +178,5 @@ export default function Filter({
         </div>
       </div>
     </div>
-  );
+  )
 }
