@@ -104,9 +104,8 @@ export default function Filter({
         onClick={toggleMenu}
         aria-expanded={isOpen}
         aria-controls="filter-menu"
-        className={`relative flex items-center justify-center transition-all duration-200
-    ${selectedTags.length > 0 ? 'px-4 w-15 h-12 rounded-3xl' : 'w-12 h-12 rounded-full'}
-    text-2xl p-4 border-2 
+        className={`relative flex items-center justify-center transition-all duration-200 text-2xl border-2
+    ${selectedTags.length > 0 ? 'px-4 w-15 h-12 rounded-3xl' : 'w-12 h-12 rounded-full'} 
           ${
             isOpen
               ? 'text-[var(--gradient-1)] bg-white border-2 border-[var(--gradient-1)]'
