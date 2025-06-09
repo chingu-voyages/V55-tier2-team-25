@@ -95,17 +95,17 @@ export default function Filter({
   return (
     <div
       ref={filterRef}
-      className="absolute left-1.5 -top-25 lg:left-[480px] lg:top-[-100px]"
+      className="absolute left-1.5 md:left-[25.5%] lg:left-[30.25%] -top-25"
     >
-      {' '}
-      {/* positioning of filter icon */}
+      {/*"absolute left-1.5 -top-25"*/} {/* positioning of filter icon */}
       <button
         type="button"
         onClick={toggleMenu}
         aria-expanded={isOpen}
         aria-controls="filter-menu"
-        className={`relative flex items-center justify-center transition-all duration-200 text-2xl border-2
-    ${selectedTags.length > 0 ? 'px-4 w-15 h-12 rounded-3xl' : 'w-12 h-12 rounded-full'} 
+        className={`relative flex items-center justify-center transition-all duration-200
+    ${selectedTags.length > 0 ? 'px-4 w-15 h-12 rounded-3xl' : 'w-12 h-12 rounded-full'}
+    text-2xl p-4 border-2 
           ${
             isOpen
               ? 'text-[var(--gradient-1)] bg-white border-2 border-[var(--gradient-1)]'
