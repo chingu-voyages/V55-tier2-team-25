@@ -25,11 +25,11 @@ export default function Header() {
             </h1>
             {/*<h1 className="text-2xl font-bold md:text-3xl">Peer Picks</h1>-->*/}
           </div>
-          <h2 className="flex justify-end text-gray-500 text-shadow-md text-xs font-normal md:text-lg text-white w-1/2 font-helvetica">
+          <h2 className="flex justify-end text-shadow-md text-xs font-normal md:text-lg text-white w-1/2 font-helvetica">
             {getCurrentDate()}
           </h2>
         </div>
-        <div className="flex flex-col self-start lg:self-center headerText text-white font-bold text-xl md:text-2xl lg:text-5xl lg:text-center lg:text-3xl lg:pt-6 lg:pb-6 pt-[1.5em] text-left font-pretendard md:pt-12 md:pb-8">
+        <div className="flex flex-col self-start lg:self-center headerText text-white font-bold text-xl md:text-2xl lg:text-center lg:text-5xl lg:pt-6 lg:pb-6 pt-[1.5em] text-left font-pretendard md:pt-12 md:pb-8">
           <h3>
             Find Your Next Pick.
             <br />
