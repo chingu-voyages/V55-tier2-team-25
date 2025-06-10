@@ -16,17 +16,20 @@ export default function Footer() {
         <p className='text-3xl pr-5'><a href="https://github.com/chingu-voyages/V55-tier2-team-25" target='_blank'><FaGithub /></a></p>
       </div>
 
-      <div className="name-container flex w-full pb-4 justify-between">  
-        <p className="w-3/10 text-left"><a href="https://github.com/alison-ah" target='_blank'>Alison Holland</a></p>
-        <p className="w-3/10 text-left"><a href="https://github.com/Nwumfor" target='_blank'>Jim Schibler</a></p>
-        <p className="w-3/10 text-left"><a href="https://github.com/msrissaxox" target='_blank'>Marissa Lamothe</a></p>
-      </div>
+      {/*<div className="credits flex w-full pb-4 justify-between ">*/}
+        <div className="name-container flex w-full pb-4 justify-between md:flex-col">  
+          <p className="w-3/10 text-left"><a href="https://www.linkedin.com/in/andersonholland/" target='_blank'>Alison H.</a></p>
+          <p className="w-3/10 text-left"><a href="https://www.linkedin.com/in/marissalamothe/" target='_blank'>Marissa L.</a></p>
+          <p className="w-1/4 text-left"><a href="https://github.com/lmj5081" target='_blank'>Myoungjin L.</a></p>
+        </div>
 
-      <div className="name-container flex w-full justify-between">
-        <p className="w-3/10 text-left"><a href="https://github.com/lmj5081" target='_blank'>Myoungjin Lee</a></p>
-        <p className="w-3/10 text-left"><a href="https://github.com/learningcoding2022" target='_blank'>Molly</a></p>
-        <p className="w-3/10 text-left"><a href="https://github.com/val-ue" target='_blank'>Valerie</a></p>
-      </div>
+        <div className="name-container flex w-full justify-between md:flex-col">
+          <p className="w-3/10 text-left"><a href="https://www.linkedin.com/in/jimschibler/" target='_blank'>Jim S.</a></p>
+          <p className="w-1/4 text-left"><a href="https://github.com/learningcoding2022" target='_blank'>Molly</a></p>
+          <p className="w-1/4 text-left"><a href="https://github.com/val-ue" target='_blank'>Valerie L.</a></p>
+        <p className="w-1/4 text-left"><a href="https://github.com/Nwumfor" target='_blank'>James</a></p>
+        </div>
+      {/*</div>*/}
     </div>
 
     <div className="copyright text-center bg-white/10 w-full p-[10px]"> 
