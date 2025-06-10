@@ -133,6 +133,7 @@ export default function Filter({
           tabIndex={-1}
           className={`absolute left-0 top-full mt-3 w-[93vw] p-4 bg-surface-tertiary border border-gray-200 z-10 rounded-2xl shadow-lg ${isOpen ? 'block' : 'hidden'}`}
         >
+          {/*to appy to modal on lg screen lg:-left-[30%]*/}
           <div className="flex justify-between items-center">
             <h2 className="font-bold text-lg">Filters</h2>
             <ClearButton onClick={handleClearSearch} name="Reset" />
