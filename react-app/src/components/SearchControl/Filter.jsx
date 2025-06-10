@@ -44,7 +44,7 @@ export default function Filter({
   }
 
   // Function to toggle the filter menu
-  const toggleMenu = () => {
+  const toggleMenu = () =>
     // setIsOpen((prev) => !prev);
     // console.log("menu is open now:", !isOpen);
 
