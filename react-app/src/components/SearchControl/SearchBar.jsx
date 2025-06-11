@@ -5,7 +5,7 @@ export default function SearchBar({ query, setQuery, handleKeyDown }) {
   console.log('setQuery prop:', query)
 
   return (
-    <div className="absolute w-full top-0 md:max-w-[50%] lg:max-w-[40%]">
+    <div className="absolute w-full top-0 md:max-w-[70%] lg:max-w-[40%]">
       {/* positioning of search bar*/}
 
       <label htmlFor="search-bar" className="sr-only">

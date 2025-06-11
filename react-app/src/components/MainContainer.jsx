@@ -146,7 +146,7 @@ export default function SearchContainer({
           // className="absolute w-full top-0 left-0 z-10"
         />
 
-        <div className="flex items-center z-30 space-x-2 absolute right-5 md:right-[28%] lg:right-[32%] -top-[5.5rem] gap-1">
+        <div className="flex items-center z-30 space-x-2 absolute right-5 md:right-[18%] lg:right-[32%] -top-[5.5rem] gap-1">
           <ClearButton
             onClick={() => {
               handleClearSearch()

@@ -96,7 +96,7 @@ export default function Filter({
   return (
     <div
       ref={filterRef}
-      className="lg:bg-pink-900 absolute left-1.5 md:left-[25.5%] lg:left-[30.25%] -top-25"
+      className="lg:bg-pink-900 absolute left-1.5 md:left-[15.5%] lg:left-[30.25%] -top-25"
     >
       {/*"absolute left-1.5 -top-25"*/} {/* positioning of filter icon */}
       <button
@@ -133,7 +133,7 @@ export default function Filter({
           aria-label="Filter menu"
           aria-hidden="true"
           tabIndex={-1}
-          className={`absolute left-0 top-full mt-3 w-[93vw] md:w-[400px] lg:w-[600px] p-4 bg-surface-tertiary lg:bg-blue-200 border border-gray-200 z-10 rounded-2xl shadow-lg ${isOpen ? 'block' : 'hidden'}`}
+          className={`absolute left-0 top-full mt-3 w-[93vw] md:w-[600px] lg:w-[600px] p-4 bg-surface-tertiary lg:bg-blue-200 border border-gray-200 z-10 rounded-2xl shadow-lg ${isOpen ? 'block' : 'hidden'}`}
         >
           <div className="flex justify-between items-center lg:bg-pink-500">
             <h2 className="font-bold text-lg">Filters</h2>
