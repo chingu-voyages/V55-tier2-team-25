@@ -33,9 +33,9 @@ export default function Header() {
           <h3>
             Find Your Next Pick.
             <br />
-            Using Tags + Keywords.
+            Use Tags + Keywords.
             <br />
-            Explore Now.
+            Explore Now!
           </h3>
         </div>
       </header>
