@@ -10,24 +10,21 @@ export default function Footer() {
 
   <footer className='text-white flex flex-col justify-center items-center bg-[linear-gradient(to_right,_#385894_0%,_#473CE0_48%,_#682FD8_85%)]'>
 
-    <div className="team-info w-[70%] p-8 flex justify-center flex-col items-center">
+    <div className="w-[98%] md:w-[90%] p-8 flex justify-center flex-col items-center md:max-w-[450px] lg:max-w-[800px] mx-auto">
       <div className="footer-bold flex justify-between w-full pb-4">
-        <p className='font-bold text-2xl'>Team</p>
-        <p className='text-3xl pr-5'><a href="https://github.com/chingu-voyages/V55-tier2-team-25" target='_blank'><FaGithub /></a></p>
+        <h2 className='font-bold text-2xl'>Team</h2>
+        <p className='text-3xl md:pr-10 lg:pr-10'><a href="https://github.com/chingu-voyages/V55-tier2-team-25" target='_blank' title="GitHub Repo for PeerPicks"><FaGithub /></a></p>
       </div>
 
       {/*<div className="credits flex w-full pb-4 justify-between ">*/}
-        <div className="name-container flex w-full pb-4 justify-between md:flex-col">  
-          <p className="w-3/10 text-left"><a href="https://www.linkedin.com/in/andersonholland/" target='_blank'>Alison H.</a></p>
-          <p className="w-3/10 text-left"><a href="https://www.linkedin.com/in/marissalamothe/" target='_blank'>Marissa L.</a></p>
-          <p className="w-1/4 text-left"><a href="https://github.com/lmj5081" target='_blank'>Myoungjin L.</a></p>
-        </div>
-
-        <div className="name-container flex w-full justify-between md:flex-col">
-          <p className="w-3/10 text-left"><a href="https://www.linkedin.com/in/jimschibler/" target='_blank'>Jim S.</a></p>
-          <p className="w-1/4 text-left"><a href="https://github.com/learningcoding2022" target='_blank'>Molly</a></p>
-          <p className="w-1/4 text-left"><a href="https://github.com/val-ue" target='_blank'>Valerie L.</a></p>
-        <p className="w-1/4 text-left"><a href="https://github.com/Nwumfor" target='_blank'>James</a></p>
+        <div className="w-full flex flex-wrap justify-center pb-4">  
+          <p className="w-1/3 lg:w-[14.2857%]"><a href="https://www.linkedin.com/in/andersonholland/" target='_blank'>Alison H.</a></p>
+          <p className="w-1/3 lg:w-[14.2857%]"><a href="https://www.linkedin.com/in/marissalamothe/" target='_blank'>Marissa L.</a></p>
+          <p className="w-1/3 lg:w-[14.2857%]"><a href="https://github.com/lmj5081" target='_blank'>Myoungjin L.</a></p>
+          <p className="w-1/3 lg:w-[14.2857%]"><a href="https://www.linkedin.com/in/jimschibler/" target='_blank'>Jim S.</a></p>
+          <p className="w-1/3 lg:w-[14.2857%]"><a href="https://github.com/learningcoding2022" target='_blank'>Molly</a></p>
+          <p className="w-1/3 lg:w-[14.2857%]"><a href="https://github.com/val-ue" target='_blank'>Valerie L.</a></p>
+        <p className="w-1/3 lg:w-[14.2857%]"><a href="https://github.com/Nwumfor" target='_blank'>James</a></p>
         </div>
       {/*</div>*/}
     </div>
