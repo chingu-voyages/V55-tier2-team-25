@@ -96,7 +96,7 @@ export default function Filter({
   return (
     <div
       ref={filterRef}
-      className="lg:bg-pink-900 absolute left-1.5 md:left-[15.5%] lg:left-[30.25%] -top-25"
+      className="absolute left-1.5 md:left-[15.5%] lg:left-[30.25%] -top-25"
     >
       {/*"absolute left-1.5 -top-25"*/} {/* positioning of filter icon */}
       <button
@@ -104,7 +104,7 @@ export default function Filter({
         onClick={toggleMenu}
         aria-expanded={isOpen}
         aria-controls="filter-menu"
-        className={`lg:bg-pink-900 relative flex items-center justify-center transition-all duration-200
+        className={`relative flex items-center justify-center transition-all duration-200
     ${selectedTags.length > 0 ? 'px-4 w-15 h-12 rounded-3xl' : 'w-12 h-12 rounded-full'}
     text-2xl p-4 border-2 
           ${
@@ -135,12 +135,12 @@ export default function Filter({
           tabIndex={-1}
           className={`absolute left-0 top-full mt-3 w-[93vw] md:w-[600px] lg:w-[600px] p-4 bg-surface-tertiary lg:bg-blue-200 border border-gray-200 z-10 rounded-2xl shadow-lg ${isOpen ? 'block' : 'hidden'}`}
         >
-          <div className="flex justify-between items-center lg:bg-pink-500">
+          <div className="flex justify-between items-center">
             <h2 className="font-bold text-lg">Filters</h2>
             <ClearButton onClick={handleClearSearch} name="Reset" />
           </div>
 
-          <fieldset className="lg:bg-pink-500 mt-4">
+          <fieldset className="mt-4">
             <legend className="pl-3 flex flex-wrap gap-1 pt-4">
               <FiTag className="self-center" />
               <span className="sr-only">Filter by</span>Tags
