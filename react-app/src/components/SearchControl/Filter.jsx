@@ -108,29 +108,21 @@ export default function Filter({
           WebkitTapHighlightColor: "transparent",
           touchAction: "manipulation",
         }}
-        className={`no-user-select relative flex items-center justify-center transition-colors duration-200 px-4 w-16 h-12 rounded-3xl text-2xl border-2'} 
-          ${
-            isOpen
-              ? "text-[var(--gradient-1)] bg-white border-2 border-[var(--gradient-1)]"
-              : "text-white bg-gradient-to-r from-[var(--gradient-1)] to-[var(--gradient-2)]"
-          }`}
+        className={`no-user-select relative flex items-center justify-center w-16 h-12 min-w-[4rem] max-w-[4rem] min-h-[3rem] max-h-[3rem] px-4 rounded-3xl text-2xl border-2 transition-colors duration-200
+    ${
+      isOpen
+        ? "text-[var(--gradient-1)] bg-white border-[var(--gradient-1)]"
+        : "text-white bg-gradient-to-r from-[var(--gradient-1)] to-[var(--gradient-2)]"
+    }`}
       >
         <FiFilter className="shrink-0" />
-        {selectedTags.length > 0 && (
-          <span
-            className={`ml-0 text-base font-bold ${
-              isOpen ? "text-[var(--gradient-1)]" : "text-white"
-            }`}
-          >
-            <span
-              className={`ml-0 text-base font-bold ${
-                isOpen ? "text-[var(--gradient-1)]" : "text-white"
-              }`}
-            >
-              {selectedTags.length > 0 ? `+${selectedTags.length}` : "\u00A0"}
-            </span>
-          </span>
-        )}
+        <span
+          className={`ml-2 text-base font-bold ${
+            isOpen ? "text-[var(--gradient-1)]" : "text-white"
+          }`}
+        >
+          {selectedTags.length > 0 ? `+${selectedTags.length}` : "\u00A0"}
+        </span>
         <span className="sr-only">Filter menu based on resource tags</span>
       </button>
       {/**THIS IS THE DIV STYLES NEED TO BE APPLIED TO FOR MODAL**/}
