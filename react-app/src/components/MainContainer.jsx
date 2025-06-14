@@ -9,6 +9,7 @@ import {
   selectMostRecent,
   selectLoading,
   selectTags,
+  fetchTags,
 } from '../redux/dataSlice'
 import SearchBar from './SearchControl/SearchBar'
 import SearchButton from './SearchControl/SearchButton'
@@ -31,7 +32,14 @@ export default function SearchContainer({
   const dispatch = useDispatch()
   const error = useSelector(selectError)
   const resources = useSelector((state) => state.data.resources)
-  const tags = useSelector((state) => state.data.tags)
+  // const tags = useSelector((state) => state.data.tags)
+
+const tags = useSelector(selectTags);
+useEffect(() => {
+  if (!tags || tags.length === 0) {
+    dispatch(fetchTags());
+  }
+}, [dispatch, tags]);
 
   //to get the newly picked
   const latest = useSelector(selectMostRecent)
@@ -68,7 +76,7 @@ export default function SearchContainer({
       setLoading(true) // Set loading state
       setHasSearched(true) // Set hasSearched to true when a search is performed
 
-      dispatch(fetchData(searchTerm, selectedTags))
+      // dispatch(fetchData(searchTerm, selectedTags))
       fetchData(searchTerm)
       // Set filtered resources on submit
       const filteredResources = resources.filter((resource) => {
