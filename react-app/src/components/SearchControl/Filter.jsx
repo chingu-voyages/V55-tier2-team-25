@@ -104,6 +104,7 @@ export default function Filter({
         onClick={toggleMenu}
         aria-expanded={isOpen}
         aria-controls="filter-menu"
+        style={{ WebkitTapHighlightColor: 'transparent' }}
         className={`relative flex items-center justify-center transition-colors duration-200
     ${selectedTags.length > 0 ? 'px-4 w-15 h-12 rounded-3xl' : 'w-12 h-12 rounded-full'}
     text-2xl border-2 
