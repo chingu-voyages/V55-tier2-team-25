@@ -104,7 +104,7 @@ export default function Filter({
         onClick={toggleMenu}
         aria-expanded={isOpen}
         aria-controls="filter-menu"
-        className={`relative flex items-center justify-center transition-all duration-200
+        className={`relative flex items-center justify-center transition-colors duration-200
     ${selectedTags.length > 0 ? 'px-4 w-15 h-12 rounded-3xl' : 'w-12 h-12 rounded-full'}
     text-2xl border-2 
           ${
@@ -116,7 +116,7 @@ export default function Filter({
         <FiFilter className="shrink-0" />
         {selectedTags.length > 0 && (
           <span
-            className={`ml-0 text-sm font-bold ${
+            className={`ml-0 text-base font-bold ${
               isOpen ? 'text-[var(--gradient-1)]' : 'text-white'
             }`}
           >
