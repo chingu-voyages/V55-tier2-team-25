@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
   return (
@@ -12,9 +12,7 @@ export default function Footer() {
           <p className='block md:hidden text-3xl pr-5'><a href="https://github.com/chingu-voyages/V55-tier2-team-25" target='_blank'><FaGithub /></a></p>
         </div>
 
-        {/*<div className="credits flex w-full pb-4 justify-between ">*/}
           <div className="block md:hidden name-container flex w-full pb-4 justify-between">  
-            {/*md:flex-col*/}
             <p className="block md:hidden w-3/10 text-left"><a href="https://www.linkedin.com/in/andersonholland/" target='_blank'>Alison H.</a></p>
             <p className="block md:hidden w-3/10 text-left"><a href="https://www.linkedin.com/in/marissalamothe/" target='_blank'>Marissa L.</a></p>
             <p className="block md:hidden w-1/4 text-left"><a href="https://github.com/lmj5081" target='_blank'>Myoungjin L.</a></p>
@@ -26,7 +24,6 @@ export default function Footer() {
             <p className="block md:hidden w-1/4 text-left"><a href="https://github.com/val-ue" target='_blank'>Valerie L.</a></p>
             <p className="block md:hidden w-1/4 text-left"><a href="https://github.com/Nwumfor" target='_blank'>James N.</a></p>
           </div>
-        {/*</div>*/}
       </div>
 
       <div className="block md:hidden copyright text-center bg-white/10 w-full p-[10px]"> 
@@ -37,78 +34,73 @@ export default function Footer() {
 
 
   <footer className='hidden md:block text-white flex flex-col justify-center items-center bg-[linear-gradient(to_right,_#385894_0%,_#473CE0_48%,_#682FD8_85%)]'>
-    {/*Desktop Version do i need the blocks on all? check later*/}
-    <div className="upper-footer flex ">
-      <div className="logo-container w-1/2">
+    <div className="upper-footer flex text-sm">
+      <div className="logo-container w-1/2 flex items-center flex-col justify-center">
         <img
           src="peerpicks-logo-white.png"
           alt="PeerPicks"
-          className="official-logo"
+          className="official-logo w-[55%]"
         />
-        <div className="github-repo-link">
-          <p className="on-github">GitHub</p>
-          <a href="https://github.com/chingu-voyages/V55-tier2-team-25" target='_blank'><FaGithub /></a>
+        <div className="github-repo-link w-[55%] pt-[5px]">
+          <p className="on-github flex items-center justify-end gap-[2%]">See on GitHub<a className="text-[21px]" href="https://github.com/chingu-voyages/V55-tier2-team-25" target='_blank'><FaGithub /></a></p>
+          
         </div>
       </div>
 
       <div className="desktop-name-container w-1/2">
-        <div className="credit">
-          <p className="title">Product Owner</p>
-          <p className="name">Jim S.</p>
-          <a href="https://www.linkedin.com/in/jimschibler/" target='_blank'>link</a>
-        </div>
+        <div className="credit-list-container p-6">
+          <div className="credit flex pb-[7px]">
+            <p className="title flex items-center w-[120px] text-white/70">Product Owner</p>
+            <p className="name p-[4px] border-b border-b-[1px] border-white/50 w-[51%]">Jim S.</p>
+            <a className="text-[21px] border-b border-b-[1px] border-white/50 flex items-center justify-center" href="https://www.linkedin.com/in/jimschibler/" target='_blank'><FaLinkedin /></a>
+          </div>
 
-        <div className="credit">
-          <p className="title">Scrum Master</p>
-          <p className="name">James N.</p>
-          <a href="https://github.com/Nwumfor" target='_blank'>link</a>
-        </div>
+          <div className="credit flex pb-[7px] pb-[7px]">
+            <p className="title flex items-center w-[120px] text-white/70">Scrum Master</p>
+            <p className="name p-[4px] border-b border-b-[1px] border-white/50 w-[51%]">James N.</p>
+            <a className="text-[21px] border-b border-b-[1px] border-white/50 flex items-center justify-center" href="https://github.com/Nwumfor" target='_blank'><FaGithub /></a>
+          </div>
 
-        <div className="credit">
-          <p className="title">Web Developers</p>
-          <p className="name">Alison H.</p>
-          <a href="https://www.linkedin.com/in/andersonholland/" target='_blank'>link</a>
-        </div>
+          <div className="credit flex pb-[7px]">
+            <p className="title flex items-center w-[120px] text-white/70">Web Developers</p>
+            <p className="name p-[4px] border-b border-b-[1px] border-white/50 w-[51%]">Alison H.</p>
+            <a className="text-[21px] border-b border-b-[1px] border-white/50 flex items-center justify-center" href="https://www.linkedin.com/in/andersonholland/" target='_blank'><FaLinkedin /></a>
+          </div>
 
-        <div className="credit">
-          <p className="title"></p>
-          <p className="name">Marissa L.</p>
-          <a href="https://www.linkedin.com/in/marissalamothe/" target='_blank'>link</a>
-        </div>
+          <div className="credit flex pb-[7px]">
+            <p className="title flex items-center w-[120px] text-white/70"></p>
+            <p className="name p-[4px] border-b border-b-[1px] border-white/50 w-[51%]">Marissa L.</p>
+            <a className="text-[21px] border-b border-b-[1px] border-white/50 flex items-center justify-center" href="https://www.linkedin.com/in/marissalamothe/" target='_blank'><FaLinkedin /></a>
+          </div>
 
-        <div className="credit">
-          <p className="title"></p>
-          <p className="name">Molly B.</p>
-          <a href="https://github.com/learningcoding2022" target='_blank'>link</a>
-        </div>
+          <div className="credit flex pb-[7px]">
+            <p className="title flex items-center w-[120px] text-white/70"></p>
+            <p className="name p-[4px] border-b border-b-[1px] border-white/50 w-[51%]">Molly B.</p>
+            <a className="text-[21px] border-b border-b-[1px] border-white/50 flex items-center justify-center" href="https://github.com/learningcoding2022" target='_blank'><FaGithub /></a>
+          </div>
 
-        <div className="credit">
-          <p className="title"></p>
-          <p className="name">Valerie L.</p>
-          <a href="https://github.com/val-ue" target='_blank'>link</a>
-        </div>
+          <div className="credit flex pb-[7px]">
+            <p className="title flex items-center w-[120px] text-white/70"></p>
+            <p className="name p-[4px] border-b border-b-[1px] border-white/50 w-[51%]">Valerie L.</p>
+            <a className="text-[21px] border-b border-b-[1px] border-white/50 flex items-center justify-center" href="https://github.com/val-ue" target='_blank'><FaGithub /></a>
+          </div>
 
-        <div className="credit">
-          <p className="title">UX/UI Designer</p>
-          <p className="name">Myoungjin L.</p>
-          <a href="https://github.com/lmj5081" target='_blank'>link</a>
+          <div className="credit flex pb-[7px]">
+            <p className="title flex items-center w-[120px] text-white/70">UX/UI Designer</p>
+            <p className="name p-[4px] border-b border-b-[1px] border-white/50 w-[51%]">Myoungjin L.</p>
+            <a className="text-[21px] border-b border-b-[1px] border-white/50 flex items-center justify-center" href="https://github.com/lmj5081" target='_blank'><FaGithub /></a>
+          </div>
         </div>
-
       </div>
     </div>
 
-    <div className="copyright text-center bg-white/10 w-full p-[10px]"> 
+    <div className="copyright text-center bg-white/10 w-full p-[10px] text-xs"> 
       <p>@<span id="spanYear">{new Date().getFullYear()}</span> Chingu. All rights reserved.</p>
     </div>
 
   </footer>
   </>
   );
-
-
-
-
-
 }
 
 
