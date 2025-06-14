@@ -132,7 +132,7 @@ useEffect(() => {
   }
 
   return (
-    <div className="p-4">
+    <div className="p-4 min-w-[375px]">
       <h2 className="text-2xl font-bold mb-4 sr-only">Search</h2>
       <div className="flex flex-row w-full items-center justify-center gap-4 relative mb-4">
         <SearchBar
