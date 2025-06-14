@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 export default function Footer() {
   return (
     <>
-    <footer className='md:hidden text-white flex flex-col justify-center items-center bg-[linear-gradient(to_right,_#385894_0%,_#473CE0_48%,_#682FD8_85%)]'>
+    <footer className='md:hidden text-white flex flex-col justify-center items-center bg-gradient-to-br from-[#385894] via-[#473CE0] to-[#682FD8]'>
     {/*Mobile Version*/}
       <div className="team-info w-[70%] p-8 flex justify-center flex-col items-center">
         <div className="footer-bold flex justify-between w-full pb-4">
@@ -15,14 +15,14 @@ export default function Footer() {
           <div className="name-container flex w-full pb-4 justify-between">  
             <p className="w-3/10 text-left"><a href="https://www.linkedin.com/in/andersonholland/" target='_blank'>Alison H.</a></p>
             <p className="w-3/10 text-left"><a href="https://www.linkedin.com/in/marissalamothe/" target='_blank'>Marissa L.</a></p>
-            <p className="w-1/4 text-left"><a href="https://github.com/lmj5081" target='_blank'>Myoungjin L.</a></p>
+            <p className="w-1/4 text-left"><a href="https://www.linkedin.com/in/mjleedesigners" target='_blank'>Myoungjin L.</a></p>
           </div>
 
           <div className="name-container flex w-full justify-between md:flex-col">
             <p className="w-3/10 text-left"><a href="https://www.linkedin.com/in/jimschibler/" target='_blank'>Jim S.</a></p>
             <p className="w-1/4 text-left"><a href="https://github.com/learningcoding2022" target='_blank'>Molly B.</a></p>
             <p className="w-1/4 text-left"><a href="https://github.com/val-ue" target='_blank'>Valerie L.</a></p>
-            <p className="w-1/4 text-left"><a href="https://github.com/Nwumfor" target='_blank'>James N.</a></p>
+            <p className="w-1/4 text-left"><a href="https://linkedin.com/in/james-nwumfor-56008144" target='_blank'>James N.</a></p>
           </div>
       </div>
 
@@ -32,7 +32,7 @@ export default function Footer() {
     </footer>
 
 
-  <footer className='hidden md:block text-white flex flex-col justify-center items-center bg-[linear-gradient(to_right,_#385894_0%,_#473CE0_48%,_#682FD8_85%)]'>
+  <footer className='hidden md:block text-white flex flex-col justify-center items-center bg-gradient-to-br from-[#385894] via-[#473CE0] to-[#682FD8]'>
     <div className="upper-footer flex text-sm">
       <div className="logo-container w-1/2 flex items-center flex-col justify-center">
         <img
@@ -57,7 +57,7 @@ export default function Footer() {
           <div className="credit flex pb-[7px] pb-[7px]">
             <p className="title flex items-center w-[120px] text-white/70">Scrum Master</p>
             <p className="name p-[4px] border-b-[1px] border-white/50 w-[51%]">James N.</p>
-            <a className="text-[21px] border-b-[1px] border-white/50 flex items-center justify-center" href="https://github.com/Nwumfor" target='_blank'><FaGithub /></a>
+            <a className="text-[21px] border-b-[1px] border-white/50 flex items-center justify-center" href="https://linkedin.com/in/james-nwumfor-56008144" target='_blank'><FaLinkedin /></a>
           </div>
 
           <div className="credit flex pb-[7px]">
@@ -87,7 +87,7 @@ export default function Footer() {
           <div className="credit flex pb-[7px]">
             <p className="title flex items-center w-[120px] text-white/70">UX/UI Designer</p>
             <p className="name p-[4px] border-b-[1px] border-white/50 w-[51%]">Myoungjin L.</p>
-            <a className="text-[21px] border-b-[1px] border-white/50 flex items-center justify-center" href="https://github.com/lmj5081" target='_blank'><FaGithub /></a>
+            <a className="text-[21px] border-b-[1px] border-white/50 flex items-center justify-center" href="https://www.linkedin.com/in/mjleedesigners" target='_blank'><FaLinkedin /></a>
           </div>
         </div>
       </div>
