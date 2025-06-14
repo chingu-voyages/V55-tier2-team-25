@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { selectIsMobile } from "@/redux/dataSlice";
 import ResourceItem from "./ResourceItem";
@@ -7,7 +7,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-
 
 export default function ResourceList({ title, data, tags, loading, error }) {
   const isMobile = useSelector(selectIsMobile); //Switching to gloabl screen size listener

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const SearchButton = ({ onClick }) => {
   return (
@@ -8,7 +8,7 @@ const SearchButton = ({ onClick }) => {
     >
       Search
     </button>
-  )
-}
+  );
+};
 
-export default SearchButton
+export default SearchButton;

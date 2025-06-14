@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchData,
@@ -30,8 +30,7 @@ export default function Filter({
 
   const filterRef = useRef(null);
 
-  console.log(tags);
-  //  // Fetch data when the component mounts and when dispatch changes
+  // Fetch data when the component mounts and when dispatch changes
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
@@ -46,7 +45,6 @@ export default function Filter({
   // Function to toggle the filter menu
   const toggleMenu = () => {
     // setIsOpen((prev) => !prev);
-    // console.log("menu is open now:", !isOpen);
 
     if (!isOpen) {
       onOpen(); // Call onOpen when opening the menu
@@ -55,10 +53,6 @@ export default function Filter({
     if (isOpen) {
       onClose(); // Call onClose when closing the menu
     }
-    // if (isAlreadyOpen) {
-    //   onClose(); // Call onClose when closing the menu
-    // } else {
-    //   onOpen(); // Call onOpen when opening the menu
   };
 
   // Effect to handle clicks outside

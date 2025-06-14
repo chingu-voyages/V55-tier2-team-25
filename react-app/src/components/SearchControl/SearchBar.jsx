@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
-import { FiSearch } from 'react-icons/fi'
+import React, { useState } from "react";
+import { FiSearch } from "react-icons/fi";
 
 export default function SearchBar({ query, setQuery, handleKeyDown }) {
-  console.log('setQuery prop:', query)
 
   return (
     <div className="absolute w-full top-0 md:max-w-[70%] lg:max-w-[40%]">
@@ -24,5 +23,5 @@ export default function SearchBar({ query, setQuery, handleKeyDown }) {
       />
       <FiSearch className="mr-2 text-gray-500 absolute -top-21 left-18" />
     </div>
-  )
+  );
 }
