@@ -5,6 +5,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .no-user-select {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
 :root {
   --background: #f6f5fa;
   --foreground: #171717;
