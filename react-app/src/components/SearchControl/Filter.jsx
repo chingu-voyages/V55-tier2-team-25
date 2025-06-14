@@ -108,9 +108,7 @@ export default function Filter({
           WebkitTapHighlightColor: "transparent",
           touchAction: "manipulation",
         }}
-        className={`relative flex items-center justify-center transition-colors duration-200
-    ${selectedTags.length > 0 ? "px-4 w-15 h-12 rounded-3xl" : "w-12 h-12 rounded-full"}
-    text-2xl border-2 
+        className={`relative flex items-center justify-center transition-colors duration-200 px-4 w-16 h-12 rounded-3xl text-2xl border-2'} 
           ${
             isOpen
               ? "text-[var(--gradient-1)] bg-white border-2 border-[var(--gradient-1)]"
@@ -124,7 +122,9 @@ export default function Filter({
               isOpen ? "text-[var(--gradient-1)]" : "text-white"
             }`}
           >
-            +{selectedTags.length}
+            <span>
+              {selectedTags.length > 0 ? `+${selectedTags.length}` : "\u00A0"}
+            </span>
           </span>
         )}
         <span className="sr-only">Filter menu based on resource tags</span>
