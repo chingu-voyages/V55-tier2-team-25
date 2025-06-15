@@ -44,16 +44,17 @@ function AppContent() {
 
   return (
     <Provider store={store}>
-      <Header className="md:flex" />
+      <Header className="md:flex min-w-[375px]" />
       <main>
         <MainContainer
           onOpenFilter={openFilterMenu}
           isFilterOpen={isFilterOpen}
           onCloseFilter={closeFilterMenu}
+          class="min-w-[375px]"
         />
       </main>
 
-      <Footer />
+      <Footer class="min-w-[375px]"/>
     </Provider>
   );
 }
