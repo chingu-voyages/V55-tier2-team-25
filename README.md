@@ -80,10 +80,10 @@ We would like to extend our heartfelt thanks to Chingu for making this project p
 If you’re not yet a part of [Chingu](https://chingu.io/), we highly recommend checking it out. Chingu is a global learning community that helps aspiring developers, scrum masters, and product ownsers turn course and tutorial knowledge into real-world project experience. Through team voyages like this one, members gain the practical, hands-on skills that make them stand out in today’s job market.
 
 ## Our Team
-- MJ, Designer: [GitHub](https://github.com/lmj5081) / [LinkedIn](https://www.linkedin.com/in/mjleedesigners)
-- Marissa Lamothe, Developer: [GitHub](https://github.com/msrissaxox) / [LinkedIn](https://linkedin.com/in/marissalamothe/)
-- Alison Holland, Developer: [GitHub](https://github.com/alison-ah) / [LinkedIn](https://linkedin.com/in/andersonholland/)
-- Valerie, Developer: [GitHub](https://github.com/val-ue) / [LinkedIn](https://www.linkedin.com/in/valerielabideveloper/)
-- Molly, Developer: [GitHub](https://github.com/learningcoding2022) / [LinkedIn](https://www.linkedin.com/in/molly-b-97877492/)
-- Jim Schibler, Product Owner: [GitHub](https://github.com/jaschibler) / [LinkedIn](https://linkedin.com/in/jimschibler)
-- James, Scrum Master: [GitHub](https://github.com/Nwumfor) / [LinkedIn](https://linkedin.com/in/james-nwumfor-56008144)
+- Myoungjin L., Designer: [GitHub](https://github.com/lmj5081) / [LinkedIn](https://www.linkedin.com/in/mjleedesigners)
+- Marissa L., Developer: [GitHub](https://github.com/msrissaxox) / [LinkedIn](https://linkedin.com/in/marissalamothe/)
+- Alison H., Developer: [GitHub](https://github.com/alison-ah) / [LinkedIn](https://linkedin.com/in/andersonholland/)
+- Valerie L., Developer: [GitHub](https://github.com/val-ue) / [LinkedIn](https://www.linkedin.com/in/valerielabideveloper/)
+- Molly B., Developer: [GitHub](https://github.com/learningcoding2022) / [LinkedIn](https://www.linkedin.com/in/molly-b-97877492/)
+- Jim S., Product Owner: [GitHub](https://github.com/jaschibler) / [LinkedIn](https://linkedin.com/in/jimschibler)
+- James N., Scrum Master: [GitHub](https://github.com/Nwumfor) / [LinkedIn](https://linkedin.com/in/james-nwumfor-56008144)
