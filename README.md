@@ -5,6 +5,7 @@ PeerPicks is a React app that helps users find resources to learn software devel
 This app was created through a [Chingu](https://www.chingu.io/) tier 2 voyage. As a team, we built a web application, PeerPicks, which lets its users find the information they need to reach their learning goals as software developers.
 
 <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;">
+
   <img src="img/desktop-landing.png"
        alt="Desktop Landing Page"
        style="max-height: 200px; height: auto; width: auto; object-fit: contain; display: block;">
@@ -14,8 +15,22 @@ This app was created through a [Chingu](https://www.chingu.io/) tier 2 voyage. A
        style="max-height: 200px; height: auto; width: auto; object-fit: contain; display: block;">
 
   <img src="img/desktop-results.png"
-       alt="Desktop Results"
+       alt="Desktop Results with Filter Selection"
        style="max-height: 200px; height: auto; width: auto; object-fit: contain; display: block;">
+  
+  </div>
+
+
+<div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;">
+
+  <img src="img/mobile-results.png"
+       alt="Mobile Results with Filter Selection"
+       style="max-width: 300px; height: auto; width: auto; object-fit: contain; display: block;">
+
+  <img src="img/mobile-text-search.png"
+       alt="Mobile Results with Text Search"
+       style="max-width: 300px; height: auto; width: auto; object-fit: contain; display: block;">
+
 </div>
 
 ## Features
