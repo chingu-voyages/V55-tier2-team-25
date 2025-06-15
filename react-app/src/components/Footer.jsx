@@ -87,7 +87,7 @@ export default function Footer() {
                     href="https://github.com/chingu-voyages/V55-tier2-team-25"
                     target="_blank"
                   >
-                    <FaGithub />
+                    <FaGithub title="Visit the project's GitHub repository"/>
                   </a>
                 </p>
               </div>
@@ -107,7 +107,7 @@ export default function Footer() {
                     href="https://www.linkedin.com/in/jimschibler/"
                     target="_blank"
                   >
-                    <FaLinkedin />
+                    <FaLinkedin title="Visit Jim S.'s LinkedIn profile"/>
                   </a>
                 </div>
 
@@ -123,7 +123,7 @@ export default function Footer() {
                     href="https://linkedin.com/in/james-nwumfor-56008144"
                     target="_blank"
                   >
-                    <FaLinkedin />
+                    <FaLinkedin title="Visit James N.'s LinkedIn profile"/>
                   </a>
                 </div>
 
@@ -139,7 +139,7 @@ export default function Footer() {
                     href="https://www.linkedin.com/in/andersonholland/"
                     target="_blank"
                   >
-                    <FaLinkedin />
+                    <FaLinkedin title="Visit Alison H.'s LinkedIn profile"/>
                   </a>
                 </div>
 
@@ -153,7 +153,7 @@ export default function Footer() {
                     href="https://www.linkedin.com/in/marissalamothe/"
                     target="_blank"
                   >
-                    <FaLinkedin />
+                    <FaLinkedin title="Visit Marissa L.'s LinkedIn profile"/>
                   </a>
                 </div>
 
@@ -167,7 +167,7 @@ export default function Footer() {
                     href="https://github.com/learningcoding2022"
                     target="_blank"
                   >
-                    <FaGithub />
+                    <FaGithub title="Visit Molly B.'s GitHub profile"/>
                   </a>
                 </div>
 
@@ -181,7 +181,7 @@ export default function Footer() {
                     href="https://github.com/val-ue"
                     target="_blank"
                   >
-                    <FaGithub />
+                    <FaGithub title="Visit Valerie L.'s GitHub profile"/>
                   </a>
                 </div>
 
@@ -197,7 +197,7 @@ export default function Footer() {
                     href="https://www.linkedin.com/in/mjleedesigners"
                     target="_blank"
                   >
-                    <FaLinkedin />
+                    <FaLinkedin title="Visit Myoungjin L.'s LinkedIn profile"/>
                   </a>
                 </div>
               </div>
