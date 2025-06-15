@@ -4,7 +4,19 @@ PeerPicks is a React app that helps users find resources to learn software devel
 
 This app was created through a [Chingu](https://www.chingu.io/) tier 2 voyage. As a team, we built a web application, PeerPicks, which lets its users find the information they need to reach their learning goals as software developers.
 
-Insert screenshots
+<div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;">
+  <img src="img/desktop-landing.png"
+       alt="Desktop Landing Page"
+       style="max-height: 200px; height: auto; width: auto; object-fit: contain; display: block;">
+
+  <img src="img/desktop-filter-menu.png"
+       alt="Desktop Filter Menu"
+       style="max-height: 200px; height: auto; width: auto; object-fit: contain; display: block;">
+
+  <img src="img/desktop-results.png"
+       alt="Desktop Results"
+       style="max-height: 200px; height: auto; width: auto; object-fit: contain; display: block;">
+</div>
 
 ## Features
 ### Search Form
@@ -25,6 +37,23 @@ Insert screenshots
 
 ### Responsive Design
 - The interface is fully responsive and works across various screen sizes.
+
+## Future Development
+There are enhancements to the filter functionality for both the mobile and desktop versions that we were designed but we were unable to complete in the allotted time.
+
+<div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-start;">
+  <figure style="flex: 1 1 auto; margin: 0;">
+    <img src="img/future-mobile.png"
+         alt="Mobile filter menu centered under search bar with an items found number and apply button"
+         style="max-height: 300px; height: auto; width: 100%; object-fit: contain; display: block;">
+  </figure>
+
+  <figure style="flex: 1 1 auto; margin: 0;">
+    <img src="img/future-desktop.png"
+         alt="Desktop filter menu centered under search bar directly without modal window"
+         style="max-height: 300px; height: auto; width: 100%; object-fit: contain; display: block;">
+  </figure>
+</div>
 
 ## Technologies
 Frontend: 
