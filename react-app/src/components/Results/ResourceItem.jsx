@@ -9,15 +9,16 @@ export default function ResourceItem({ resource, tags }) {
   const appliedTags = Array.isArray(resource.appliedTags)
     ? resource.appliedTags
     : [];
-//this code maps over appliedTags and finds the corresponding tag id from the tags array
-const tagNames =
-Array.isArray(tags) && Array.isArray(appliedTags)
-? appliedTags.map((tagId) => {
-        const tag = tags.find((t) => t.id === tagId);
-      return tag?.tag; // Return the tag name if found
-    })
-    .filter(Boolean) // Filter out any undefined or null tag names
-  : [];
+  //this code maps over appliedTags and finds the corresponding tag id from the tags array
+  const tagNames =
+    Array.isArray(tags) && Array.isArray(appliedTags)
+      ? appliedTags
+          .map((tagId) => {
+            const tag = tags.find((t) => t.id === tagId);
+            return tag?.tag; // Return the tag name if found
+          })
+          .filter(Boolean) // Filter out any undefined or null tag names
+      : [];
   return (
     <article
       key={`${resource.id} - ${resource.name}`}
@@ -31,7 +32,6 @@ Array.isArray(tags) && Array.isArray(appliedTags)
         rel="noopener noreferrer"
       >
         <section className="h-35">
-
           <div className="line-clamp-1">
             {tagNames.length > 0 ? (
               tagNames.map((tag) => (
@@ -50,16 +50,14 @@ Array.isArray(tags) && Array.isArray(appliedTags)
           <h3 className="text-xl font-semibold line-clamp-3">
             {resource.name}
           </h3>
-
         </section>
         <section className="h-15 w-full border-t flex justify-between items-center">
-          <p className="text-sm p-5 pl-0 pb-1 pt-4">
-            {resource.author}
-          </p>
+          <p className="text-sm p-5 pl-0 pb-1 pt-4">{resource.author}</p>
           <p className="text-sm pl-0 pb-1 pt-4">
             {(() => {
               const date = new Date(resource.createdAt);
-              return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`}) ()}
+              return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
+            })()}
           </p>
         </section>
       </a>

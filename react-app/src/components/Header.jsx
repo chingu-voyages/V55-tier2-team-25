@@ -1,19 +1,18 @@
-import React from 'react'
-import { selectIsMobile } from '@/redux/dataSlice'
-import { useSelector } from 'react-redux'
+import React from "react";
+import { selectIsMobile } from "@/redux/dataSlice";
+import { useSelector } from "react-redux";
 
 export default function Header() {
-  const isMobile = useSelector(selectIsMobile)
+  const isMobile = useSelector(selectIsMobile);
 
   function getCurrentDate() {
-    const date = new Date()
-    return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`
+    const date = new Date();
+    return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
   }
 
   return (
     <div>
       <header className="min-w-[375px] flex flex-col lg:items-center bg-gradient-to-br from-[#385894] via-[#473CE0] to-[#682FD8] rounded-b-4xl p-10 pb-28 md:p-20 md:pb-30 lg:pt-16 lg:pb-30">
-        {/*pb-28*/}
         <div className="flex justify-between w-full text-white lg:max-w-[1200px]">
           <div className="flex w-1/2">
             <h1>
@@ -23,7 +22,6 @@ export default function Header() {
                 className="max-h-10 lg:max-h-5 min-h-4 h-auto object-contain"
               />
             </h1>
-            {/*<h1 className="text-2xl font-bold md:text-3xl">Peer Picks</h1>-->*/}
           </div>
           <h2 className="flex justify-end text-shadow-md text-xs font-normal md:text-lg text-white w-1/2 font-helvetica">
             {getCurrentDate()}
@@ -40,5 +38,5 @@ export default function Header() {
         </div>
       </header>
     </div>
-  )
+  );
 }
