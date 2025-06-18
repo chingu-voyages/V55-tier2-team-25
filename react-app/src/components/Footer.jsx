@@ -50,7 +50,7 @@ export default function Footer() {
               </a>
             </p>
             <p className="w-1/3 lg:w-[14.2857%]">
-              <a href="https://github.com/lmj5081" target="_blank">
+              <a href="https://www.linkedin.com/in/mjleedesigners" target="_blank">
                 Myoungjin L.
               </a>
             </p>
