@@ -66,9 +66,16 @@ export default function SearchContainer({
     return map;
   }, [tags]);
 
+  //handles the search button click
   const handleSearch = (e) => {
     // Prevent default form submission behavior
     e.preventDefault();
+  
+    if (searchTerm.trim() !== '' || selectedTags.length > 0) {
+      setLoading(true) // Set loading state
+      setHasSearched(true) // Set hasSearched to true when a search is performed
+      dispatch(fetchData(searchTerm))
+    }
 
     if (searchTerm.trim() !== "" || selectedTags.length > 0) {
       setLoading(true); // Set loading state
@@ -81,7 +88,7 @@ export default function SearchContainer({
         const tagNames = resource.appliedTags.map(
           (tagId) => tagMap[tagId] || ""
         );
-
+      
         const matchesSearch =
           searchTerm === "" ||
           resource.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -95,13 +102,13 @@ export default function SearchContainer({
 
         return matchesSearch && matchesTags;
       });
-
+    
       //Update search results
       setSearchResults(filteredResources);
       setLoading(false); // Reset loading state
       closeIfOpen(); // Close the filter menu if it's open
     }
-
+  
     //if the search term is empty and no tags are selected, reset the search results
     if (searchTerm.trim() === "" && selectedTags.length === 0) {
       setSearchResults(resources);
@@ -125,6 +132,7 @@ export default function SearchContainer({
     setSelectedTags([]);
     setHasSearched(false); // Reset hasSearched when clearing the search
   };
+
 
   return (
     <div className="p-4 min-w-[375px]">
@@ -199,4 +207,5 @@ export default function SearchContainer({
       </div>
     </div>
   );
-}
+} 
+
