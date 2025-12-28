@@ -77,6 +77,7 @@ Frontend:
 
 API: 
 - Railway - The API was provided by Chingu via Railway, with continuous updates communicated through Discord.
+**NOTE:** While the API is unavailable, a static JSON file is in use.
 
 Deployment:
 - Vercel – To host the frontend application.
