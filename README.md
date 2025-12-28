@@ -97,7 +97,7 @@ UI Design:
 ## Dependencies
 ```
 "@reduxjs/toolkit": "^2.8.2",
-"next": "15.3.2",
+"next": "16.0.10",
 "pretendard": "^1.3.9",
 "react": "^19.0.0",
 "react-dom": "^19.0.0",
